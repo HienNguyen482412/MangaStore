@@ -53,10 +53,9 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(328, 460);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(163, 16);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Nhấn bất kì để bắt đầu";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.label1.Size = new System.Drawing.Size(168, 16);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Nhấn Enter để bắt đầu";
             // 
             // guna2ControlBox1
             // 
@@ -66,7 +65,7 @@
             this.guna2ControlBox1.Location = new System.Drawing.Point(752, 0);
             this.guna2ControlBox1.Name = "guna2ControlBox1";
             this.guna2ControlBox1.Size = new System.Drawing.Size(48, 45);
-            this.guna2ControlBox1.TabIndex = 100;
+            this.guna2ControlBox1.TabIndex = 1;
             // 
             // frmTrangBatDau
             // 
@@ -84,6 +83,7 @@
             this.Text = "GUI_TrangBatDau";
             this.Load += new System.EventHandler(this.frmGUI_TrangBatDau_Load);
             this.Click += new System.EventHandler(this.frmGUI_TrangBatDau_Click);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmTrangBatDau_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
