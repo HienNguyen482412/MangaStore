@@ -48,11 +48,7 @@ namespace GUI
             bool ck = true;
             foreach (Control c in splitContainer1.Panel2.Controls)
             {
-                //if (c == txtLink)
-                //{
-                //    continue;
 
-                //}
                 if (c is Guna2TextBox && c.Text == "")
                 {
                     errorProvider1.SetError(c, "Không được bỏ trống thông tin");
@@ -67,7 +63,7 @@ namespace GUI
         {
             bool ck = true;
 
-            if (!int.TryParse(txtSoLuong.Text, out int c))
+            if (!int.TryParse(txtSoLuong.Text, out int c) || c <0)
             {
                 errorProvider1.SetError(txtSoLuong, "Dữ liệu không đúng định dạng");
                 ck = false;
@@ -76,7 +72,7 @@ namespace GUI
             {
                 errorProvider1.SetError(txtSoLuong, "");
             }
-            if (!int.TryParse(txtGiaTien.Text, out int d))
+            if (!int.TryParse(txtGiaTien.Text, out int d) || d<0)
             {
                 errorProvider1.SetError(txtGiaTien, "Dữ liệu không đúng định dạng");
                 ck = false;

@@ -53,10 +53,12 @@
             this.txtEmail = new Guna.UI2.WinForms.Guna2TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNXB)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvNXB
@@ -76,8 +78,9 @@
             this.dgvNXB.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvNXB.ColumnHeadersHeight = 30;
             this.dgvNXB.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvNXB.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvNXB.EnableHeadersVisualStyles = false;
-            this.dgvNXB.Location = new System.Drawing.Point(12, 55);
+            this.dgvNXB.Location = new System.Drawing.Point(0, 0);
             this.dgvNXB.Name = "dgvNXB";
             this.dgvNXB.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvNXB.RowHeadersVisible = false;
@@ -90,7 +93,7 @@
             this.dgvNXB.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvNXB.RowTemplate.Height = 40;
             this.dgvNXB.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvNXB.Size = new System.Drawing.Size(832, 277);
+            this.dgvNXB.Size = new System.Drawing.Size(856, 289);
             this.dgvNXB.TabIndex = 8;
             this.dgvNXB.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNXB_CellClick);
             // 
@@ -143,6 +146,7 @@
             // 
             // btnLamMoi
             // 
+            this.btnLamMoi.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnLamMoi.AutoRoundedCorners = true;
             this.btnLamMoi.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnLamMoi.BorderRadius = 19;
@@ -165,6 +169,7 @@
             // 
             // btnXoa
             // 
+            this.btnXoa.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnXoa.AutoRoundedCorners = true;
             this.btnXoa.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnXoa.BorderRadius = 19;
@@ -187,6 +192,7 @@
             // 
             // btnSua
             // 
+            this.btnSua.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnSua.AutoRoundedCorners = true;
             this.btnSua.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnSua.BorderRadius = 19;
@@ -209,6 +215,7 @@
             // 
             // btnThem
             // 
+            this.btnThem.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnThem.AutoRoundedCorners = true;
             this.btnThem.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnThem.BorderRadius = 19;
@@ -231,6 +238,7 @@
             // 
             // txtSDT
             // 
+            this.txtSDT.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtSDT.AutoRoundedCorners = true;
             this.txtSDT.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.txtSDT.BorderRadius = 14;
@@ -254,6 +262,7 @@
             // 
             // label11
             // 
+            this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(626, 73);
             this.label11.Name = "label11";
@@ -267,6 +276,7 @@
             // 
             // txtDiaChi
             // 
+            this.txtDiaChi.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtDiaChi.AutoRoundedCorners = true;
             this.txtDiaChi.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.txtDiaChi.BorderRadius = 14;
@@ -291,6 +301,7 @@
             // 
             // txtTenNXB
             // 
+            this.txtTenNXB.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtTenNXB.AutoRoundedCorners = true;
             this.txtTenNXB.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.txtTenNXB.BorderRadius = 14;
@@ -314,6 +325,7 @@
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(239, 73);
             this.label3.Name = "label3";
@@ -323,6 +335,7 @@
             // 
             // txtMaNXB
             // 
+            this.txtMaNXB.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtMaNXB.AutoRoundedCorners = true;
             this.txtMaNXB.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.txtMaNXB.BorderRadius = 14;
@@ -347,6 +360,7 @@
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(21, 73);
             this.label2.Name = "label2";
@@ -391,6 +405,7 @@
             // 
             // txtEmail
             // 
+            this.txtEmail.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtEmail.AutoRoundedCorners = true;
             this.txtEmail.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.txtEmail.BorderRadius = 14;
@@ -414,6 +429,7 @@
             // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(482, 148);
             this.label4.Name = "label4";
@@ -424,6 +440,7 @@
             // 
             // label13
             // 
+            this.label13.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(19, 148);
             this.label13.Name = "label13";
@@ -431,12 +448,21 @@
             this.label13.TabIndex = 39;
             this.label13.Text = "Địa chỉ:";
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.dgvNXB);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 49);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(856, 289);
+            this.panel3.TabIndex = 10;
+            // 
             // frmNXB
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(856, 639);
-            this.Controls.Add(this.dgvNXB);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -450,6 +476,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -477,5 +504,6 @@
         private Guna.UI2.WinForms.Guna2TextBox txtEmail;
         private System.Windows.Forms.Label label4;
         public Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
+        private System.Windows.Forms.Panel panel3;
     }
 }

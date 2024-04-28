@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GUI
@@ -21,7 +15,7 @@ namespace GUI
         /// </summary>
         /// <param name="form">Tên form</param>
         private void AddFormInPanel(object form)
-        {
+        {  
             if (this.pnlFormContainer.Controls.Count > 0)
             {
                 this.pnlFormContainer.Controls.RemoveAt(0);
@@ -35,9 +29,9 @@ namespace GUI
         }
         private void btnMenu_Click(object sender, EventArgs e)
         {
-           if (pnlMenuContainer.Width == 228)
+            if (pnlMenuContainer.Width == 228)
             {
-                pnlMenuContainer.Width = 68; 
+                pnlMenuContainer.Width = 68;
                 this.Width = 950; pnlBillContainer.Height = 60;
                 btnStatistic.Enabled = true;
                 btnStatistic.Visible = true;
@@ -137,7 +131,7 @@ namespace GUI
                 btnStaff.Visible = false;
                 lbMaNV.Text = frmDangNhap.manv;
                 lbTenNV.Text = frmDangNhap.tennv;
-                
+
             }
             else
             {
@@ -163,7 +157,7 @@ namespace GUI
             {
                 this.Close();
             }
-            
+
         }
 
         private void btnTat_Click(object sender, EventArgs e)

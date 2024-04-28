@@ -69,5 +69,9 @@ namespace BUS
         {
             return dalNhanVien.SuaThongTinNhanVien(nv);
         }
+        public DataTable KiemTraNVDaCoTaiKhoan(string manv)
+        {
+            return dalNhanVien.KiemTraNVDaCoTK(manv);
+        }
     }
 }

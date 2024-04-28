@@ -20,7 +20,7 @@ namespace GUI
         }
         private void frmGUI_TrangBatDau_Load(object sender, EventArgs e)
         {
-            
+            this.Focus();
         }
 
         private void frmGUI_TrangBatDau_Click(object sender, EventArgs e)
@@ -35,13 +35,14 @@ namespace GUI
 
 
 
-        private void frmTrangBatDau_KeyDown(object sender, KeyEventArgs e)
+
+
+        private void frmTrangBatDau_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                MessageBox.Show("hello");
+            
                 MoTrangChu();
-            }
+            
         }
+
     }
 }

@@ -64,6 +64,10 @@ namespace DAL
         {
             return ex.ReturnBool($"update NhanVien set HoTen = N'{nv.NHANVIEN_HOTEN}', GioiTinh = N'{nv.NHANVIEN_GIOITINH}', NgaySinh = '{nv.NHANVIEN_NGAYSINH}', DiaChi = N'{nv.NHANVIEN_DIACHI}', SDT = '{nv.NHANVIEN_SDT}', Email = '{nv.NHANVIEN_EMAIL}', NgayBD='{nv.NHANVIEN_NGAYBD}',luong={nv.NHANVIEN_LUONG}, taikhoan = '{nv.NHANVIEN_TAIKHOAN}', matkhau = '{nv.NHANVIEN_MATKHAU}' where MaNV='{nv.NHANVIEN_MANV}'");
         }
+        public DataTable KiemTraNVDaCoTK(string manv)
+        {
+            return ex.ReturnTable($"select taikhoan from nhanvien where manv = '{manv}'");
+        }
         public DataTable TaoMa(string tencot, string tenbang, int sokitu, string kitu)
         {
            return ex.AutoCreateID(tencot, tenbang,sokitu, kitu);

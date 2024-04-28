@@ -216,6 +216,7 @@
             // 
             // btnLamMoiHD
             // 
+            this.btnLamMoiHD.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnLamMoiHD.AutoRoundedCorners = true;
             this.btnLamMoiHD.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnLamMoiHD.BorderRadius = 19;
@@ -238,6 +239,7 @@
             // 
             // btnThemHD
             // 
+            this.btnThemHD.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnThemHD.AutoRoundedCorners = true;
             this.btnThemHD.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnThemHD.BorderRadius = 19;

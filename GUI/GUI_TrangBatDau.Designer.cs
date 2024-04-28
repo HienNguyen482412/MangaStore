@@ -53,9 +53,9 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(328, 460);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(168, 16);
+            this.label1.Size = new System.Drawing.Size(163, 16);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Nhấn Enter để bắt đầu";
+            this.label1.Text = "Nhấn bất kì để bắt đầu";
             // 
             // guna2ControlBox1
             // 
@@ -78,12 +78,13 @@
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Name = "frmTrangBatDau";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "GUI_TrangBatDau";
+            this.Text = "DOJO";
             this.Load += new System.EventHandler(this.frmGUI_TrangBatDau_Load);
             this.Click += new System.EventHandler(this.frmGUI_TrangBatDau_Click);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmTrangBatDau_KeyDown);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frmTrangBatDau_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

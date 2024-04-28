@@ -21,7 +21,7 @@ namespace DAL
         }
         public bool SuaBoTruyen(DTO_BoTruyen bt)
         {
-            return ex.ReturnBool($"update BoTruyen set TenBT = '{bt.BOTRUYEN_TENBT}', MaTG = '{bt.BOTRUYEN_MATG}', MaNXB = '{bt.BOTRUYEN_MANXB}', DoTuoi = {bt.BOTRUYEN_DOTUOI} where MaBT = '{bt.BOTRUYEN_MABT}'");
+            return ex.ReturnBool($"update BoTruyen set TenBT = N'{bt.BOTRUYEN_TENBT}', MaTG = '{bt.BOTRUYEN_MATG}', MaNXB = '{bt.BOTRUYEN_MANXB}', DoTuoi = {bt.BOTRUYEN_DOTUOI} where MaBT = '{bt.BOTRUYEN_MABT}'");
 
         }
         public bool XoaBoTruyen(string ma)

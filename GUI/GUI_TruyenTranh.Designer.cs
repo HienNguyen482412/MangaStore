@@ -194,6 +194,7 @@
             // 
             // btnLamMoi
             // 
+            this.btnLamMoi.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnLamMoi.AutoRoundedCorners = true;
             this.btnLamMoi.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnLamMoi.BorderRadius = 19;
@@ -216,6 +217,7 @@
             // 
             // btnXoa
             // 
+            this.btnXoa.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnXoa.AutoRoundedCorners = true;
             this.btnXoa.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnXoa.BorderRadius = 19;
@@ -238,6 +240,7 @@
             // 
             // btnSua
             // 
+            this.btnSua.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnSua.AutoRoundedCorners = true;
             this.btnSua.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnSua.BorderRadius = 19;
@@ -260,6 +263,7 @@
             // 
             // btnThem
             // 
+            this.btnThem.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnThem.AutoRoundedCorners = true;
             this.btnThem.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnThem.BorderRadius = 19;
@@ -282,6 +286,7 @@
             // 
             // label8
             // 
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(644, 215);
             this.label8.Name = "label8";
@@ -291,6 +296,7 @@
             // 
             // txtGiaTien
             // 
+            this.txtGiaTien.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtGiaTien.AutoRoundedCorners = true;
             this.txtGiaTien.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.txtGiaTien.BorderRadius = 17;
@@ -314,6 +320,7 @@
             // 
             // cboDinhDang
             // 
+            this.cboDinhDang.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cboDinhDang.AutoRoundedCorners = true;
             this.cboDinhDang.BackColor = System.Drawing.Color.Transparent;
             this.cboDinhDang.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
@@ -337,6 +344,7 @@
             // 
             // label7
             // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(496, 215);
             this.label7.Name = "label7";
@@ -346,6 +354,7 @@
             // 
             // txtSoLuong
             // 
+            this.txtSoLuong.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtSoLuong.AutoRoundedCorners = true;
             this.txtSoLuong.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.txtSoLuong.BorderRadius = 17;
@@ -369,6 +378,7 @@
             // 
             // label6
             // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(279, 215);
             this.label6.Name = "label6";
@@ -378,6 +388,7 @@
             // 
             // txtTenBT
             // 
+            this.txtTenBT.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtTenBT.AutoRoundedCorners = true;
             this.txtTenBT.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.txtTenBT.BorderRadius = 14;
@@ -402,6 +413,7 @@
             // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(494, 148);
             this.label4.Name = "label4";
@@ -411,6 +423,7 @@
             // 
             // txtMaBT
             // 
+            this.txtMaBT.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtMaBT.AutoRoundedCorners = true;
             this.txtMaBT.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.txtMaBT.BorderRadius = 14;
@@ -437,6 +450,7 @@
             // 
             // label5
             // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(279, 148);
             this.label5.Name = "label5";
@@ -446,6 +460,7 @@
             // 
             // txtTenTT
             // 
+            this.txtTenTT.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtTenTT.AutoRoundedCorners = true;
             this.txtTenTT.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.txtTenTT.BorderRadius = 14;
@@ -469,6 +484,7 @@
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(494, 78);
             this.label3.Name = "label3";
@@ -478,6 +494,7 @@
             // 
             // txtMaTT
             // 
+            this.txtMaTT.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtMaTT.AutoRoundedCorners = true;
             this.txtMaTT.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.txtMaTT.BorderRadius = 14;
@@ -502,6 +519,7 @@
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(279, 78);
             this.label2.Name = "label2";
@@ -511,6 +529,7 @@
             // 
             // btnThemAnh
             // 
+            this.btnThemAnh.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnThemAnh.AutoRoundedCorners = true;
             this.btnThemAnh.BorderRadius = 15;
             this.btnThemAnh.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -529,6 +548,7 @@
             // 
             // txtLink
             // 
+            this.txtLink.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtLink.AutoRoundedCorners = true;
             this.txtLink.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.txtLink.BorderRadius = 15;
@@ -553,6 +573,7 @@
             // 
             // picAnhBia
             // 
+            this.picAnhBia.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.picAnhBia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.picAnhBia.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.picAnhBia.Location = new System.Drawing.Point(22, 51);

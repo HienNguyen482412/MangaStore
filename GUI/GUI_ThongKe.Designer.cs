@@ -449,11 +449,12 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dgvTruyenBanE);
-            this.groupBox2.Location = new System.Drawing.Point(10, 123);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupBox2.Location = new System.Drawing.Point(0, 6);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Size = new System.Drawing.Size(520, 81);
+            this.groupBox2.Size = new System.Drawing.Size(542, 114);
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Truyện bán ế:";
@@ -490,17 +491,18 @@
             this.dgvTruyenBanE.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvTruyenBanE.RowTemplate.Height = 40;
             this.dgvTruyenBanE.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvTruyenBanE.Size = new System.Drawing.Size(516, 64);
+            this.dgvTruyenBanE.Size = new System.Drawing.Size(538, 97);
             this.dgvTruyenBanE.TabIndex = 6;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dgvTruyenBanChay);
-            this.groupBox1.Location = new System.Drawing.Point(10, 15);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupBox1.Location = new System.Drawing.Point(0, 120);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(520, 81);
+            this.groupBox1.Size = new System.Drawing.Size(542, 112);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Truyện bán chạy";
@@ -537,7 +539,7 @@
             this.dgvTruyenBanChay.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvTruyenBanChay.RowTemplate.Height = 40;
             this.dgvTruyenBanChay.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvTruyenBanChay.Size = new System.Drawing.Size(516, 64);
+            this.dgvTruyenBanChay.Size = new System.Drawing.Size(538, 95);
             this.dgvTruyenBanChay.TabIndex = 5;
             // 
             // frmThongKe

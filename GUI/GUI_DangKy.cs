@@ -55,6 +55,18 @@ namespace GUI
             txtMatKhau2.Clear();
             txtMaNV.Clear();
         }
+        bool KiemTraTaiKhoan()
+        {
+            if (nv.KiemTraNVDaCoTaiKhoan(txtMaNV.Text).Rows[0][0].ToString() == "")
+            {
+                return true;
+            }
+            else
+            {
+                errorProvider1.SetError(txtMaNV, "Mỗi một nhân viên chỉ có một tài khoản");
+                return false;
+            }
+        }
         bool CheckNull()
         {
             bool ck = true;
@@ -70,11 +82,11 @@ namespace GUI
         }
         private void btnDangKy_Click(object sender, EventArgs e)
         {
-            if (CheckNull())
+            if (CheckNull() )
             {
                 if (txtMatKhau1.Text.Trim() == txtMatKhau2.Text.Trim())
                 {
-                    if (nv.DangKy(txtTenDN.Text.Trim(), txtMatKhau1.Text.Trim(), txtMaNV.Text.Trim()))
+                    if (nv.DangKy(txtTenDN.Text.Trim(), txtMatKhau1.Text.Trim(), txtMaNV.Text.Trim()) && KiemTraTaiKhoan())
                     {
                         MessageBox.Show("Đăng ký thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Refresh();
