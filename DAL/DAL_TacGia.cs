@@ -8,20 +8,20 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class DAL_TacGia
+    public class DALTacGia
     {
         ExcuteQuerry ex = new ExcuteQuerry();
         public DataTable LayTacGia()
         {
             return ex.ReturnTable($"select MaTG as [Mã tác giả], TenTG as [Tên tác giả] from TacGia");
         }
-        public bool ThemTacGia(DTO_TacGia tg)
+        public bool ThemTacGia(DTOTacGia tg)
         {
-            return ex.ReturnBool($"insert into TacGia values ('{tg.TACGIA_MATG}',N'{tg.TACGIA_TENTG}')");
+            return ex.ReturnBool($"insert into TacGia values ('{tg.MaTG1}',N'{tg.TenTG1}')");
         }
-        public bool SuaTacGia(DTO_TacGia tg)
+        public bool SuaTacGia(DTOTacGia tg)
         {
-            return ex.ReturnBool($"update TacGia set MaTG = '{tg.TACGIA_MATG}', TenTG = N'{tg.TACGIA_TENTG}'");
+            return ex.ReturnBool($"update TacGia set TenTG = N'{tg.TenTG1}' where maTG = '{tg.MaTG1}'");
         }
         public bool XoaTacGia(string ma)
         {

@@ -9,18 +9,18 @@ using System.Threading.Tasks;
 
 namespace BUS
 {
-    public class BUS_TacGia
+    public class BUSTacGia
     {
-        DAL_TacGia dalTacGia = new DAL_TacGia();
+        DALTacGia dalTacGia = new DALTacGia();
         public DataTable LayTacGia()
         {
             return dalTacGia.LayTacGia();
         }
-        public bool ThemTacGia(DTO_TacGia tg)
+        public bool ThemTacGia(DTOTacGia tg)
         {
             return dalTacGia.ThemTacGia(tg);
         }
-        public bool SuaTacGia(DTO_TacGia tg)
+        public bool SuaTacGia(DTOTacGia tg)
         {
             return dalTacGia.SuaTacGia(tg);
         }

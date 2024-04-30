@@ -14,7 +14,7 @@ namespace GUI
         {
             InitializeComponent();
         }
-        BUS_TruyenTranh busTT = new BUS_TruyenTranh();
+        BUSTruyenTranh busTT = new BUSTruyenTranh();
         public void LayThongTinTruyenTranh(out string ma, out string ten, out string giatien)
         {
             ma = txtMaTT.Text;
@@ -91,7 +91,7 @@ namespace GUI
             {
                 if (MessageBox.Show("Bạn có muốn thêm truyện tranh này không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes && CheckNumber())
                 {
-                    DTO_TruyenTranh tt = new DTO_TruyenTranh(txtMaTT.Text, txtLink.Text, txtTenTT.Text, txtMaBT.Text, cboDinhDang.Text, Convert.ToInt16(txtSoLuong.Text), Convert.ToInt32(txtGiaTien.Text));
+                    DTOTruyenTranh tt = new DTOTruyenTranh(txtMaTT.Text, txtLink.Text, txtTenTT.Text, txtMaBT.Text, cboDinhDang.Text, Convert.ToInt16(txtSoLuong.Text), Convert.ToInt32(txtGiaTien.Text));
                     if (busTT.ThemTruyenTranh(tt))
                     {
                         MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -143,7 +143,7 @@ namespace GUI
 
         private void dgvTruyenTranh_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            BUS_BoTruyen bt = new BUS_BoTruyen();
+            BUSBoTruyen bt = new BUSBoTruyen();
             try
             {
                 txtMaTT.Text = dgvTruyenTranh.Rows[e.RowIndex].Cells[0].Value.ToString();
@@ -185,7 +185,7 @@ namespace GUI
             {
                 if (MessageBox.Show("Bạn có muốn sửa truyện tranh này không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes && CheckNumber())
                 {
-                    DTO_TruyenTranh tt = new DTO_TruyenTranh(txtMaTT.Text, txtLink.Text, txtTenTT.Text, txtMaBT.Text, cboDinhDang.Text, Convert.ToInt16(txtSoLuong.Text), Convert.ToInt32(txtGiaTien.Text));
+                    DTOTruyenTranh tt = new DTOTruyenTranh(txtMaTT.Text, txtLink.Text, txtTenTT.Text, txtMaBT.Text, cboDinhDang.Text, Convert.ToInt16(txtSoLuong.Text), Convert.ToInt32(txtGiaTien.Text));
                     if (busTT.SuaTruyenTranh(tt))
                     {
                         MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);

@@ -4,18 +4,18 @@ using System.Data;
 
 namespace BUS
 {
-    public class BUS_NXB
+    public class BUSNXB
     {
-        DAL_NXB dalNXB = new DAL_NXB();
+        DALNXB dalNXB = new DALNXB();
         public DataTable LayNXB()
         {
             return dalNXB.LayNXB();
         }
-        public bool ThemNXB(DTO_NXB nxb)
+        public bool ThemNXB(DTONXB nxb)
         {
             return dalNXB.ThemNXB(nxb);
         }
-        public bool SuaNXB(DTO_NXB nxb)
+        public bool SuaNXB(DTONXB nxb)
         {
             return dalNXB.SuaNXB(nxb);
         }

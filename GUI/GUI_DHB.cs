@@ -14,8 +14,8 @@ namespace GUI
             InitializeComponent();
         }
         BUS_DHB busDHB = new BUS_DHB();
-        BUS_CTDHB busCTDHB = new BUS_CTDHB();
-        BUS_TruyenTranh busTruyenTranh = new BUS_TruyenTranh();
+        BUSCTDHB busCTDHB = new BUSCTDHB();
+        BUSTruyenTranh busTruyenTranh = new BUSTruyenTranh();
         public bool KTHD = true;
         public void TaoCot()
         {
@@ -281,8 +281,8 @@ namespace GUI
                 if (frmDangNhap.quyenQL == false)
                 {
                     btnThemNhanVien.Visible = false;
-                    txtTenNV.Text = frmDangNhap.tennv;
-                    txtMaNV.Text = frmDangNhap.manv;
+                    txtTenNV.Text = frmDangNhap.tenNV;
+                    txtMaNV.Text = frmDangNhap.maNV;
                 }
             }
             else
@@ -291,8 +291,8 @@ namespace GUI
                 {
                     btnThemNhanVien.Visible = false;
                 }
-                BUS_NhanVien nv = new BUS_NhanVien();
-                BUS_KhachHang kh = new BUS_KhachHang();
+                BUSNhanVien nv = new BUSNhanVien();
+                BUSKhachHang kh = new BUSKhachHang();
                 dgvTruyenTranh.DataSource = busCTDHB.LayCTDHB(txtMaDHB.Text);
                 DataTable dtnv = nv.LayNhanVien(txtMaNV.Text.Trim());
                 txtTenNV.Text = dtnv.Rows[0][0].ToString();
@@ -338,16 +338,17 @@ namespace GUI
         {
             if (CheckNull(grbNhanVien) && CheckNull(grbKH) && dgvTruyenTranh.Rows.Count > 0 && MessageBox.Show("Bạn có muốn thêm đơn hàng này không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
-                DTO_DHB dhb = new DTO_DHB(txtMaDHB.Text.Trim(), txtMaNV.Text.Trim(), txtMaKH.Text.Trim(), dtpNgayBan.Value.ToString("yyyy-MM-dd"));
+                DTODHB dhb = new DTODHB(txtMaDHB.Text.Trim(), txtMaNV.Text.Trim(), txtMaKH.Text.Trim(), dtpNgayBan.Value.ToString("yyyy-MM-dd"));
 
                 if (busDHB.ThemDHB(dhb))
                 {
                     for (int i = 0; i < dgvTruyenTranh.RowCount; i++)
                     {
-                        DTO_CTDHB ct = new DTO_CTDHB(txtMaDHB.Text.Trim(), dgvTruyenTranh.Rows[i].Cells[0].Value.ToString().Trim(), Convert.ToInt32(dgvTruyenTranh.Rows[i].Cells[2].Value.ToString()), Convert.ToInt32(dgvTruyenTranh.Rows[i].Cells[3].Value.ToString()));
+                        DTOCTDHB ct = new DTOCTDHB(txtMaDHB.Text.Trim(), dgvTruyenTranh.Rows[i].Cells[0].Value.ToString().Trim(), Convert.ToInt32(dgvTruyenTranh.Rows[i].Cells[2].Value.ToString()), Convert.ToInt32(dgvTruyenTranh.Rows[i].Cells[3].Value.ToString()));
                         busCTDHB.ThemCTDHB(ct);
                     }
                     MessageBox.Show("Thêm đơn hàng thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    btnIn.PerformClick();
                     this.Close();
                 }
                 else
@@ -361,14 +362,14 @@ namespace GUI
         {
             if (CheckNull(grbNhanVien) && CheckNull(grbKH) && MessageBox.Show("Bạn có muốn sửa đơn hàng này không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
-                DTO_DHB dhb = new DTO_DHB(txtMaDHB.Text.Trim(), txtMaNV.Text.Trim(), txtMaKH.Text.Trim(), dtpNgayBan.Value.ToString("yyyy-MM-dd"));
+                DTODHB dhb = new DTODHB(txtMaDHB.Text.Trim(), txtMaNV.Text.Trim(), txtMaKH.Text.Trim(), dtpNgayBan.Value.ToString("yyyy-MM-dd"));
 
                 if (busDHB.SuaDHB(dhb))
                 {
 
                     for (int i = 0; i < dgvTruyenTranh.RowCount; i++)
                     {
-                        DTO_CTDHB ct = new DTO_CTDHB(txtMaDHB.Text.Trim(), dgvTruyenTranh.Rows[i].Cells[0].Value.ToString().Trim(), Convert.ToInt32(dgvTruyenTranh.Rows[i].Cells[2].Value.ToString()), Convert.ToInt32(dgvTruyenTranh.Rows[i].Cells[3].Value.ToString()));
+                        DTOCTDHB ct = new DTOCTDHB(txtMaDHB.Text.Trim(), dgvTruyenTranh.Rows[i].Cells[0].Value.ToString().Trim(), Convert.ToInt32(dgvTruyenTranh.Rows[i].Cells[2].Value.ToString()), Convert.ToInt32(dgvTruyenTranh.Rows[i].Cells[3].Value.ToString()));
                         busCTDHB.XoaCTDHB(txtMaDHB.Text.Trim(), dgvTruyenTranh.Rows[i].Cells[0].Value.ToString().Trim());
                         busCTDHB.ThemCTDHB(ct);
                     }
@@ -444,18 +445,26 @@ namespace GUI
 
         private void btnIn_Click(object sender, EventArgs e)
         {
-            int sl = 0;
-            for (int i = 0; i < dgvTruyenTranh.RowCount; i++)
+            
+            if (CheckNull(grbNhanVien) && CheckNull(grbKH) && dgvTruyenTranh.RowCount > 0)
             {
-                sl += Convert.ToInt32(dgvTruyenTranh.Rows[i].Cells[2].Value.ToString().Trim());
+                int sl = 0;
+                for (int i = 0; i < dgvTruyenTranh.RowCount; i++)
+                {
+                    sl += Convert.ToInt32(dgvTruyenTranh.Rows[i].Cells[2].Value.ToString().Trim());
 
+                }
+                frmDonHangBan hoadon = new frmDonHangBan();
+                hoadon.GetInfo(dtpNgayBan
+                    .Value.ToString("d"), txtMaDHB.Text, txtMaKH.Text, txtTenKH.Text, txtMaNV.Text, txtTenNV.Text, txtTongTienHD.Text, sl.ToString(), busCTDHB.LayCTDHB(txtMaDHB.Text));
+                if (hoadon.ShowDialog() == DialogResult.Cancel)
+                {
+                    this.Show();
+                }
             }
-            frmDonHangBan hoadon = new frmDonHangBan();
-            hoadon.GetInfo(dtpNgayBan
-                .Value.ToString("d"), txtMaDHB.Text, txtMaKH.Text, txtTenKH.Text, txtMaNV.Text, txtTenNV.Text, txtTongTienHD.Text, sl.ToString(), dgvTruyenTranh);
-            if (hoadon.ShowDialog() == DialogResult.Cancel)
+            else
             {
-                this.Show();
+                MessageBox.Show("Hóa đơn không hợp lệ không thể in", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

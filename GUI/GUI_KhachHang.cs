@@ -12,7 +12,7 @@ namespace GUI
         {
             InitializeComponent();
         }
-        BUS_KhachHang busKH = new BUS_KhachHang();
+        BUSKhachHang busKH = new BUSKhachHang();
 
         public void LaYThongTinKH(out string ma, out string ten, out string gt, out string diachi, out DateTime ngaysinh, out string sdt)
         {
@@ -109,7 +109,7 @@ namespace GUI
             {
                 if (MessageBox.Show("Bạn có muốn thêm khách hàng này không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes && CheckNgaySinh())
                 {
-                    DTO_KhachHang kh = new DTO_KhachHang(txtMaKH.Text, txtTenKH.Text, cboGioiTinh.Text, dtpNgaySinh.Value.ToString("yyyy/MM/dd"), txtDiaChi.Text, txtSDT.Text);
+                    DTOKhachHang kh = new DTOKhachHang(txtMaKH.Text, txtTenKH.Text, cboGioiTinh.Text, dtpNgaySinh.Value.ToString("yyyy/MM/dd"), txtDiaChi.Text, txtSDT.Text);
                     if (busKH.ThemKhachHang(kh))
                     {
                         MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -133,7 +133,7 @@ namespace GUI
             {
                 if (MessageBox.Show("Bạn có muốn sửa khách hàng này không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes && CheckNgaySinh())
                 {
-                    DTO_KhachHang kh = new DTO_KhachHang(txtMaKH.Text, txtTenKH.Text, cboGioiTinh.Text, dtpNgaySinh.Value.ToString("yyyy/MM/dd"), txtDiaChi.Text, txtSDT.Text);
+                    DTOKhachHang kh = new DTOKhachHang(txtMaKH.Text, txtTenKH.Text, cboGioiTinh.Text, dtpNgaySinh.Value.ToString("yyyy/MM/dd"), txtDiaChi.Text, txtSDT.Text);
                     if (busKH.SuaKhachHang(kh))
                     {
                         MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -177,6 +177,11 @@ namespace GUI
         private void txtTimKiem_IconRightClick(object sender, EventArgs e)
         {
             dgvKhachHang.DataSource = busKH.TimKiemKhachHang(txtTimKiem.Text.Trim());
+        }
+
+        private void guna2ControlBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

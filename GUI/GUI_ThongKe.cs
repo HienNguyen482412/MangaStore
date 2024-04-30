@@ -11,7 +11,7 @@ namespace GUI
         {
             InitializeComponent();
         }
-        BUS_ThongKe tk = new BUS_ThongKe();
+        BUSThongKe tk = new BUSThongKe();
         private void frmThongKe_Load(object sender, EventArgs e)
         {
 

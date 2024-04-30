@@ -8,20 +8,20 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class DAL_DHN
+    public class DALDHN
     {
         ExcuteQuerry ex = new ExcuteQuerry();
         public DataTable LayDHN()
         {
             return ex.ReturnTable($"select MaHDN as [Mã đơn hàng nhập], MaNV as [Mã nhân viên], MaNXB as [Mã nhà xuất bản], ngaynhap as [Ngày nhập] from HDN");
         }
-        public bool ThemDHN(DTO_DHN dhn)
+        public bool ThemDHN(DTODHN dhn)
         {
-            return ex.ReturnBool($"insert into HDN values ('{dhn.DHN_MADHN}','{dhn.DHN_MANV}','{dhn.DHN_NXB}','{dhn.DHN_NGAYNHAP}')");
+            return ex.ReturnBool($"insert into HDN values ('{dhn.MaDHN1}','{dhn.MaNV1}','{dhn.MaNXB1}','{dhn.NgayNhap1}')");
         }
-        public bool SuaDHN(DTO_DHN dhn)
+        public bool SuaDHN(DTODHN dhn)
         {
-            return ex.ReturnBool($"update HDN set MaNV = '{dhn.DHN_MANV}', MaNXB = '{dhn.DHN_NXB}', NgayNhap = '{dhn.DHN_NGAYNHAP}' where mahdn = '{dhn.DHN_MADHN}'");
+            return ex.ReturnBool($"update HDN set MaNV = '{dhn.MaNV1}', MaNXB = '{dhn.MaNXB1}', NgayNhap = '{dhn.NgayNhap1}' where mahdn = '{dhn.MaDHN1}'");
         }
         public bool XoaDHN(string ma)
         {

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class DAL_KhachHang
+    public class DALKhachHang
     {
         ExcuteQuerry ex = new ExcuteQuerry();
         public DataTable LayKhachHang()
@@ -20,13 +20,13 @@ namespace DAL
             return ex.ReturnTable($"select TenKH as [Tên khách hàng], GioiTinh as [Giới tính], NgaySinh as [Ngày sinh], DiaChi as [Địa chỉ], SDT as [SĐT] from KhachHang where makh = '{makh}'");
 
         }
-        public bool ThemKhachHang(DTO_KhachHang kh)
+        public bool ThemKhachHang(DTOKhachHang kh)
         {
-            return ex.ReturnBool($"insert into KhachHang values ('{kh.KHACHHANG_MAKH}',N'{kh.KHACHHANG_TENKH}',N'{kh.KHACHHANG_GIOITINH}','{kh.KHACHHANG_NGAYSINH}',N'{kh.KHACHHANG_DIACHI}','{kh.KHACHHANG_SDT}')");
+            return ex.ReturnBool($"insert into KhachHang values ('{kh.MaKH1}',N'{kh.TenKH1}',N'{kh.GioiTinh1}','{kh.NgaySinh1}',N'{kh.DiaChi1}','{kh.SDT1}')");
         }
-        public bool SuaKhachHang(DTO_KhachHang kh)
+        public bool SuaKhachHang(DTOKhachHang kh)
         {
-            return ex.ReturnBool($"update KhachHang set TenKH = N'{kh.KHACHHANG_TENKH}', GioiTinh = N'{kh.KHACHHANG_GIOITINH}', NgaySinh = '{kh.KHACHHANG_NGAYSINH}', DiaChi = N'{kh.KHACHHANG_DIACHI}', SDT = '{kh.KHACHHANG_SDT}' where MaKH = '{kh.KHACHHANG_MAKH}'");
+            return ex.ReturnBool($"update KhachHang set TenKH = N'{kh.TenKH1}', GioiTinh = N'{kh.GioiTinh1}', NgaySinh = '{kh.NgaySinh1}', DiaChi = N'{kh.DiaChi1}', SDT = '{kh.SDT1}' where MaKH = '{kh.MaKH1}'");
         }
         public bool XoaKhachHang(string ma)
         {

@@ -129,9 +129,9 @@ namespace GUI
             if (frmDangNhap.quyenQL == false)
             {
                 btnStaff.Visible = false;
-                lbMaNV.Text = frmDangNhap.manv;
-                lbTenNV.Text = frmDangNhap.tennv;
-
+                lbMaNV.Text = frmDangNhap.maNV;
+                lbTenNV.Text = frmDangNhap.tenNV;
+                    
             }
             else
             {

@@ -58,7 +58,7 @@ namespace GUI
             }
             else
             {
-                if (dgvDHB.Rows[e.RowIndex].Cells[1].Value.ToString() != frmDangNhap.manv)
+                if (dgvDHB.Rows[e.RowIndex].Cells[1].Value.ToString() != frmDangNhap.maNV)
                 {
                     MessageBox.Show("Bạn không có quyền xem đơn hàng này", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 

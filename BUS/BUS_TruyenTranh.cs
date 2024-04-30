@@ -8,18 +8,18 @@ using System.Threading.Tasks;
 using DTO;
 namespace BUS
 {
-    public class BUS_TruyenTranh
+    public class BUSTruyenTranh
     {
-        DAL_TruyenTranh dalTruyenTranh = new DAL_TruyenTranh();
+        DALTruyenTranh dalTruyenTranh = new DALTruyenTranh();
         public DataTable LayTruyenTranh()
         {
             return dalTruyenTranh.LayTruyenTranh();
         }
-        public bool ThemTruyenTranh(DTO_TruyenTranh tt)
+        public bool ThemTruyenTranh(DTOTruyenTranh tt)
         {
             return dalTruyenTranh.ThemTruyenTranh(tt);
         }
-        public bool SuaTruyenTranh(DTO_TruyenTranh tt)
+        public bool SuaTruyenTranh(DTOTruyenTranh tt)
         {
             return dalTruyenTranh.SuaTruyenTranh(tt);
         }

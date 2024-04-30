@@ -8,21 +8,21 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class DAL_NXB
+    public class DALNXB
     {
         ExcuteQuerry ex = new ExcuteQuerry();
         public DataTable LayNXB()
         {
             return ex.ReturnTable($"select MaNXB as [Mã NXB],TenNXB as [Tên NXB], DiaChi as [Địa chỉ], SDT as [SĐT],Email as [Email] from NXB");
         }
-        public bool ThemNXB(DTO_NXB nxb)
+        public bool ThemNXB(DTONXB nxb)
         {
-            return ex.ReturnBool($"insert into NXB values ('{nxb.NXB_MANXB}', N'{nxb.NXB_TENNXB}',N'{nxb.NXB_DIACHI}','{nxb.NXB_SDT}','{nxb.NXB_EMAIL}')");
+            return ex.ReturnBool($"insert into NXB values ('{nxb.MaNXB1}', N'{nxb.TenNNXB1}',N'{nxb.DiaChi1}','{nxb.SDT1}','{nxb.Email1}')");
         }
-        public bool SuaNXB(DTO_NXB nxb)
+        public bool SuaNXB(DTONXB nxb)
         {
 
-            return ex.ReturnBool($"update NXB set TenNXB = N'{nxb.NXB_TENNXB}', DiaChi = N'{nxb.NXB_DIACHI}', SDT = '{nxb.NXB_SDT}', Email = '{nxb.NXB_EMAIL}' where MaNXB = '{nxb.NXB_MANXB}'");
+            return ex.ReturnBool($"update NXB set TenNXB = N'{nxb.TenNNXB1}', DiaChi = N'{nxb.DiaChi1}', SDT = '{nxb.SDT1}', Email = '{nxb.Email1}' where MaNXB = '{nxb.MaNXB1}'");
         }
         public bool XoaNCB(string ma)
         {

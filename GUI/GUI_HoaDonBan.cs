@@ -22,7 +22,7 @@ namespace GUI
         {
             this.Close();
         }
-        public void GetInfo(string ngaynhap, string mahd, string manxb, string tennxb, string manv, string tennv, string tongtien, string sl, DataGridView dgvTemp)
+        public void GetInfo(string ngaynhap, string mahd, string manxb, string tennxb, string manv, string tennv, string tongtien, string sl,DataTable dt)
         {
             lbNgayBan.Text = ngaynhap.Trim();
             lbMaHD.Text = mahd.Trim();
@@ -32,7 +32,7 @@ namespace GUI
             lbTenNV.Text = tennv.Trim();
             lbTongSL.Text = sl.Trim();
             lbTongTien.Text = tongtien.Trim();
-            dgvTruyenTranh.DataSource = dgvTemp.DataSource;
+            dgvTruyenTranh.DataSource = dt;
         }
         private void frmHoaDonBan_Load(object sender, EventArgs e)
         {
@@ -54,7 +54,7 @@ namespace GUI
         private void dgvTruyenTranh_Resize(object sender, EventArgs e)
         {
             grbTongTien.Location = new Point(grbTongTien.Location.X, grbTongTien.Location.Y + dgvTruyenTranh.Height +5);
-            panel1.Location = new Point(panel1.Location.X, panel1.Location.Y+ dgvTruyenTranh.Height/2+grbTongTien.Height+10);
+            panel1.Location = new Point(panel1.Location.X, panel1.Location.Y + dgvTruyenTranh.Height + grbTongTien.Height + 10);
         }
 
         private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
@@ -64,6 +64,11 @@ namespace GUI
         }
 
         private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label14_Click(object sender, EventArgs e)
         {
 
         }

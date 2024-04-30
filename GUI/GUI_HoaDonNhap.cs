@@ -17,7 +17,7 @@ namespace GUI
         {
             InitializeComponent();
         }
-        public void GetInfo(string ngaynhap, string mahd, string manxb, string tennxb, string manv, string tennv, string tongtien, string sl,  DataGridView dgvTemp)
+        public void GetInfo(string ngaynhap, string mahd, string manxb, string tennxb, string manv, string tennv, string tongtien, string sl,  DataTable dt)
         {
             lbNgayNhap.Text = ngaynhap.Trim();
             lbMaHD.Text = mahd.Trim();
@@ -27,7 +27,7 @@ namespace GUI
             lbTenNV.Text = tennv.Trim();
             lbTongSL.Text = sl.Trim();
             lbTongTien.Text = tongtien.Trim();
-            dgvTruyenTranh.DataSource = dgvTemp.DataSource;
+            dgvTruyenTranh.DataSource = dt;
         }
 
         private void button1_Click(object sender, EventArgs e)

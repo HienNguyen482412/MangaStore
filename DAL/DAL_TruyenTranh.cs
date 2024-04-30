@@ -10,25 +10,25 @@ using System.Data.SqlClient;
 
 namespace DAL
 {
-    public class DAL_TruyenTranh : DBConnect
+    public class DALTruyenTranh : DBConnect
     {
         ExcuteQuerry ex = new ExcuteQuerry();
         public DataTable LayTruyenTranh()
         {
             return ex.ReturnTable($"select matt as [Mã truyện tranh], anh as [Ảnh], tentruyen as [Tên truyện], mabt as [Mã bộ truyện], dinhdang as [Định dạng], soluong as [Số lượng], giatien as [Giá tiền] from TruyenTranh");
         }
-        public bool ThemTruyenTranh(DTO_TruyenTranh tt)
+        public bool ThemTruyenTranh(DTOTruyenTranh tt)
         {
             try
             {
                 _conn.Open();
                 byte[] dla;
-                FileStream fs = new FileStream(tt.TRUYENTRANH_ANH, FileMode.Open, FileAccess.Read);
+                FileStream fs = new FileStream(tt.Anh1, FileMode.Open, FileAccess.Read);
                 dla = new byte[fs.Length];
                 fs.Read(dla, 0, Convert.ToInt32(fs.Length));
                 SqlParameter imgdata = new SqlParameter("@imgdata", SqlDbType.VarBinary, -1);
                 imgdata.Value = dla;
-                string querry = $"insert into TruyenTranh values ('{tt.TRUYENTRANH_MATT}',@imgdata, N'{tt.TRUYENTRANH_TENTRUYEN}','{tt.TRUYENTRANH_MABT}', N'{tt.TRUYENTRANH_DINHDANG}',{tt.TRUYENTRANH_SOLUONG},{tt.TRUYENTRANH_GIATIEN})";
+                string querry = $"insert into TruyenTranh values ('{tt.MaTT1}',@imgdata, N'{tt.TenTruyen1}','{tt.MaBT1}', N'{tt.DinhDang1}',{tt.SoLuong1},{tt.GiaTien1})";
                 SqlCommand cmd = new SqlCommand(querry, _conn);
                 cmd.Parameters.Add(imgdata);
                 if (cmd.ExecuteNonQuery() > 0) { return true; }
@@ -43,7 +43,7 @@ namespace DAL
             }
             return false;
         }
-        public bool SuaTruyenTranh(DTO_TruyenTranh tt)
+        public bool SuaTruyenTranh(DTOTruyenTranh tt)
         {
             try
             {
@@ -51,18 +51,18 @@ namespace DAL
                 byte[] dla;
                 try
                 {
-                    FileStream fs = new FileStream(tt.TRUYENTRANH_ANH, FileMode.Open, FileAccess.Read);
+                    FileStream fs = new FileStream(tt.Anh1, FileMode.Open, FileAccess.Read);
                     dla = new byte[fs.Length];
                     fs.Read(dla, 0, Convert.ToInt32(fs.Length));
                 }
                 catch
                 {
-                    dla = Convert.FromBase64String(tt.TRUYENTRANH_ANH);
+                    dla = Convert.FromBase64String(tt.Anh1);
                 }
 
                 SqlParameter imgdata = new SqlParameter("@imgdata", SqlDbType.VarBinary, -1);
                 imgdata.Value = dla;
-                string querry = $"update TruyenTranh set Anh = @imgdata, TenTruyen = N'{tt.TRUYENTRANH_TENTRUYEN}', MaBT = '{tt.TRUYENTRANH_MABT}', DinhDang = N'{tt.TRUYENTRANH_DINHDANG}', SoLuong = {tt.TRUYENTRANH_SOLUONG}, GiaTien = {tt.TRUYENTRANH_GIATIEN} where MaTT = '{tt.TRUYENTRANH_MATT}'";
+                string querry = $"update TruyenTranh set Anh = @imgdata, TenTruyen = N'{tt.TenTruyen1}', MaBT = '{tt.MaBT1}', DinhDang = N'{tt.DinhDang1}', SoLuong = {tt.SoLuong1}, GiaTien = {tt.GiaTien1} where MaTT = '{tt.MaTT1}'";
                 SqlCommand cmd = new SqlCommand(querry, _conn);
                 cmd.Parameters.Add(imgdata);
 

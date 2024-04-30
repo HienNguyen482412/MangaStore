@@ -11,10 +11,10 @@ namespace GUI
         {
             InitializeComponent();
         }
-        BUS_NhanVien nv = new BUS_NhanVien();
+        BUSNhanVien nv = new BUSNhanVien();
         public static bool quyenQL = false;
-        public static string tennv = "";
-        public static string manv = "";
+        public static string tenNV = "";
+        public static string maNV = "";
         private void txtMatKhau_IconRightClick(object sender, EventArgs e)
         {
             if (txtMatKhau.UseSystemPasswordChar)
@@ -76,15 +76,17 @@ namespace GUI
         }
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
+            string messageContent;
             if (CheckNull())
             {
                 if (rdoNhanVien.Checked == true)
                 {
                     if (Convert.ToInt16(nv.KiemTraDangNhap(txtTenDN.Text.Trim(), txtMatKhau.Text.Trim())) > 0)
                     {
-                        manv = nv.LayMaNV(txtTenDN.Text.Trim(), txtMatKhau.Text.Trim());
-                        tennv = nv.LayTenNV(txtTenDN.Text.Trim(), txtMatKhau.Text.Trim());
-                        MessageBox.Show($"Xin chào,{tennv} ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        messageContent = string.Format(Properties.Resources.SuccessfullActionMessage, "Đăng nhập");
+                        MessageBox.Show(messageContent,Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        maNV = nv.LayMaNV(txtTenDN.Text.Trim(), txtMatKhau.Text.Trim());
+                        tenNV = nv.LayTenNV(txtTenDN.Text.Trim(), txtMatKhau.Text.Trim());
                         quyenQL = false;
                         frmTrangChu tc = new frmTrangChu();
                         this.Hide();
@@ -96,14 +98,16 @@ namespace GUI
                     }
                     else
                     {
-                        MessageBox.Show("Đăng nhập không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        messageContent = string.Format(Properties.Resources.UnsuccessfulActionMessage, "Đăng nhập");
+                        MessageBox.Show(messageContent, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 else
                 {
                     if (txtTenDN.Text == "admin" && txtMatKhau.Text == "123")
                     {
-                        MessageBox.Show($"Xin chào, Quản lý", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        messageContent = string.Format(Properties.Resources.SuccessfullActionMessage, "Đăng nhập");
+                        MessageBox.Show(messageContent, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
                         frmTrangChu tc = new frmTrangChu();
                         this.Hide();
                         quyenQL = true;
@@ -114,13 +118,15 @@ namespace GUI
                     }
                     else
                     {
-                        MessageBox.Show("Đăng nhập không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        messageContent = string.Format(Properties.Resources.UnsuccessfulActionMessage, "Đăng nhập");
+                        MessageBox.Show(messageContent, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }
             else
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                messageContent = string.Format(Properties.Resources.IncompleteInformationMessage, "Đăng nhập");
+                MessageBox.Show(messageContent, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 
         }

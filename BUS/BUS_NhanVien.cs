@@ -9,19 +9,18 @@ using System.Threading.Tasks;
 
 namespace BUS
 {
-    public class BUS_NhanVien
+    public class BUSNhanVien
     {
-        DAL_NhanVien dalNhanVien = new DAL_NhanVien();
-        ExcuteQuerry ex = new ExcuteQuerry();
+        DALNhanVien dalNhanVien = new DALNhanVien();
         public DataTable LayNhanVien()
         {
             return dalNhanVien.LayNhanVien();
         }
-        public bool ThemNhanVien(DTO_NhanVien nv)
+        public bool ThemNhanVien(DTONhanVien nv)
         {
             return dalNhanVien.ThemNhanVien(nv);
         }
-        public bool SuaNhanVien(DTO_NhanVien nv)
+        public bool SuaNhanVien(DTONhanVien nv)
         {
             return dalNhanVien.SuaNhanVien(nv);
         }
@@ -61,17 +60,17 @@ namespace BUS
         {
             return dalNhanVien.DangKy(ma, tk, mk);
         }
-        public DataTable LayThongTinNhanVien(string manv)
+        public DataTable LayThongTinNhanVien(string ma)
         {
-            return dalNhanVien.LayThongTinNhanVien(manv);
+            return dalNhanVien.LayThongTinNhanVien(ma);
         }
-        public bool SuaThongTinNhanVien(DTO_NhanVien nv)
+        public bool SuaThongTinNhanVien(DTONhanVien nv)
         {
             return dalNhanVien.SuaThongTinNhanVien(nv);
         }
-        public DataTable KiemTraNVDaCoTaiKhoan(string manv)
+        public DataTable KiemTraNVDaCoTaiKhoan(string ma)
         {
-            return dalNhanVien.KiemTraNVDaCoTK(manv);
+            return dalNhanVien.KiemTraNVDaCoTK(ma);
         }
     }
 }

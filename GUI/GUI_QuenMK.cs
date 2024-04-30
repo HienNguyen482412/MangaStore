@@ -21,7 +21,7 @@ namespace GUI
         {
             InitializeComponent();
         }
-        BUS_NhanVien nv = new BUS_NhanVien();   
+        BUSNhanVien nv = new BUSNhanVien();   
         private void frmQuenMK_Load(object sender, EventArgs e)
         {
             txtMatKhau1.UseSystemPasswordChar = true;

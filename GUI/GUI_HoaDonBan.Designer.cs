@@ -107,9 +107,9 @@
             this.grbTongTien.Controls.Add(this.label12);
             this.grbTongTien.Controls.Add(this.label11);
             this.grbTongTien.Location = new System.Drawing.Point(9, 218);
-            this.grbTongTien.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grbTongTien.Margin = new System.Windows.Forms.Padding(2);
             this.grbTongTien.Name = "grbTongTien";
-            this.grbTongTien.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grbTongTien.Padding = new System.Windows.Forms.Padding(2);
             this.grbTongTien.Size = new System.Drawing.Size(389, 41);
             this.grbTongTien.TabIndex = 102;
             this.grbTongTien.TabStop = false;
@@ -129,7 +129,7 @@
             this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.button1.Location = new System.Drawing.Point(400, 0);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(8, 8);
             this.button1.TabIndex = 100;
@@ -346,8 +346,8 @@
             this.panel1.Controls.Add(this.label15);
             this.panel1.Controls.Add(this.label14);
             this.panel1.Controls.Add(this.label13);
-            this.panel1.Location = new System.Drawing.Point(-3, 219);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Location = new System.Drawing.Point(4, 177);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(411, 54);
             this.panel1.TabIndex = 103;
@@ -356,7 +356,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(117, 33);
+            this.label15.Location = new System.Drawing.Point(119, 26);
             this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(155, 13);
@@ -365,25 +365,28 @@
             // 
             // label14
             // 
-            this.label14.AutoSize = true;
+            this.label14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(117, 20);
+            this.label14.Location = new System.Drawing.Point(0, 13);
             this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(154, 13);
+            this.label14.Size = new System.Drawing.Size(411, 41);
             this.label14.TabIndex = 107;
             this.label14.Text = "Hàng đã mua miễn đổi trả";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label14.Click += new System.EventHandler(this.label14_Click);
             // 
             // label13
             // 
-            this.label13.AutoSize = true;
+            this.label13.Dock = System.Windows.Forms.DockStyle.Top;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(40, 7);
+            this.label13.Location = new System.Drawing.Point(0, 0);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(372, 13);
+            this.label13.Size = new System.Drawing.Size(411, 13);
             this.label13.TabIndex = 106;
             this.label13.Text = "Quý khách vui lòng kiểm tra lại hàng trước khi rời khỏi cửa hàng";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmDonHangBan
             // 
@@ -414,7 +417,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvTruyenTranh);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmDonHangBan";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.frmHoaDonBan_Load);

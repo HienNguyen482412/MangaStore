@@ -59,5 +59,68 @@ namespace GUI.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bạn có muốn thêm {0} này không ?.
+        /// </summary>
+        internal static string AddMessage {
+            get {
+                return ResourceManager.GetString("AddMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bạn có muốn xóa thông tin {0} này không ?.
+        /// </summary>
+        internal static string DeleteMessage {
+            get {
+                return ResourceManager.GetString("DeleteMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bạn có muốn sửa thông tin {0} này không ?.
+        /// </summary>
+        internal static string EditMessage {
+            get {
+                return ResourceManager.GetString("EditMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vui lòng nhập đầy đủ thông tin.
+        /// </summary>
+        internal static string IncompleteInformationMessage {
+            get {
+                return ResourceManager.GetString("IncompleteInformationMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Thông tin không hợp lệ.
+        /// </summary>
+        internal static string InvalidInfoMessage {
+            get {
+                return ResourceManager.GetString("InvalidInfoMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} thành công.
+        /// </summary>
+        internal static string SuccessfullActionMessage {
+            get {
+                return ResourceManager.GetString("SuccessfullActionMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} không thành công.
+        /// </summary>
+        internal static string UnsuccessfulActionMessage {
+            get {
+                return ResourceManager.GetString("UnsuccessfulActionMessage", resourceCulture);
+            }
+        }
     }
 }

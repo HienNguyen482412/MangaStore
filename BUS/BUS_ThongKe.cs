@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace BUS
 {
-    public class BUS_ThongKe
+    public class BUSThongKe
     {
-        DAL_ThongKe dalTK = new DAL_ThongKe();
+        DALThongKe dalTK = new DALThongKe();
         //Theo ngày
         public DataTable ThongKeTheoNgayBan(string thang,string nam)
         {

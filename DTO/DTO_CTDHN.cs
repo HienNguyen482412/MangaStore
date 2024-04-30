@@ -6,27 +6,28 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-   public class DTO_CTDHN
+   public class DTOCTDHN
     {
-        private string _CTDHN_MADHN;
-        private string _CTDHN_MATT;
-        private int _CTDHN_SOLUONG;
-        private int _CTDHN_GIATIEN;
+        private string MaDHN;
+        private string MaTT;
+        private int SoLuong;
+        private int GiaTien;
 
-        public string CTDHN_MADHN { get => _CTDHN_MADHN; set => _CTDHN_MADHN = value; }
-        public string CTDHN_MATT { get => _CTDHN_MATT; set => _CTDHN_MATT = value; }
-        public int CTDHN_SOLUONG { get => _CTDHN_SOLUONG; set => _CTDHN_SOLUONG = value; }
-        public int CTDHN_GIATIEN { get => _CTDHN_GIATIEN; set => _CTDHN_GIATIEN = value; }
-        public DTO_CTDHN()
+        public DTOCTDHN()
         {
             
         }
-        public DTO_CTDHN(string madhn,string matt, int soluong, int giatien)
+        public DTOCTDHN(string maDHN,string maTT, int soLuong, int giaTien)
         {
-            this._CTDHN_MADHN = madhn;
-            this._CTDHN_MATT = matt;
-            this._CTDHN_SOLUONG = soluong;
-            this._CTDHN_GIATIEN = giatien;
+            this.MaDHN = maDHN;
+            this.MaTT = maTT;
+            this.SoLuong = soLuong;
+            this.GiaTien = giaTien;
         }
+
+        public string MaDHN1 { get => MaDHN; set => MaDHN = value; }
+        public string MaTT1 { get => MaTT; set => MaTT = value; }
+        public int SoLuong1 { get => SoLuong; set => SoLuong = value; }
+        public int GiaTien1 { get => GiaTien; set => GiaTien = value; }
     }
 }

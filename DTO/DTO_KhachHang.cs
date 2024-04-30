@@ -6,37 +6,37 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    public class DTO_KhachHang
+    public class DTOKhachHang
     {
-        private string _KHACHHANG_MAKH;
-        private string _KHACHHANG_TENKH;
-        private string _KHACHHANG_GIOITINH;
-        private string _KHACHHANG_NGAYSINH;
-        private string _KHACHHANG_DIACHI;
-        private string _KHACHHANG_SDT;
+        private string MaKH;
+        private string TenKH;
+        private string GioiTinh;
+        private string NgaySinh;
+        private string DiaChi;
+        private string SDT;
 
 
-     
+    
+        public string MaKH1 { get => MaKH; set => MaKH = value; }
+        public string TenKH1 { get => TenKH; set => TenKH = value; }
+        public string GioiTinh1 { get => GioiTinh; set => GioiTinh = value; }
+        public string NgaySinh1 { get => NgaySinh; set => NgaySinh = value; }
+        public string DiaChi1 { get => DiaChi; set => DiaChi = value; }
+        public string SDT1 { get => SDT; set => SDT = value; }
 
-        public string KHACHHANG_MAKH { get => _KHACHHANG_MAKH; set => _KHACHHANG_MAKH = value; }
-        public string KHACHHANG_TENKH { get => _KHACHHANG_TENKH; set => _KHACHHANG_TENKH = value; }
-        public string KHACHHANG_GIOITINH { get => _KHACHHANG_GIOITINH; set => _KHACHHANG_GIOITINH = value; }
-        public string KHACHHANG_NGAYSINH { get => _KHACHHANG_NGAYSINH; set => _KHACHHANG_NGAYSINH = value; }
-        public string KHACHHANG_DIACHI { get => _KHACHHANG_DIACHI; set => _KHACHHANG_DIACHI = value; }
-        public string KHACHHANG_SDT { get => _KHACHHANG_SDT; set => _KHACHHANG_SDT = value; }
-        public DTO_KhachHang()
+        public DTOKhachHang()
         {
 
         }
-        public DTO_KhachHang(string makh, string tenkh, string gioitinh, string ngaysinh, string diachi, string sdt)
+        public DTOKhachHang(string maKH, string tenKH, string gioiTinh, string ngaySinh, string diaChi, string sdt)
             
         {
-            this.KHACHHANG_MAKH = makh;
-            this.KHACHHANG_TENKH = tenkh;
-            this.KHACHHANG_GIOITINH = gioitinh;
-            this.KHACHHANG_NGAYSINH = ngaysinh;
-            this.KHACHHANG_DIACHI = diachi;
-            this.KHACHHANG_SDT = sdt;
+            this.MaKH = maKH;
+            this.TenKH = tenKH;
+            this.GioiTinh = gioiTinh;
+            this.NgaySinh = ngaySinh;
+            this.DiaChi = diaChi;
+            this.SDT = sdt;
         }
     }
 }

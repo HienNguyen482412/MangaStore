@@ -13,10 +13,10 @@ namespace GUI
         {
             InitializeComponent();
         }
-        BUS_NhanVien busNV = new BUS_NhanVien();
+        BUSNhanVien busNV = new BUSNhanVien();
         void CapNhatThongTin()
         {
-            DataTable dt = busNV.LayThongTinNhanVien(frmDangNhap.manv);
+            DataTable dt = busNV.LayThongTinNhanVien(frmDangNhap.maNV);
             txtMaNV.Text = dt.Rows[0][0].ToString();
             txtTenNV.Text = dt.Rows[0][1].ToString();
             cboGioiTinh.Text = dt.Rows[0][2].ToString().Trim();
@@ -62,7 +62,7 @@ namespace GUI
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            DTO_NhanVien nv = new DTO_NhanVien(txtMaNV.Text, txtTenNV.Text, cboGioiTinh.Text, dtpNgaySinh.Value.ToString("yyyy/MM/dd"), txtDiaChi.Text, txtSDT.Text, txtEmail.Text, dtpNgayBD.Value.ToString("yyyy/MM/dd"), Convert.ToInt32(txtLuong.Text),txtTenDN.Text, txtMatKhau.Text);
+            DTONhanVien nv = new DTONhanVien(txtMaNV.Text, txtTenNV.Text, cboGioiTinh.Text, dtpNgaySinh.Value.ToString("yyyy/MM/dd"), txtDiaChi.Text, txtSDT.Text, txtEmail.Text, dtpNgayBD.Value.ToString("yyyy/MM/dd"), Convert.ToInt32(txtLuong.Text),txtTenDN.Text, txtMatKhau.Text);
             if (MessageBox.Show("Bạn có muốn cập nhật thông tin không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 if (busNV.SuaThongTinNhanVien(nv))

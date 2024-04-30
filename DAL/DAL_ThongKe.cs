@@ -2,7 +2,7 @@
 
 namespace DAL
 {
-    public class DAL_ThongKe
+    public class DALThongKe
     {
         ExcuteQuerry ex = new ExcuteQuerry();
 

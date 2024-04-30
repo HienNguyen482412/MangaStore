@@ -6,61 +6,61 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    public class DTO_NhanVien
+    public class DTONhanVien
     {
-        private string _NHANVIEN_MANV;
-        private string _NHANVIEN_HOTEN;
-        private string _NHANVIEN_GIOITINH;
-        private string _NHANVIEN_NGAYSINH;
-        private string _NHANVIEN_DIACHI;
-        private string _NHANVIEN_SDT;
-        private string _NHANVIEN_EMAIL;
-        private string _NHANVIEN_NGAYBD;
-        private int _NHANVIEN_LUONG;
-        private string _NHANVIEN_TAIKHOAN;
-        private string _NHANVIEN_MATKHAU;
+        private string MaNV;
+        private string HoTen;
+        private string GioiTinh;
+        private string NgaySinh;
+        private string DiaChi;
+        private string SDT;
+        private string Email;
+        private string NgayBD;
+        private int Luong;
+        private string TaiKhoan;
+        private string MatKhau;
 
-        public string NHANVIEN_MANV { get => _NHANVIEN_MANV; set => _NHANVIEN_MANV = value; }
-        public string NHANVIEN_HOTEN { get => _NHANVIEN_HOTEN; set => _NHANVIEN_HOTEN = value; }
-        public string NHANVIEN_GIOITINH { get => _NHANVIEN_GIOITINH; set => _NHANVIEN_GIOITINH = value; }
-        public string NHANVIEN_NGAYSINH { get => _NHANVIEN_NGAYSINH; set => _NHANVIEN_NGAYSINH = value; }
-        public string NHANVIEN_DIACHI { get => _NHANVIEN_DIACHI; set => _NHANVIEN_DIACHI = value; }
-        public string NHANVIEN_SDT { get => _NHANVIEN_SDT; set => _NHANVIEN_SDT = value; }
-        public string NHANVIEN_EMAIL { get => _NHANVIEN_EMAIL; set => _NHANVIEN_EMAIL = value; }
-        public string NHANVIEN_NGAYBD { get => _NHANVIEN_NGAYBD; set => _NHANVIEN_NGAYBD = value; }
-        public int NHANVIEN_LUONG { get => _NHANVIEN_LUONG; set => _NHANVIEN_LUONG = value; }
-        public string NHANVIEN_TAIKHOAN { get => _NHANVIEN_TAIKHOAN; set => _NHANVIEN_TAIKHOAN = value; }
-        public string NHANVIEN_MATKHAU { get => _NHANVIEN_MATKHAU; set => _NHANVIEN_MATKHAU = value; }
-        public DTO_NhanVien()
+        public string MaNV1 { get => MaNV; set => MaNV = value; }
+        public string HoTen1 { get => HoTen; set => HoTen = value; }
+        public string GioiTinh1 { get => GioiTinh; set => GioiTinh = value; }
+        public string NgaySinh1 { get => NgaySinh; set => NgaySinh = value; }
+        public string DiaChi1 { get => DiaChi; set => DiaChi = value; }
+        public string SDT1 { get => SDT; set => SDT = value; }
+        public string Email1 { get => Email; set => Email = value; }
+        public string NgayBD1 { get => NgayBD; set => NgayBD = value; }
+        public int Luong1 { get => Luong; set => Luong = value; }
+        public string TaiKhoan1 { get => TaiKhoan; set => TaiKhoan = value; }
+        public string MatKhau1 { get => MatKhau; set => MatKhau = value; }
+
+        public DTONhanVien()
         {
             
         }
-        public DTO_NhanVien(string manv, string tennv, string gioitinh, string ngaysinh, string diachi, string sdt, string email, string ngaybd, int luong, string tk, string mk)
+        public DTONhanVien(string maNV, string hoTen, string gioiTinh, string ngaySinh, string diaChi, string sdt, string email, string ngayBD, int luong, string taiKhoan, string matKhau)
         {
-            this.NHANVIEN_MANV = manv;
-            this.NHANVIEN_HOTEN = tennv;
-            this.NHANVIEN_GIOITINH = gioitinh;
-            this.NHANVIEN_NGAYSINH = ngaysinh;
-            this.NHANVIEN_DIACHI = diachi;
-            this.NHANVIEN_SDT = sdt;
-            this.NHANVIEN_EMAIL = email;
-            this.NHANVIEN_NGAYBD = ngaybd;
-            this.NHANVIEN_LUONG = luong;
-            this.NHANVIEN_TAIKHOAN = tk;
-            this.NHANVIEN_MATKHAU = mk;
+            this.MaNV = maNV;
+            this.HoTen =hoTen;
+            this.GioiTinh= gioiTinh;
+            this.NgaySinh = ngaySinh;
+            this.DiaChi = diaChi;
+            this.SDT = sdt;
+            this.Email = email;
+            this.NgayBD = ngayBD;
+            this.Luong = luong;
+            this.TaiKhoan = taiKhoan;
+            this.MatKhau = matKhau;
         }
-        public DTO_NhanVien(string manv, string tennv, string gioitinh, string ngaysinh, string diachi, string sdt, string email, string ngaybd, int luong)
+        public DTONhanVien(string maNV, string hoTen, string gioiTinh, string ngaySinh, string diaChi, string sdt, string email, string ngayBD, int luong)
         {
-            this.NHANVIEN_MANV = manv;
-            this.NHANVIEN_HOTEN = tennv;
-            this.NHANVIEN_GIOITINH = gioitinh;
-            this.NHANVIEN_NGAYSINH = ngaysinh;
-            this.NHANVIEN_DIACHI = diachi;
-            this.NHANVIEN_SDT = sdt;
-            this.NHANVIEN_EMAIL = email;
-            this.NHANVIEN_NGAYBD = ngaybd;
-            this.NHANVIEN_LUONG = luong;
-
+            this.MaNV = maNV;
+            this.HoTen = hoTen;
+            this.GioiTinh = gioiTinh;
+            this.NgaySinh = ngaySinh;
+            this.DiaChi = diaChi;
+            this.SDT = sdt;
+            this.Email = email;
+            this.NgayBD = ngayBD;
+            this.Luong = luong;
         }
 
     }

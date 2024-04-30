@@ -12,7 +12,7 @@ namespace GUI
         {
             InitializeComponent();
         }
-        BUS_NhanVien nv = new BUS_NhanVien();
+        BUSNhanVien nv = new BUSNhanVien();
         private void frmDangKy_Load(object sender, EventArgs e)
         {
             txtMatKhau1.UseSystemPasswordChar = true;
@@ -86,7 +86,7 @@ namespace GUI
             {
                 if (txtMatKhau1.Text.Trim() == txtMatKhau2.Text.Trim())
                 {
-                    if (nv.DangKy(txtTenDN.Text.Trim(), txtMatKhau1.Text.Trim(), txtMaNV.Text.Trim()) && KiemTraTaiKhoan())
+                    if (KiemTraTaiKhoan() && nv.DangKy(txtTenDN.Text.Trim(), txtMatKhau1.Text.Trim(), txtMaNV.Text.Trim()) )
                     {
                         MessageBox.Show("Đăng ký thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Refresh();

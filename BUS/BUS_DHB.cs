@@ -11,16 +11,16 @@ namespace BUS
 {
     public class BUS_DHB
     {
-        DAL_DHB dalDHB = new DAL_DHB();
+        DALDHB dalDHB = new DALDHB();
         public DataTable LayDHB()
         {
             return dalDHB.LayDHB();
         }
-        public bool ThemDHB(DTO_DHB dhb)
+        public bool ThemDHB(DTODHB dhb)
         {
             return dalDHB.ThemDHB(dhb);
         }
-        public bool SuaDHB(DTO_DHB dhb)
+        public bool SuaDHB(DTODHB dhb)
         {
             return dalDHB.SuaDHB(dhb);
         }

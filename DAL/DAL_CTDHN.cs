@@ -8,17 +8,17 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class DAL_CTDHN
+    public class DALCTDHN
     {
         ExcuteQuerry ex = new ExcuteQuerry();
 
-        public bool ThemCTDHN(DTO_CTDHN ct)
+        public bool ThemCTDHN(DTOCTDHN ct)
         {
-            return ex.ReturnBool($"insert into CTHDN values ('{ct.CTDHN_MADHN}','{ct.CTDHN_MATT}',{ct.CTDHN_SOLUONG},{ct.CTDHN_GIATIEN})");
+            return ex.ReturnBool($"insert into CTHDN values ('{ct.MaDHN1}','{ct.MaTT1}',{ct.SoLuong1},{ct.GiaTien1})");
         }
-        public bool SuaCTDHN(DTO_CTDHN ct)
+        public bool SuaCTDHN(DTOCTDHN ct)
         {
-            return ex.ReturnBool($"update CTHDN set SoLuong ={ct.CTDHN_SOLUONG} , GiaTien ={ct.CTDHN_GIATIEN}  where MaHDN = '{ct.CTDHN_MADHN}' and MaTT = '{ct.CTDHN_MATT}'");
+            return ex.ReturnBool($"update CTHDN set SoLuong ={ct.SoLuong1} , GiaTien ={ct.GiaTien1}  where MaHDN = '{ct.MaDHN1}' and MaTT = '{ct.MaTT1}'");
         }
         public bool XoaCTDHN(string madhn, string matt)
         {

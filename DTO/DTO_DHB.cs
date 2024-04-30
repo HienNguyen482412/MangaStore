@@ -6,28 +6,29 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    public class DTO_DHB
+    public class DTODHB
     {
-        private string _DHN_MADHB;
-        private string _DHN_MANV;
-        private string _DHN_MAKH;
-        private string _DHN_NGAYBAN;
+        private string MaDHB;
+        private string MaNV;
+        private string MaKH;
+        private string NgayBan;
 
-        public string DHN_MADHB { get => _DHN_MADHB; set => _DHN_MADHB = value; }
-        public string DHN_MANV { get => _DHN_MANV; set => _DHN_MANV = value; }
-        public string DHN_MAKH { get => _DHN_MAKH; set => _DHN_MAKH = value; }
-        public string DHN_NGAYBAN { get => _DHN_NGAYBAN; set => _DHN_NGAYBAN = value; }
-        public DTO_DHB()
+        public DTODHB()
         {
             
         }
-        public DTO_DHB(string madhb, string manv, string makh, string ngayban)
+        public DTODHB(string maDHB, string maNV, string maKH, string ngayBan)
         {
-            this.DHN_MADHB = madhb;
-            this.DHN_MANV = manv;
-            this.DHN_MAKH = makh;
-            this.DHN_NGAYBAN = ngayban;
+            this.MaDHB = maDHB;
+            this.MaNV= maNV;
+            this.MaKH = maKH;
+            this.NgayBan = ngayBan;
 
         }
+
+        public string MaDHB1 { get => MaDHB; set => MaDHB = value; }
+        public string MaNV1 { get => MaNV; set => MaNV = value; }
+        public string MaKH1 { get => MaKH; set => MaKH = value; }
+        public string NgayBan1 { get => NgayBan; set => NgayBan = value; }
     }
 }

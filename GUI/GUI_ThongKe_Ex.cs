@@ -11,7 +11,7 @@ namespace GUI
         {
             InitializeComponent();
         }
-        BUS_ThongKe tk = new BUS_ThongKe();
+        BUSThongKe tk = new BUSThongKe();
         int[] months = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
         string[] dsnam = { "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030" };
         void Refresh()

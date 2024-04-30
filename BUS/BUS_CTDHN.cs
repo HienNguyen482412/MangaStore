@@ -9,28 +9,28 @@ using System.Threading.Tasks;
 
 namespace BUS
 {
-    public class BUS_CTDHN
+    public class BUSCTDHN
     {
-        DAL_CTDHN dalCTDHN = new DAL_CTDHN();
+        DALCTDHN dalCTDHN = new DALCTDHN();
         public DataTable LayCTDHN(string madh)
         {
             return dalCTDHN.LayCTDHN(madh);
         }
-        public bool ThemCTDHN(DTO_CTDHN ct)
+        public bool ThemCTDHN(DTOCTDHN ct)
         {
             return dalCTDHN.ThemCTDHN(ct);
         }
-        public bool SuaCTDHN(DTO_CTDHN ct)
+        public bool SuaCTDHN(DTOCTDHN ct)
         {
             return dalCTDHN.SuaCTDHN(ct);
         }
-        public bool XoaCTDHN(string madhn, string ma)
+        public bool XoaCTDHN(string maDHN, string ma)
         {
-            return dalCTDHN.XoaCTDHN(madhn, ma);
+            return dalCTDHN.XoaCTDHN(maDHN, ma);
         }
-        public DataTable TimKiemCTDHN(string madhn,string ten)
+        public DataTable TimKiemCTDHN(string maDHN,string ten)
         {
-            return dalCTDHN.TimKiemCTDHN(madhn, ten);
+            return dalCTDHN.TimKiemCTDHN(maDHN ,ten);
         }
     }
 }

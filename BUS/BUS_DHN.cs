@@ -9,18 +9,18 @@ using System.Threading.Tasks;
 
 namespace BUS
 {
-    public class BUS_DHN
+    public class BUSDHN
     {
-        DAL_DHN dalDHN = new DAL_DHN();
+        DALDHN dalDHN = new DALDHN();
         public DataTable LayDHN()
         {
             return dalDHN.LayDHN();
         }
-        public bool ThemDHN(DTO_DHN dhn)
+        public bool ThemDHN(DTODHN dhn)
         {
             return dalDHN.ThemDHN(dhn);
         }
-        public bool SuaDHN(DTO_DHN dhn)
+        public bool SuaDHN(DTODHN dhn)
         {
             return dalDHN.SuaDHN(dhn);
         }

@@ -19,7 +19,7 @@ namespace GUI
         {
             InitializeComponent();
         }
-        BUS_BoTruyen busBoTruyen = new BUS_BoTruyen();
+        BUSBoTruyen busBoTruyen = new BUSBoTruyen();
         public void LayThongTinBoTruyen(out string ma, out string ten)
         {
             ma = txtMaBT.Text;
@@ -82,14 +82,14 @@ namespace GUI
 
         private void dgvBoTruyen_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            BUS_TacGia tacgia = new BUS_TacGia();
-            BUS_NXB nxb = new BUS_NXB();
+            BUSTacGia tacGia = new BUSTacGia();
+            BUSNXB nxb = new BUSNXB();
             try
             {
                 txtMaBT.Text = dgvBoTruyen.Rows[e.RowIndex].Cells[0].Value.ToString();
                 txtTenBT.Text = dgvBoTruyen.Rows[e.RowIndex].Cells[1].Value.ToString();
                 txtMaTg.Text = dgvBoTruyen.Rows[e.RowIndex].Cells[2].Value.ToString();
-                txtTenTG.Text = tacgia.LayTenTg(txtMaTg.Text.Trim());
+                txtTenTG.Text = tacGia.LayTenTg(txtMaTg.Text.Trim());
                 txtMaNXB.Text = dgvBoTruyen.Rows[e.RowIndex].Cells[3].Value.ToString();
                 txtTenNXB.Text = nxb.LayTenNXB(txtMaNXB.Text.Trim());
                 cboDoTuoi.Text = dgvBoTruyen.Rows[e.RowIndex].Cells[4].Value.ToString().Trim();
@@ -99,34 +99,33 @@ namespace GUI
                 txtMaBT.Text = dgvBoTruyen.Rows[0].Cells[0].Value.ToString();
                 txtTenBT.Text = dgvBoTruyen.Rows[0].Cells[1].Value.ToString();
                 txtMaTg.Text = dgvBoTruyen.Rows[0].Cells[2].Value.ToString();
-                txtTenTG.Text = tacgia.LayTenTg(txtMaTg.Text.Trim());
+                txtTenTG.Text = tacGia.LayTenTg(txtMaTg.Text.Trim());
                 txtMaNXB.Text = dgvBoTruyen.Rows[0].Cells[3].Value.ToString();
                 txtTenNXB.Text = nxb.LayTenNXB(txtMaNXB.Text.Trim());
                 cboDoTuoi.Text = dgvBoTruyen.Rows[0].Cells[4].Value.ToString().Trim();
             }
         }
-
         private void btnThem_Click(object sender, EventArgs e)
         {
             if (CheckNull())
             {
-                if (MessageBox.Show("Bạn có muốn thêm bộ truyện này không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MessageBox.Show(string.Format(Properties.Resources.AddMessage, "bộ truyện"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-                    DTO_BoTruyen bt = new DTO_BoTruyen(txtMaBT.Text,txtTenBT.Text, txtMaTg.Text, txtMaNXB.Text, Convert.ToInt16(cboDoTuoi.Text.Trim()));
+                    DTOBoTruyen bt = new DTOBoTruyen(txtMaBT.Text,txtTenBT.Text, txtMaTg.Text, txtMaNXB.Text, Convert.ToInt16(cboDoTuoi.Text.Trim()));
                     if (busBoTruyen.ThemBoTruyen(bt))
                     {
-                        MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(string.Format(Properties.Resources.SuccessfullActionMessage,"Thêm"), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
                         RefreshControl();
                     }
                     else
                     {
-                        MessageBox.Show("Thêm không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(string.Format(Properties.Resources.UnsuccessfulActionMessage, "Thêm"), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }
             else
             {
-                MessageBox.Show("Thông tin không hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(Properties.Resources.InvalidInfoMessage, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -139,23 +138,23 @@ namespace GUI
         {
             if (CheckNull())
             {
-                if (MessageBox.Show("Bạn có muốn sửa bộ truyện này không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MessageBox.Show(string.Format(Properties.Resources.EditMessage, "bộ truyện"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-                    DTO_BoTruyen bt = new DTO_BoTruyen(txtMaBT.Text, txtTenBT.Text, txtMaTg.Text, txtMaNXB.Text, Convert.ToInt16(cboDoTuoi.Text.Trim()));
+                    DTOBoTruyen bt = new DTOBoTruyen(txtMaBT.Text, txtTenBT.Text, txtMaTg.Text, txtMaNXB.Text, Convert.ToInt16(cboDoTuoi.Text.Trim()));
                     if (busBoTruyen.SuaBoTruyen(bt))
                     {
-                        MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(string.Format(Properties.Resources.SuccessfullActionMessage, "Sửa"), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
                         RefreshControl();
                     }
                     else
                     {
-                        MessageBox.Show("Sửa không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(string.Format(Properties.Resources.UnsuccessfulActionMessage, "Sửa"), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }
             else
             {
-                MessageBox.Show("Thông tin không hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(Properties.Resources.InvalidInfoMessage, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -163,23 +162,22 @@ namespace GUI
         {
             if (CheckNull())
             {
-                if (MessageBox.Show("Bạn có muốn xóa bộ truyện này không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MessageBox.Show(string.Format(Properties.Resources.DeleteMessage, "bộ truyện"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-                    DTO_BoTruyen bt = new DTO_BoTruyen(txtMaBT.Text, txtTenBT.Text, txtMaTg.Text, txtMaNXB.Text, Convert.ToInt16(cboDoTuoi.Text.Trim()));
                     if (busBoTruyen.XoaBoTruyen(txtMaBT.Text))
                     {
-                        MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(string.Format(Properties.Resources.SuccessfullActionMessage, "Xóa"), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
                         RefreshControl();
                     }
                     else
                     {
-                        MessageBox.Show("Xóa không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(string.Format(Properties.Resources.UnsuccessfulActionMessage, "Xóa"), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }
             else
             {
-                MessageBox.Show("Thông tin không hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(Properties.Resources.InvalidInfoMessage, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 

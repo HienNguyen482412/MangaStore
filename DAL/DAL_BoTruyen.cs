@@ -8,20 +8,20 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class DAL_BoTruyen
+    public class DALBoTruyen
     {
         ExcuteQuerry ex = new ExcuteQuerry();
         public DataTable LayBoTruyen()
         {
             return ex.ReturnTable($"select MaBT as [Mã bộ truyện], TenBT as [Tên bộ truyện], matg as [Mã tác giả], manxb as [Mã nhà xuất bản],dotuoi as [Độ tuổi] from BoTruyen");
         }
-        public bool ThemBoTruyen(DTO_BoTruyen bt)
+        public bool ThemBoTruyen(DTOBoTruyen bt)
         {
-            return ex.ReturnBool($"insert into BoTruyen values ('{bt.BOTRUYEN_MABT}', N'{bt.BOTRUYEN_TENBT}','{bt.BOTRUYEN_MATG}','{bt.BOTRUYEN_MANXB}',{bt.BOTRUYEN_DOTUOI})");
+            return ex.ReturnBool($"insert into BoTruyen values ('{bt.MaBoTruyen1}', N'{bt.TenBoTruyen1}','{bt.MaTacGia1}','{bt.MaNXB1}',{bt.DoTuoi1})");
         }
-        public bool SuaBoTruyen(DTO_BoTruyen bt)
+        public bool SuaBoTruyen(DTOBoTruyen bt)
         {
-            return ex.ReturnBool($"update BoTruyen set TenBT = N'{bt.BOTRUYEN_TENBT}', MaTG = '{bt.BOTRUYEN_MATG}', MaNXB = '{bt.BOTRUYEN_MANXB}', DoTuoi = {bt.BOTRUYEN_DOTUOI} where MaBT = '{bt.BOTRUYEN_MABT}'");
+            return ex.ReturnBool($"update BoTruyen set TenBT = N'{bt.TenBoTruyen1}', MaTG = '{bt.MaTacGia1}', MaNXB = '{bt.MaNXB1}', DoTuoi = {bt.DoTuoi1} where MaBT = '{bt.MaBoTruyen1}'");
 
         }
         public bool XoaBoTruyen(string ma)

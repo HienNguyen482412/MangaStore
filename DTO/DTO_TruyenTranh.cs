@@ -6,37 +6,37 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    public class DTO_TruyenTranh
+    public class DTOTruyenTranh
     {
-        private string _TRUYENTRANH_MATT;
-        private string _TRUYENTRANH_ANH;
-        private string _TRUYENTRANH_TENTRUYEN;
-        private string _TRUYENTRANH_MABT;
-        private string _TRUYENTRANH_DINHDANG;
-        private int _TRUYENTRANH_SOLUONG;
-        private int _TRUYENTRANH_GIATIEN;
+        private string MaTT;
+        private string Anh;
+        private string TenTruyen;
+        private string MaBT;
+        private string DinhDang;
+        private int SoLuong;
+        private int GiaTien;
 
-        public string TRUYENTRANH_MATT { get => _TRUYENTRANH_MATT; set => _TRUYENTRANH_MATT = value; }
-        public string TRUYENTRANH_ANH { get => _TRUYENTRANH_ANH; set => _TRUYENTRANH_ANH = value; }
-        public string TRUYENTRANH_TENTRUYEN { get => _TRUYENTRANH_TENTRUYEN; set => _TRUYENTRANH_TENTRUYEN = value; }
-        public string TRUYENTRANH_MABT { get => _TRUYENTRANH_MABT; set => _TRUYENTRANH_MABT = value; }
-        public string TRUYENTRANH_DINHDANG { get => _TRUYENTRANH_DINHDANG; set => _TRUYENTRANH_DINHDANG = value; }
-        public int TRUYENTRANH_SOLUONG { get => _TRUYENTRANH_SOLUONG; set => _TRUYENTRANH_SOLUONG = value; }
-        public int TRUYENTRANH_GIATIEN { get => _TRUYENTRANH_GIATIEN; set => _TRUYENTRANH_GIATIEN = value; }
+        public string MaTT1 { get => MaTT; set => MaTT = value; }
+        public string Anh1 { get => Anh; set => Anh = value; }
+        public string TenTruyen1 { get => TenTruyen; set => TenTruyen = value; }
+        public string MaBT1 { get => MaBT; set => MaBT = value; }
+        public string DinhDang1 { get => DinhDang; set => DinhDang = value; }
+        public int SoLuong1 { get => SoLuong; set => SoLuong = value; }
+        public int GiaTien1 { get => GiaTien; set => GiaTien = value; }
 
-        public DTO_TruyenTranh()
+        public DTOTruyenTranh()
         {
             
         }
-        public DTO_TruyenTranh(string ma, string anh, string ten, string mabt, string dinhdang, int soluong, int giatien)
+        public DTOTruyenTranh(string maTT, string anh, string tenTruyen, string maBT, string dinhDang, int soLuong, int giaTien)
         {
-            this._TRUYENTRANH_MATT = ma;
-            this.TRUYENTRANH_ANH = anh;
-            this.TRUYENTRANH_TENTRUYEN = ten; 
-            this.TRUYENTRANH_MABT = mabt;
-            this.TRUYENTRANH_DINHDANG = dinhdang;
-            this.TRUYENTRANH_SOLUONG = soluong;
-            this.TRUYENTRANH_GIATIEN = giatien;
+            this.MaTT = maTT;
+            this.Anh = anh;
+            this.TenTruyen = tenTruyen; 
+            this.MaBT = maBT;
+            this.DinhDang = dinhDang;
+            this.SoLuong = soLuong;
+            this.GiaTien = giaTien;
         }
     }
 }

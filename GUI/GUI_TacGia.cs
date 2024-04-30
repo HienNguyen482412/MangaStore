@@ -19,7 +19,7 @@ namespace GUI
         {
             InitializeComponent();
         }
-        BUS_TacGia busTacGia = new BUS_TacGia();
+        BUSTacGia busTacGia = new BUSTacGia();
         public void LayThongTinTacGia(out string matg, out string tentg)
         {
             matg = txtMaTG.Text;
@@ -81,7 +81,7 @@ namespace GUI
             {
                 if (MessageBox.Show("Bạn có muốn thêm tác giả này không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-                    DTO_TacGia tg = new DTO_TacGia(txtMaTG.Text, txtTenTG.Text);
+                    DTOTacGia tg = new DTOTacGia(txtMaTG.Text, txtTenTG.Text);
                     if (busTacGia.ThemTacGia(tg))
                     {
                         MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -105,7 +105,7 @@ namespace GUI
             {
                 if (MessageBox.Show("Bạn có muốn sửa tác giả này không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-                    DTO_TacGia tg = new DTO_TacGia(txtMaTG.Text, txtTenTG.Text);
+                    DTOTacGia tg = new DTOTacGia(txtMaTG.Text, txtTenTG.Text);
                     if (busTacGia.SuaTacGia(tg))
                     {
                         MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);

@@ -17,7 +17,7 @@ namespace GUI
         {
             InitializeComponent();
         }
-        BUS_DHN busDHN = new BUS_DHN();
+        BUSDHN busDHN = new BUSDHN();
         private void frmDHN_List_Load(object sender, EventArgs e)
         {
             dgvDHN.DataSource = busDHN.LayDHN();
@@ -82,7 +82,7 @@ namespace GUI
             }
             else
             {
-                if (dgvDHN.Rows[e.RowIndex].Cells[1].Value.ToString() != frmDangNhap.manv)
+                if (dgvDHN.Rows[e.RowIndex].Cells[1].Value.ToString() != frmDangNhap.maNV)
                 {
                     MessageBox.Show("Bạn không có quyền xem đơn hàng này", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 

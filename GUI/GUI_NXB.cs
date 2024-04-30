@@ -20,7 +20,7 @@ namespace GUI
         {
             InitializeComponent();
         }
-        BUS_NXB busNXB = new BUS_NXB();
+        BUSNXB busNXB = new BUSNXB();
         public void LayThongTinNXB(out string manxb, out string tennxb)
         {
             manxb = txtMaNXB.Text;
@@ -79,7 +79,7 @@ namespace GUI
             {
                 if (MessageBox.Show("Bạn có muốn thêm nhà xuất bản này không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-                    DTO_NXB nxb = new DTO_NXB(txtMaNXB.Text, txtTenNXB.Text, txtDiaChi.Text, txtSDT.Text, txtEmail.Text);
+                    DTONXB nxb = new DTONXB(txtMaNXB.Text, txtTenNXB.Text, txtDiaChi.Text, txtSDT.Text, txtEmail.Text);
                     if (busNXB.ThemNXB(nxb))
                     {
                         MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -133,7 +133,7 @@ namespace GUI
             {
                 if (MessageBox.Show("Bạn có muốn sửa nhà xuất bản này không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-                    DTO_NXB nxb = new DTO_NXB(txtMaNXB.Text, txtTenNXB.Text, txtDiaChi.Text, txtSDT.Text, txtEmail.Text);
+                    DTONXB nxb = new DTONXB(txtMaNXB.Text, txtTenNXB.Text, txtDiaChi.Text, txtSDT.Text, txtEmail.Text);
                     if (busNXB.SuaNXB(nxb))
                     {
                         MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);

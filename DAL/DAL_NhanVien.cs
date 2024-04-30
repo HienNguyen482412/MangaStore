@@ -3,25 +3,26 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class DAL_NhanVien
+    public class DALNhanVien
     {
         ExcuteQuerry ex = new ExcuteQuerry();
         public DataTable LayNhanVien()
         {
             return ex.ReturnTable("select MaNV as [ Mã nhân viên], HoTen as [Họ tên], GioiTinh as [Giới tính], NgaySinh as [Ngày sinh], DiaChi as [Địa chỉ], SDT as [SĐT],Email as [Email], NgayBD as [Ngày bắt đầu], Luong as [Lương] from NHANVIEN");
         }
-        public bool ThemNhanVien(DTO_NhanVien nv)
+        public bool ThemNhanVien(DTONhanVien nv)
         {
-            return ex.ReturnBool($"insert into NhanVien values ('{nv.NHANVIEN_MANV}',N'{nv.NHANVIEN_HOTEN}',N'{nv.NHANVIEN_GIOITINH}','{nv.NHANVIEN_NGAYSINH}',N'{nv.NHANVIEN_DIACHI}','{nv.NHANVIEN_SDT}','{nv.NHANVIEN_EMAIL}','{nv.NHANVIEN_NGAYBD}',{nv.NHANVIEN_LUONG},null,null)");
+            return ex.ReturnBool($"insert into NhanVien values ('{nv.MaNV1}',N'{nv.HoTen1}',N'{nv.GioiTinh1}','{nv.NgaySinh1}',N'{nv.DiaChi1}','{nv.SDT1}','{nv.Email1}','{nv.NgayBD1}',{nv.Luong1},'{nv.MaNV1}',null)");
         }
-        public bool SuaNhanVien(DTO_NhanVien nv)
+        public bool SuaNhanVien(DTONhanVien nv)
         {
-            return ex.ReturnBool($"update NhanVien set HoTen = N'{nv.NHANVIEN_HOTEN}', GioiTinh = N'{nv.NHANVIEN_GIOITINH}', NgaySinh = '{nv.NHANVIEN_NGAYSINH}', DiaChi = N'{nv.NHANVIEN_DIACHI}', SDT = '{nv.NHANVIEN_SDT}', Email = '{nv.NHANVIEN_EMAIL}', NgayBD='{nv.NHANVIEN_NGAYBD}',luong={nv.NHANVIEN_LUONG} where MaNV='{nv.NHANVIEN_MANV}'");
+            return ex.ReturnBool($"update NhanVien set HoTen = N'{nv.HoTen1}', GioiTinh = N'{nv.GioiTinh1}', NgaySinh = '{nv.NgaySinh1}', DiaChi = N'{nv.DiaChi1}', SDT = '{nv.SDT1}', Email = '{nv.Email1}', NgayBD='{nv.NgayBD1}',luong={nv.Luong1} where MaNV='{nv.MaNV1}'");
         }
         public bool XoaNhanVien(string ma)
         {
@@ -40,9 +41,9 @@ namespace DAL
             return ex.ReturnTable($"select HoTen as [Họ tên] from NhanVien where MaNV = '{ma}'");
 
         }
-        public bool DangKy(string tendn, string mk,string ma)
+        public bool DangKy(string tenDN, string matKhau,string ma)
         {
-            return ex.ReturnBool($"update NhanVien set TaiKhoan = '{tendn}', MatKhau = '{mk}' where MaNV = '{ma}'");
+            return ex.ReturnBool($"update NhanVien set TaiKhoan = '{tenDN}', MatKhau = '{matKhau}' where MaNV = '{ma}'");
         }
         public string LayMaNV(string tk, string mk)
         {
@@ -60,17 +61,17 @@ namespace DAL
         {
             return ex.ReturnTable($"select * from nhanvien where manv = '{manv}'");
         }
-        public bool SuaThongTinNhanVien(DTO_NhanVien nv)
+        public bool SuaThongTinNhanVien(DTONhanVien nv)
         {
-            return ex.ReturnBool($"update NhanVien set HoTen = N'{nv.NHANVIEN_HOTEN}', GioiTinh = N'{nv.NHANVIEN_GIOITINH}', NgaySinh = '{nv.NHANVIEN_NGAYSINH}', DiaChi = N'{nv.NHANVIEN_DIACHI}', SDT = '{nv.NHANVIEN_SDT}', Email = '{nv.NHANVIEN_EMAIL}', NgayBD='{nv.NHANVIEN_NGAYBD}',luong={nv.NHANVIEN_LUONG}, taikhoan = '{nv.NHANVIEN_TAIKHOAN}', matkhau = '{nv.NHANVIEN_MATKHAU}' where MaNV='{nv.NHANVIEN_MANV}'");
+            return ex.ReturnBool($"update NhanVien set HoTen = N'{nv.HoTen1}', GioiTinh = N'{nv.GioiTinh1}', NgaySinh = '{nv.NgaySinh1}', DiaChi = N'{nv.DiaChi1}', SDT = '{nv.SDT1}', Email = '{nv.Email1}', NgayBD='{nv.NgayBD1}',luong={nv.Luong1}, taikhoan = '{nv.TaiKhoan1}', matkhau = '{nv.MatKhau1}' where MaNV='{nv.MaNV1}'");
         }
-        public DataTable KiemTraNVDaCoTK(string manv)
+        public DataTable KiemTraNVDaCoTK(string maNV)
         {
-            return ex.ReturnTable($"select taikhoan from nhanvien where manv = '{manv}'");
+            return ex.ReturnTable($"select matkhau from nhanvien where manv = '{maNV}'");
         }
-        public DataTable TaoMa(string tencot, string tenbang, int sokitu, string kitu)
+        public DataTable TaoMa(string tenCot, string tenBang, int soKiTu, string kiTu)
         {
-           return ex.AutoCreateID(tencot, tenbang,sokitu, kitu);
+           return ex.AutoCreateID(tenCot, tenBang,soKiTu, kiTu);
         }
     }
 }

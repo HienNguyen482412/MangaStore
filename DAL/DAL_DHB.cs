@@ -8,20 +8,20 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class DAL_DHB
+    public class DALDHB
     {
         ExcuteQuerry ex = new ExcuteQuerry();
         public DataTable LayDHB()
         {
             return ex.ReturnTable($"select MaHDB as [Mã đơn hàng bán], MaNV as [Mã nhân viên], MaKH as [Mã khách hàng], ngayban as [Ngày bán] from HDB");
         }
-        public bool ThemDHB(DTO_DHB dhb)
+        public bool ThemDHB(DTODHB dhb)
         {
-            return ex.ReturnBool($"insert into HDB values ('{dhb.DHN_MADHB}','{dhb.DHN_MANV}','{dhb.DHN_MAKH}','{dhb.DHN_NGAYBAN}')");
+            return ex.ReturnBool($"insert into HDB values ('{dhb.MaDHB1}','{dhb.MaNV1}','{dhb.MaKH1}','{dhb.NgayBan1}')");
         }
-        public bool SuaDHB(DTO_DHB dhb)
+        public bool SuaDHB(DTODHB dhb)
         {
-            return ex.ReturnBool($"update HDB set MaNV = '{dhb.DHN_MANV}', MaKH = '{dhb.DHN_MAKH}', NgayBan = '{dhb.DHN_NGAYBAN}' where mahdb = '{dhb.DHN_MADHB}'");
+            return ex.ReturnBool($"update HDB set MaNV = '{dhb.MaNV1}', MaKH = '{dhb.MaKH1}', NgayBan = '{dhb.NgayBan1}' where mahdb = '{dhb.MaDHB1}'");
         }
         public bool XoaDHB(string ma)
         {

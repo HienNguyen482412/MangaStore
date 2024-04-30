@@ -6,21 +6,22 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    public class DTO_TacGia
+    public class DTOTacGia
     {
-        private string _TACGIA_MATG;
-        private string _TACGIA_TENTG;
+        private string MaTG;
+        private string TenTG;
 
-        public string TACGIA_MATG { get => _TACGIA_MATG; set => _TACGIA_MATG = value; }
-        public string TACGIA_TENTG { get => _TACGIA_TENTG; set => _TACGIA_TENTG = value; }
-        public DTO_TacGia()
+        public string MaTG1 { get => MaTG; set => MaTG = value; }
+        public string TenTG1 { get => TenTG; set => TenTG = value; }
+
+        public DTOTacGia()
         {
             
         }
-        public DTO_TacGia(string matg, string tentg)
-        {
-            this._TACGIA_MATG = matg;
-            this.TACGIA_TENTG = tentg;
+        public DTOTacGia(string maTG, string tenTG)
+        {   
+            this.MaTG = maTG;
+            this.TenTG = tenTG;
         }
     }
 }

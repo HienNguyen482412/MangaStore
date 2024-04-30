@@ -9,18 +9,18 @@ using System.Threading.Tasks;
 
 namespace BUS
 {
-    public class BUS_KhachHang
+    public class BUSKhachHang
     {
-        DAL_KhachHang dalKhachHang = new DAL_KhachHang();
+        DALKhachHang dalKhachHang = new DALKhachHang();
         public DataTable LayKhachHang()
         {
             return dalKhachHang.LayKhachHang();
         }
-        public bool ThemKhachHang(DTO_KhachHang kh)
+        public bool ThemKhachHang(DTOKhachHang kh)
         {
             return dalKhachHang.ThemKhachHang(kh);
         }
-        public bool SuaKhachHang(DTO_KhachHang kh)
+        public bool SuaKhachHang(DTOKhachHang kh)
         {
             return dalKhachHang.SuaKhachHang(kh);
         }
@@ -36,9 +36,9 @@ namespace BUS
         {
             return dalKhachHang.TaoMa();
         }
-        public DataTable LayKhachHang(string makh)
+        public DataTable LayKhachHang(string maKH)
         {
-            return dalKhachHang.LayKhachHang(makh);
+            return dalKhachHang.LayKhachHang(maKH);
         }
     }
 }

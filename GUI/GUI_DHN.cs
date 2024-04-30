@@ -13,8 +13,8 @@ namespace GUI
         {
             InitializeComponent();
         }
-        BUS_DHN busDHN = new BUS_DHN();
-        BUS_CTDHN busCTDHN = new BUS_CTDHN();
+        BUSDHN busDHN = new BUSDHN();
+        BUSCTDHN busCTDHN = new BUSCTDHN();
         private void btnThemNXB_Click(object sender, EventArgs e)
         {
             frmNXB nxb = new frmNXB();
@@ -120,8 +120,8 @@ namespace GUI
                 if (frmDangNhap.quyenQL == false)
                 {
                     btnThemNhanVien.Visible = false;
-                    txtTenNV.Text = frmDangNhap.tennv;
-                    txtMaNV.Text = frmDangNhap.manv;
+                    txtTenNV.Text = frmDangNhap.tenNV;
+                    txtMaNV.Text = frmDangNhap.maNV;
                 }
             }
             else
@@ -130,8 +130,8 @@ namespace GUI
                 {
                     btnThemNhanVien.Visible = false;
                 }
-                BUS_NhanVien nv = new BUS_NhanVien();
-                BUS_NXB nxb = new BUS_NXB();
+                BUSNhanVien nv = new BUSNhanVien();
+                BUSNXB nxb = new BUSNXB();
                 dgvTruyenTranh.DataSource = busCTDHN.LayCTDHN(txtMaDHN.Text);
                 DataTable dtnv = nv.LayNhanVien(txtMaNV.Text.Trim());
                 txtTenNV.Text = dtnv.Rows[0][0].ToString();
@@ -322,16 +322,17 @@ namespace GUI
         {
             if (CheckNull(grbNhanVien) && CheckNull(grbNXB) && dgvTruyenTranh.Rows.Count > 0 && MessageBox.Show("Bạn có muốn thêm đơn hàng này không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
-                DTO_DHN dhn = new DTO_DHN(txtMaDHN.Text.Trim(), txtMaNV.Text.Trim(), txtMaNXB.Text.Trim(), dtpNgayNhap.Value.ToString("yyyy-MM-dd"));
+                DTODHN dhn = new DTODHN(txtMaDHN.Text.Trim(), txtMaNV.Text.Trim(), txtMaNXB.Text.Trim(), dtpNgayNhap.Value.ToString("yyyy-MM-dd"));
 
                 if (busDHN.ThemDHN(dhn))
                 {
                     for (int i = 0; i < dgvTruyenTranh.RowCount; i++)
                     {
-                        DTO_CTDHN ct = new DTO_CTDHN(txtMaDHN.Text.Trim(), dgvTruyenTranh.Rows[i].Cells[0].Value.ToString().Trim(), Convert.ToInt32(dgvTruyenTranh.Rows[i].Cells[2].Value.ToString()), Convert.ToInt32(dgvTruyenTranh.Rows[i].Cells[3].Value.ToString()));
+                        DTOCTDHN ct = new DTOCTDHN(txtMaDHN.Text.Trim(), dgvTruyenTranh.Rows[i].Cells[0].Value.ToString().Trim(), Convert.ToInt32(dgvTruyenTranh.Rows[i].Cells[2].Value.ToString()), Convert.ToInt32(dgvTruyenTranh.Rows[i].Cells[3].Value.ToString()));
                         busCTDHN.ThemCTDHN(ct);
                     }
                     MessageBox.Show("Thêm đơn hàng thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    btnIn.PerformClick();
                     Refresh();
                 }
                 else
@@ -345,14 +346,14 @@ namespace GUI
         {
             if (CheckNull(grbNhanVien) && CheckNull(grbNXB) && MessageBox.Show("Bạn có muốn sửa đơn hàng này không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
-                DTO_DHN dhn = new DTO_DHN(txtMaDHN.Text.Trim(), txtMaNV.Text.Trim(), txtMaNXB.Text.Trim(), dtpNgayNhap.Value.ToString("yyyy-MM-dd"));
+                DTODHN dhn = new DTODHN(txtMaDHN.Text.Trim(), txtMaNV.Text.Trim(), txtMaNXB.Text.Trim(), dtpNgayNhap.Value.ToString("yyyy-MM-dd"));
 
                 if (busDHN.SuaDHN(dhn))
                 {
 
                     for (int i = 0; i < dgvTruyenTranh.RowCount; i++)
                     {
-                        DTO_CTDHN ct = new DTO_CTDHN(txtMaDHN.Text.Trim(), dgvTruyenTranh.Rows[i].Cells[0].Value.ToString().Trim(), Convert.ToInt32(dgvTruyenTranh.Rows[i].Cells[2].Value.ToString()), Convert.ToInt32(dgvTruyenTranh.Rows[i].Cells[3].Value.ToString()));
+                        DTOCTDHN ct = new DTOCTDHN(txtMaDHN.Text.Trim(), dgvTruyenTranh.Rows[i].Cells[0].Value.ToString().Trim(), Convert.ToInt32(dgvTruyenTranh.Rows[i].Cells[2].Value.ToString()), Convert.ToInt32(dgvTruyenTranh.Rows[i].Cells[3].Value.ToString()));
                         busCTDHN.XoaCTDHN(txtMaDHN.Text.Trim(), dgvTruyenTranh.Rows[i].Cells[0].Value.ToString().Trim());
                         busCTDHN.ThemCTDHN(ct);
                     }
@@ -428,18 +429,26 @@ namespace GUI
 
         private void btnIn_Click(object sender, EventArgs e)
         {
-            int sl = 0;
-            for (int i = 0; i < dgvTruyenTranh.RowCount; i++)
+            if (CheckNull(grbNhanVien) && CheckNull(grbNXB) && dgvTruyenTranh.RowCount > 0)
             {
-                sl+= Convert.ToInt32(dgvTruyenTranh.Rows[i].Cells[2].Value.ToString().Trim());
-                
+                int sl = 0;
+                for (int i = 0; i < dgvTruyenTranh.RowCount; i++)
+                {
+                    sl += Convert.ToInt32(dgvTruyenTranh.Rows[i].Cells[2].Value.ToString().Trim());
+
+                }
+                frmDonHangNhap hoadon = new frmDonHangNhap();
+                hoadon.GetInfo(dtpNgayNhap.Value.ToString("d"), txtMaDHN.Text, txtMaNXB.Text, txtTenNXB.Text, txtMaNV.Text, txtTenNV.Text, txtTongTienHD.Text, sl.ToString(), busCTDHN.LayCTDHN(txtMaDHN.Text));
+                if (hoadon.ShowDialog() == DialogResult.Cancel)
+                {
+                    this.Show();
+                }
             }
-            frmDonHangNhap hoadon = new frmDonHangNhap();
-            hoadon.GetInfo(dtpNgayNhap.Value.ToString("d"),txtMaDHN.Text, txtMaNXB.Text, txtTenNXB.Text, txtMaNV.Text, txtTenNV.Text, txtTongTienHD.Text, sl.ToString(),dgvTruyenTranh);
-            if (hoadon.ShowDialog() == DialogResult.Cancel)
+            else
             {
-                this.Show();
+                MessageBox.Show("Hóa đơn không hợp lệ không thể in", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+
         }
     }
 }
