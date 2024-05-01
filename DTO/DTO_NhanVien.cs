@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
+    /// <summary>
+    /// Mục đích: lưu thông tin của nhân viên gồm: mã nhân viên, họ tên, giới tính, ngày sinh, địa chỉ, số điện thoại, email, ngày bắt đầu, lương, tài khoản, mật khẩu.
+    /// <br>Người lập: Nguyễn Minh Hiền</br>
+    /// </summary>
     public class DTONhanVien
     {
         private string MaNV;
@@ -31,11 +35,27 @@ namespace DTO
         public int Luong1 { get => Luong; set => Luong = value; }
         public string TaiKhoan1 { get => TaiKhoan; set => TaiKhoan = value; }
         public string MatKhau1 { get => MatKhau; set => MatKhau = value; }
-
+        /// <summary>
+        /// Constructor mặc định của DTONhanVien
+        /// </summary>
         public DTONhanVien()
         {
             
         }
+        /// <summary>
+        /// Constructor có tham số của DTONhanVien
+        /// </summary>
+        /// <param name="maNV">mã nhân viên</param>
+        /// <param name="hoTen">họ tên</param>
+        /// <param name="gioiTinh">giới tính</param>
+        /// <param name="ngaySinh">ngày sinh</param>
+        /// <param name="diaChi">địa chỉ</param>
+        /// <param name="sdt">số điện thoại</param>
+        /// <param name="email">email</param>
+        /// <param name="ngayBD">ngày bắt đầu</param>
+        /// <param name="luong">lương</param>
+        /// <param name="taiKhoan">tài khoản</param>
+        /// <param name="matKhau">mật khẩu</param>
         public DTONhanVien(string maNV, string hoTen, string gioiTinh, string ngaySinh, string diaChi, string sdt, string email, string ngayBD, int luong, string taiKhoan, string matKhau)
         {
             this.MaNV = maNV;
@@ -50,6 +70,18 @@ namespace DTO
             this.TaiKhoan = taiKhoan;
             this.MatKhau = matKhau;
         }
+        /// <summary>
+        /// Constructor có tham số của DTONhanVien
+        /// </summary>
+        /// <param name="maNV">mã nhân viên</param>
+        /// <param name="hoTen">họ tên</param>
+        /// <param name="gioiTinh">giới tính</param>
+        /// <param name="ngaySinh">ngày sinh</param>
+        /// <param name="diaChi">địa chỉ</param>
+        /// <param name="sdt">số điện thoại</param>
+        /// <param name="email">email</param>
+        /// <param name="ngayBD">ngày bắt đầu</param>
+        /// <param name="luong">lương</param>
         public DTONhanVien(string maNV, string hoTen, string gioiTinh, string ngaySinh, string diaChi, string sdt, string email, string ngayBD, int luong)
         {
             this.MaNV = maNV;

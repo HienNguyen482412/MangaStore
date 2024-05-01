@@ -126,11 +126,23 @@
   <data name="EditMessage" xml:space="preserve">
     <value>Bạn có muốn sửa thông tin {0} này không ?</value>
   </data>
+  <data name="ExistedItemMessage" xml:space="preserve">
+    <value>Truyện tranh đã tồn tại trong hóa đơn</value>
+  </data>
   <data name="IncompleteInformationMessage" xml:space="preserve">
     <value>Vui lòng nhập đầy đủ thông tin</value>
   </data>
   <data name="InvalidInfoMessage" xml:space="preserve">
     <value>Thông tin không hợp lệ</value>
+  </data>
+  <data name="NotEnoughQuantity" xml:space="preserve">
+    <value>Số lượng truyện không đủ</value>
+  </data>
+  <data name="NotMatchPassword" xml:space="preserve">
+    <value>Xác nhận mật khẩu không chính xác</value>
+  </data>
+  <data name="NotPermittedMessage" xml:space="preserve">
+    <value>Bạn không có quyền xem đơn hàng này</value>
   </data>
   <data name="SuccessfullActionMessage" xml:space="preserve">
     <value>{0} thành công</value>

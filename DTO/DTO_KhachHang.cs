@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
+    /// <summary>
+    /// Mục đích: lưu thông tin của khách hàng gồm: mã khách hàng, tên khách hàng, giới tính, ngày sinh, địa chỉ, số điện thoại.
+    /// <br>Người lập: Nguyễn Minh Hiền</br>
+    /// </summary>
     public class DTOKhachHang
     {
         private string MaKH;
@@ -23,11 +27,22 @@ namespace DTO
         public string NgaySinh1 { get => NgaySinh; set => NgaySinh = value; }
         public string DiaChi1 { get => DiaChi; set => DiaChi = value; }
         public string SDT1 { get => SDT; set => SDT = value; }
-
+        /// <summary>
+        /// Constructor mặc định của DTOKhachHang
+        /// </summary>
         public DTOKhachHang()
         {
 
         }
+        /// <summary>
+        /// Constructor có tham số của DTOKhachHang
+        /// </summary>
+        /// <param name="maKH">mã khách hàng</param>
+        /// <param name="tenKH">tên khách hàng</param>
+        /// <param name="gioiTinh">giới tính</param>
+        /// <param name="ngaySinh">ngày sinh</param>
+        /// <param name="diaChi">địa chỉ</param>
+        /// <param name="sdt">số điện thoại</param>
         public DTOKhachHang(string maKH, string tenKH, string gioiTinh, string ngaySinh, string diaChi, string sdt)
             
         {

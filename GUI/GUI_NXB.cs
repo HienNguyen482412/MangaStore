@@ -77,23 +77,22 @@ namespace GUI
         {
             if (CheckNull())
             {
-                if (MessageBox.Show("Bạn có muốn thêm nhà xuất bản này không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MessageBox.Show(string.Format(Properties.Resources.AddMessage, "nhà xuất bản"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
                     DTONXB nxb = new DTONXB(txtMaNXB.Text, txtTenNXB.Text, txtDiaChi.Text, txtSDT.Text, txtEmail.Text);
                     if (busNXB.ThemNXB(nxb))
                     {
-                        MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        RefreshControl();
+                        MessageBox.Show(string.Format(Properties.Resources.SuccessfullActionMessage, "Thêm"), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information); RefreshControl();
                     }
                     else
                     {
-                        MessageBox.Show("Thêm không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(string.Format(Properties.Resources.UnsuccessfulActionMessage, "Thêm"), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }
             else
             {
-                MessageBox.Show("Thông tin không hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(Properties.Resources.InvalidInfoMessage, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -131,23 +130,23 @@ namespace GUI
         {
             if (CheckNull())
             {
-                if (MessageBox.Show("Bạn có muốn sửa nhà xuất bản này không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MessageBox.Show(string.Format(Properties.Resources.EditMessage, "nhà xuất bản"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
                     DTONXB nxb = new DTONXB(txtMaNXB.Text, txtTenNXB.Text, txtDiaChi.Text, txtSDT.Text, txtEmail.Text);
                     if (busNXB.SuaNXB(nxb))
                     {
-                        MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(string.Format(Properties.Resources.SuccessfullActionMessage, "Sửa"), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
                         RefreshControl();
                     }
                     else
                     {
-                        MessageBox.Show("Sửa không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(string.Format(Properties.Resources.UnsuccessfulActionMessage, "Sửa"), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }
             else
             {
-                MessageBox.Show("Thông tin không hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(Properties.Resources.InvalidInfoMessage, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -155,22 +154,22 @@ namespace GUI
         {
             if (CheckNull())
             {
-                if (MessageBox.Show("Bạn có muốn xóa nhà xuất bản này không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MessageBox.Show(string.Format(Properties.Resources.DeleteMessage, "nhà xuất bản"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
                     if (busNXB.XoaNXB(txtMaNXB.Text))
                     {
-                        MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(string.Format(Properties.Resources.SuccessfullActionMessage, "Xóa"), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
                         RefreshControl();
                     }
                     else
                     {
-                        MessageBox.Show("Xóa không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(string.Format(Properties.Resources.UnsuccessfulActionMessage, "Xóa"), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }
             else
             {
-                MessageBox.Show("Thông tin không hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(Properties.Resources.InvalidInfoMessage, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -183,7 +182,7 @@ namespace GUI
         {
             if (txtEmail.Text.Trim().EndsWith("."))
             {
-                MessageBox.Show("Email không hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                errorProvider1.SetError(txtEmail, "Email không hợp lệ");
                 txtEmail.Clear();
             }
             try
@@ -193,7 +192,7 @@ namespace GUI
             }
             catch
             {
-                MessageBox.Show("Email không hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                errorProvider1.SetError(txtEmail, "Email không hợp lệ");
                 txtEmail.Clear();
 
             }

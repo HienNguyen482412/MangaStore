@@ -60,7 +60,7 @@ namespace GUI
             {
                 if (dgvDHB.Rows[e.RowIndex].Cells[1].Value.ToString() != frmDangNhap.maNV)
                 {
-                    MessageBox.Show("Bạn không có quyền xem đơn hàng này", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(Properties.Resources.NotPermittedMessage, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 }
                 else

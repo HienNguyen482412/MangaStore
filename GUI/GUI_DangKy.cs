@@ -88,23 +88,23 @@ namespace GUI
                 {
                     if (KiemTraTaiKhoan() && nv.DangKy(txtTenDN.Text.Trim(), txtMatKhau1.Text.Trim(), txtMaNV.Text.Trim()) )
                     {
-                        MessageBox.Show("Đăng ký thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(string.Format(Properties.Resources.SuccessfullActionMessage,"Đăng kí"), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Refresh();
                     }
                     else
                     {
-                        MessageBox.Show("Đăng ký không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(string.Format(Properties.Resources.UnsuccessfulActionMessage, "Đăng kí"), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Xác nhận mật khẩu không chính xác ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                     MessageBox.Show(Properties.Resources.NotMatchPassword, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
             else
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(Properties.Resources.IncompleteInformationMessage, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
     }

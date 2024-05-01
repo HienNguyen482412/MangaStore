@@ -88,6 +88,15 @@ namespace GUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Truyện tranh đã tồn tại trong hóa đơn.
+        /// </summary>
+        internal static string ExistedItemMessage {
+            get {
+                return ResourceManager.GetString("ExistedItemMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Vui lòng nhập đầy đủ thông tin.
         /// </summary>
         internal static string IncompleteInformationMessage {
@@ -102,6 +111,33 @@ namespace GUI.Properties {
         internal static string InvalidInfoMessage {
             get {
                 return ResourceManager.GetString("InvalidInfoMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Số lượng truyện không đủ.
+        /// </summary>
+        internal static string NotEnoughQuantity {
+            get {
+                return ResourceManager.GetString("NotEnoughQuantity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Xác nhận mật khẩu không chính xác.
+        /// </summary>
+        internal static string NotMatchPassword {
+            get {
+                return ResourceManager.GetString("NotMatchPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bạn không có quyền xem đơn hàng này.
+        /// </summary>
+        internal static string NotPermittedMessage {
+            get {
+                return ResourceManager.GetString("NotPermittedMessage", resourceCulture);
             }
         }
         

@@ -106,8 +106,7 @@ namespace GUI
                 }
                 catch
                 {
-                    MessageBox.Show("Mã nhân viên không hợp lệ");
-
+                    MessageBox.Show(Properties.Resources.InvalidInfoMessage, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
                 
             }
@@ -123,29 +122,28 @@ namespace GUI
                     {
                         if (nv.DangKy(txtTenDN.Text, txtMatKhau1.Text, txtMaNV.Text.Trim()))
                         {
-                            MessageBox.Show("Khôi phục tài khoản thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show(string.Format(Properties.Resources.SuccessfullActionMessage,"Khôi phục tài khoản"), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             Refresh();
                         }
                         else
                         {
-                            MessageBox.Show("Khôi phục tài khoản thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                            MessageBox.Show(string.Format(Properties.Resources.UnsuccessfulActionMessage, "Khôi phục tài khoản"), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Xác nhận mật khẩu không chính xác ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(Properties.Resources.NotMatchPassword, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Mã xác thực không chính xác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    errorProvider1.SetError(txtMaXN, "Mã xác nhận không chính xác");
                 }
             }
             else
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(Properties.Resources.IncompleteInformationMessage, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
             }
         }

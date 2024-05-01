@@ -87,7 +87,7 @@ namespace GUI
             {
                 txtTongTien.Text = (Convert.ToInt32(txtGiaTien.Text) * Convert.ToInt32(txtSoLuong.Text)).ToString();
             }
-            catch (FormatException a)
+            catch
             {
                 txtTongTien.Text = 0.ToString();
             }
@@ -194,7 +194,7 @@ namespace GUI
                 if (dgvTruyenTranh.Rows[i].Cells[0].Value.ToString().Trim() == ma.Trim())
                 {
                     ck = false;
-                    MessageBox.Show("Truyện tranh này đã tồn tại trong hóa đơn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(Properties.Resources.ExistedItemMessage, Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
                     break;
                 }
             }
@@ -320,7 +320,7 @@ namespace GUI
         }
         private void btnThemHD_Click(object sender, EventArgs e)
         {
-            if (CheckNull(grbNhanVien) && CheckNull(grbNXB) && dgvTruyenTranh.Rows.Count > 0 && MessageBox.Show("Bạn có muốn thêm đơn hàng này không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (CheckNull(grbNhanVien) && CheckNull(grbNXB) && dgvTruyenTranh.Rows.Count > 0 && MessageBox.Show(string.Format(Properties.Resources.AddMessage, "đơn hàng"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 DTODHN dhn = new DTODHN(txtMaDHN.Text.Trim(), txtMaNV.Text.Trim(), txtMaNXB.Text.Trim(), dtpNgayNhap.Value.ToString("yyyy-MM-dd"));
 
@@ -331,20 +331,19 @@ namespace GUI
                         DTOCTDHN ct = new DTOCTDHN(txtMaDHN.Text.Trim(), dgvTruyenTranh.Rows[i].Cells[0].Value.ToString().Trim(), Convert.ToInt32(dgvTruyenTranh.Rows[i].Cells[2].Value.ToString()), Convert.ToInt32(dgvTruyenTranh.Rows[i].Cells[3].Value.ToString()));
                         busCTDHN.ThemCTDHN(ct);
                     }
-                    MessageBox.Show("Thêm đơn hàng thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    btnIn.PerformClick();
+                    MessageBox.Show(string.Format(Properties.Resources.SuccessfullActionMessage, "Thêm"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information); btnIn.PerformClick();
                     Refresh();
                 }
                 else
                 {
-                    MessageBox.Show("Thêm đơn hàng không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(string.Format(Properties.Resources.UnsuccessfulActionMessage, "Thêm"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 }
             }
         }
 
         private void btnSuaHD_Click(object sender, EventArgs e)
         {
-            if (CheckNull(grbNhanVien) && CheckNull(grbNXB) && MessageBox.Show("Bạn có muốn sửa đơn hàng này không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (CheckNull(grbNhanVien) && CheckNull(grbNXB) && MessageBox.Show(string.Format(Properties.Resources.EditMessage, "đơn hàng"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 DTODHN dhn = new DTODHN(txtMaDHN.Text.Trim(), txtMaNV.Text.Trim(), txtMaNXB.Text.Trim(), dtpNgayNhap.Value.ToString("yyyy-MM-dd"));
 
@@ -357,37 +356,41 @@ namespace GUI
                         busCTDHN.XoaCTDHN(txtMaDHN.Text.Trim(), dgvTruyenTranh.Rows[i].Cells[0].Value.ToString().Trim());
                         busCTDHN.ThemCTDHN(ct);
                     }
-                    MessageBox.Show("Sửa đơn hàng thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(string.Format(Properties.Resources.SuccessfullActionMessage, "Sửa"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                     Refresh();
                 }
                 else
                 {
-                    MessageBox.Show("Sửa đơn hàng không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(string.Format(Properties.Resources.UnsuccessfulActionMessage, "Sửa"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 }
+            }
+            else
+            {
+                MessageBox.Show(Properties.Resources.InvalidInfoMessage, Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
             }
         }
 
         private void btnXoaHD_Click(object sender, EventArgs e)
         {
-            if (CheckNull(grbNhanVien) && CheckNull(grbNXB) && dgvTruyenTranh.Rows.Count > 0 && MessageBox.Show("Bạn có muốn xóa đơn hàng này không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (CheckNull(grbNhanVien) && CheckNull(grbNXB) && dgvTruyenTranh.Rows.Count > 0 && MessageBox.Show(string.Format(Properties.Resources.DeleteMessage, "đơn hàng"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
 
                 if (busDHN.XoaDHN(txtMaDHN.Text))
                 {
-                    MessageBox.Show("Xóa hàng thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Refresh();
+                    MessageBox.Show(string.Format(Properties.Resources.SuccessfullActionMessage, "Xóa"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information); Refresh();
 
                 }
                 else
                 {
-                    MessageBox.Show("Xóa đơn hàng không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(string.Format(Properties.Resources.UnsuccessfulActionMessage, "Xóa"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
 
                 }
 
             }
             else
             {
-                MessageBox.Show("Không được để trống thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(Properties.Resources.InvalidInfoMessage, Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
             }
 
         }
@@ -446,7 +449,7 @@ namespace GUI
             }
             else
             {
-                MessageBox.Show("Hóa đơn không hợp lệ không thể in", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(Properties.Resources.InvalidInfoMessage, Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             }
 
         }

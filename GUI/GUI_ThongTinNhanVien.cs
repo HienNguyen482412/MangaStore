@@ -63,16 +63,15 @@ namespace GUI
         private void btnSua_Click(object sender, EventArgs e)
         {
             DTONhanVien nv = new DTONhanVien(txtMaNV.Text, txtTenNV.Text, cboGioiTinh.Text, dtpNgaySinh.Value.ToString("yyyy/MM/dd"), txtDiaChi.Text, txtSDT.Text, txtEmail.Text, dtpNgayBD.Value.ToString("yyyy/MM/dd"), Convert.ToInt32(txtLuong.Text),txtTenDN.Text, txtMatKhau.Text);
-            if (MessageBox.Show("Bạn có muốn cập nhật thông tin không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (MessageBox.Show(string.Format(Properties.Resources.EditMessage, "nhân viên"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 if (busNV.SuaThongTinNhanVien(nv))
                 {
-                    MessageBox.Show("Cập nhật thông tin thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    CapNhatThongTin();
+                    MessageBox.Show(string.Format(Properties.Resources.SuccessfullActionMessage, "Cập nhật"), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information); CapNhatThongTin();
                 }
                 else
                 {
-                    MessageBox.Show("Cập nhật thông tin không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(string.Format(Properties.Resources.UnsuccessfulActionMessage, "Cập nhật"), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
 
