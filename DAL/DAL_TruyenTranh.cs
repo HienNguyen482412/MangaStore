@@ -10,13 +10,28 @@ using System.Data.SqlClient;
 
 namespace DAL
 {
+    /// <summary>
+    /// Mục đích: thực hiện các thao tác liên quan đến dữ liệu của truyện tranh trong cơ sở dữ liệu.
+    /// <br>Người lập: Nguyễn Minh Hiền</br>
+    /// </summary>
     public class DALTruyenTranh : DBConnect
     {
         ExcuteQuerry ex = new ExcuteQuerry();
+        /// <summary>
+        /// Phương thức lấy danh sách truyện tranh
+        /// </summary>
+        /// <returns>Danh sách truyện tranh</returns>
+        /// Created by Nguyễn Minh Hiền – 05/04/2024
         public DataTable LayTruyenTranh()
         {
             return ex.ReturnTable($"select matt as [Mã truyện tranh], anh as [Ảnh], tentruyen as [Tên truyện], mabt as [Mã bộ truyện], dinhdang as [Định dạng], soluong as [Số lượng], giatien as [Giá tiền] from TruyenTranh");
         }
+        /// <summary>
+        /// Phương thức thêm thông tin của một truyện tranh
+        /// </summary>
+        /// <param name="tt">Thông tin của truyện tranh</param>
+        /// <returns>Trả về true nếu thêm thành công, ngược lại trả về false</returns>
+        /// Created by Nguyễn Minh Hiền – 05/04/2024
         public bool ThemTruyenTranh(DTOTruyenTranh tt)
         {
             try
@@ -43,6 +58,12 @@ namespace DAL
             }
             return false;
         }
+        /// <summary>
+        /// Phương thức sửa thông tin của một truyện tranh
+        /// </summary>
+        /// <param name="tt">Thông tin truyện tranh</param>
+        /// <returns>Trả về true nếu sửa thành công, ngược lại trả về false</returns>
+        /// Created by Nguyễn Minh Hiền – 05/04/2024
         public bool SuaTruyenTranh(DTOTruyenTranh tt)
         {
             try
@@ -78,18 +99,41 @@ namespace DAL
             }
             return false;
         }
+        /// <summary>
+        /// Phương thức xóa thông tin của một truyện tranh
+        /// </summary>
+        /// <param name="ma">Mã truyện tranh</param>
+        /// <returns>Trả về true nếu xóa thành công, ngược lại trả về false</returns>
+        /// Created by Nguyễn Minh Hiền – 05/04/2024
         public bool XoaTruyenTranh(string ma)
         {
             return ex.ReturnBool($"delete  from TruyenTranh where matt = '{ma}'");
         }
+        /// <summary>
+        /// Phương thức lấy danh sách truyện tranh có tên tương ứng
+        /// </summary>
+        /// <param name="ten">Tên truyện tranh</param>
+        /// <returns>Danh sách truyện tranh có tên tương ứng với tên cần tìm</returns>
+        /// Created by Nguyễn Minh Hiền – 05/04/2024
         public DataTable TimKiemTruyenTranh(string ten)
         {
             return ex.ReturnTable($"select matt as [Mã truyện tranh], anh as [Ảnh], tentruyen as [Tên truyện], mabt as [Mã bộ truyện], dinhdang as [Định dạng], soluong as [Số lượng], giatien as [Giá tiền] from TruyenTranh where MaTT='{ten}'");
         }
+        /// <summary>
+        /// Phương thức tạo mã tự động cho truyện tranh
+        /// </summary>
+        /// <returns>Mã truyện tranh mới cho lần nhập tiếp theo</returns>
+        /// Created by Nguyễn Minh Hiền – 05/04/2024
         public DataTable TaoMa()
         {
             return ex.AutoCreateID("MaTT", "TruyenTranh", 3, "TT0");
         }
+        /// <summary>
+        /// Phương thức lấy số lượng truyện tranh hiện tại
+        /// </summary>
+        /// <param name="ma">Mã truyện tranh</param>
+        /// <returns>Số lượng truyện hiện tại</returns>
+        /// Created by Nguyễn Minh Hiền – 05/04/2024
         public string LaySoLuongTruyen(string ma)
         {
             return ex.ReturnValue($"select soluong from truyentranh where MaTT = '{ma}'");

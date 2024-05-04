@@ -230,5 +230,15 @@ namespace GUI
         {
             dgvTruyenTranh.DataSource = busTT.TimKiemTruyenTranh(txtTimKiem.Text.Trim());
         }
+
+        private void txtSoLuong_Leave(object sender, EventArgs e)
+        {
+            CheckNumber();
+        }
+
+        private void txtGiaTien_Leave(object sender, EventArgs e)
+        {
+            CheckNumber();
+        }
     }
 }

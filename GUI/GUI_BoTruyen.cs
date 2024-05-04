@@ -20,11 +20,18 @@ namespace GUI
             InitializeComponent();
         }
         BUSBoTruyen busBoTruyen = new BUSBoTruyen();
+        /// <summary>
+        /// Hàm lấy thông tin truyện đang hiển thị trên textbox
+        /// </summary>
+        /// <param name="ma"></param>
+        /// <param name="ten"></param>
+        /// Created by Nguyễn Minh Hiền – 05/04/2024:
         public void LayThongTinBoTruyen(out string ma, out string ten)
         {
             ma = txtMaBT.Text;
             ten = txtTenBT.Text;
         }
+        /// Created by Nguyễn Minh Hiền – 05/04/2024: Làm mới các trường nhập và cập nhật datagirview
         void RefreshControl()
         {
             txtTenBT.Focus();
@@ -42,6 +49,7 @@ namespace GUI
             txtMaBT.Text = busBoTruyen.TaoMa().Rows[0][0].ToString();
             errorProvider1.Clear();
         }
+        /// Created by Nguyễn Minh Hiền – 05/04/2024: Kiểm tra rỗng đối với các trường thông tin nhập
         bool CheckNull()
         {
             bool ck = true;
@@ -57,6 +65,7 @@ namespace GUI
             }
             return ck;
         }
+        /// Created by Nguyễn Minh Hiền – 05/04/2024: Hiển thị form tác giả và chọn thông tin tác gỉa
         private void txtMaTg_IconRightClick(object sender, EventArgs e)
         {
             frmTacGia tacgia = new frmTacGia();
@@ -68,7 +77,7 @@ namespace GUI
                 txtTenTG.Text = ten;
             }
         }
-
+        /// Created by Nguyễn Minh Hiền – 05/04/2024: Hiển thị form nhà xuất bản và chọn thông tin nhà xuất bản
         private void txtMaNXB_IconRightClick(object sender, EventArgs e)
         {
             frmNXB nxb = new frmNXB();
@@ -79,7 +88,7 @@ namespace GUI
                 txtTenNXB.Text = ten;
             }
         }
-
+        /// Created by Nguyễn Minh Hiền – 05/04/2024: Chọn thông tin trên dgv và hiển thị thông tin được chọn trên các trường dữ liệu tương ứng
         private void dgvBoTruyen_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             BUSTacGia tacGia = new BUSTacGia();
@@ -105,6 +114,7 @@ namespace GUI
                 cboDoTuoi.Text = dgvBoTruyen.Rows[0].Cells[4].Value.ToString().Trim();
             }
         }
+        /// Created by Nguyễn Minh Hiền – 05/04/2024: Thêm thông tin bộ truyện
         private void btnThem_Click(object sender, EventArgs e)
         {
             if (CheckNull())
@@ -128,12 +138,12 @@ namespace GUI
                 MessageBox.Show(Properties.Resources.InvalidInfoMessage, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
-
+        /// Created by Nguyễn Minh Hiền – 05/04/2024: Load form đồng thời làm mới các trường nhập và cập nhật dgv
         private void frmBoTruyen_Load(object sender, EventArgs e)
         {
             RefreshControl();
         }
-
+        /// Created by Nguyễn Minh Hiền – 05/04/2024: Sửa thông tin truyện tranh
         private void btnSua_Click(object sender, EventArgs e)
         {
             if (CheckNull())
@@ -157,7 +167,7 @@ namespace GUI
                 MessageBox.Show(Properties.Resources.InvalidInfoMessage, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
-
+        /// Created by Nguyễn Minh Hiền – 05/04/2024: Xóa thông tin bộ truyện
         private void btnXoa_Click(object sender, EventArgs e)
         {
             if (CheckNull())
@@ -180,12 +190,12 @@ namespace GUI
                 MessageBox.Show(Properties.Resources.InvalidInfoMessage, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
-
+        /// Created by Nguyễn Minh Hiền – 05/04/2024: Làm mới các trường dữ liệu nhập và cập nhật dgv
         private void btnLamMoi_Click(object sender, EventArgs e)
         {
             RefreshControl();
         }
-
+        /// Created by Nguyễn Minh Hiền – 05/04/2024: Tìm kiếm bộ truyện có tên tương ứng với tên cần tìm
         private void txtTimKiem_IconRightClick(object sender, EventArgs e)
         {
             dgvBoTruyen.DataSource = busBoTruyen.TimKiemBoTruyen(txtTimKiem.Text.Trim());

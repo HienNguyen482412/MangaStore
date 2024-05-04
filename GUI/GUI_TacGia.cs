@@ -20,11 +20,13 @@ namespace GUI
             InitializeComponent();
         }
         BUSTacGia busTacGia = new BUSTacGia();
+        /// Created by Nguyễn Minh Hiền – 05/04/2024: Lấy thông tin tác giả 
         public void LayThongTinTacGia(out string matg, out string tentg)
         {
             matg = txtMaTG.Text;
             tentg = txtTenTG.Text;
         }
+        /// Created by Nguyễn Minh Hiền – 05/04/2024: Làm mới các điều khiển
         void RefreshControl()
         {
             txtTenTG.Focus();
@@ -41,6 +43,7 @@ namespace GUI
             txtMaTG.Text = busTacGia.TaoMa().Rows[0][0].ToString();
             errorProvider1.Clear();
         }
+        /// Created by Nguyễn Minh Hiền – 05/04/2024: Kiểm tra rỗng
         bool CheckNull()
         {
             bool ck = true;
@@ -56,11 +59,12 @@ namespace GUI
             }
             return ck;
         }
+        /// Created by Nguyễn Minh Hiền – 05/04/2024: Làm mới các điều khiển
         private void frmGUI_TacGia_Load(object sender, EventArgs e)
         {
             RefreshControl();
         }
-
+        /// Created by Nguyễn Minh Hiền – 05/04/2024: Gán các giá trị chọn trên dgv cho các trường nhập tương ứng
         private void dgvTG_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -74,7 +78,7 @@ namespace GUI
                 txtTenTG.Text = dgvTG.Rows[0].Cells[1].Value.ToString();
             }
         }
-        
+        /// Created by Nguyễn Minh Hiền – 05/04/2024: Thêm tác giả
         private void btnThem_Click(object sender, EventArgs e)
         {
             if (CheckNull())
@@ -98,7 +102,7 @@ namespace GUI
                 MessageBox.Show(Properties.Resources.InvalidInfoMessage, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
-
+        /// Created by Nguyễn Minh Hiền – 05/04/2024: Sửa thông tin tác giả
         private void btnSua_Click(object sender, EventArgs e)
         {
             if (CheckNull())
@@ -122,7 +126,7 @@ namespace GUI
                 MessageBox.Show(Properties.Resources.InvalidInfoMessage, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
-
+        /// Created by Nguyễn Minh Hiền – 05/04/2024: Xóa thông tin tác giả
         private void btnXoa_Click(object sender, EventArgs e)
         {
             if (CheckNull())
@@ -145,12 +149,12 @@ namespace GUI
                 MessageBox.Show(Properties.Resources.InvalidInfoMessage, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
-
+        /// Created by Nguyễn Minh Hiền – 05/04/2024: Làm mới các điều khiển
         private void btnLamMoi_Click(object sender, EventArgs e)
         {
             RefreshControl();
         }
-
+        /// Created by Nguyễn Minh Hiền – 05/04/2024: Hiển thị tác giả có tên tương ứng với tên cần tìm
         private void txtTimKiem_IconRightClick(object sender, EventArgs e)
         {
             dgvTG.DataSource = busTacGia.TimKiemTacGia(txtTenTG.Text);

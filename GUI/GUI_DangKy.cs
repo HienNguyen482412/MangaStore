@@ -13,12 +13,13 @@ namespace GUI
             InitializeComponent();
         }
         BUSNhanVien nv = new BUSNhanVien();
+        /// Created by Nguyễn Minh Hiền – 05/04/2024: Ẩn mật khẩu khi form load
         private void frmDangKy_Load(object sender, EventArgs e)
         {
             txtMatKhau1.UseSystemPasswordChar = true;
             txtMatKhau2.UseSystemPasswordChar = true;
         }
-
+        /// Created by Nguyễn Minh Hiền – 05/04/2024: Khi chọn vào biểu tượng icon nếu ẩn mật khẩu thì thực hiện hiển thị và thay đổi icon và ngược lại
         private void txtMatKhau1_IconRightClick(object sender, EventArgs e)
         {
             if (txtMatKhau1.UseSystemPasswordChar)
@@ -33,7 +34,7 @@ namespace GUI
                 txtMatKhau1.IconRight = Image.FromFile(@"E:\Data_CHMH\Icon\icons8-closed-eye-50.png");
             }
         }
-
+        /// Created by Nguyễn Minh Hiền – 05/04/2024: Khi chọn vào biểu tượng icon nếu ẩn mật khẩu thì thực hiện hiển thị và thay đổi icon và ngược lại
         private void txtMatKhau2_IconRightClick(object sender, EventArgs e)
         {
             if (txtMatKhau2.UseSystemPasswordChar)
@@ -48,6 +49,7 @@ namespace GUI
                 txtMatKhau2.IconRight = Image.FromFile(@"E:\Data_CHMH\Icon\icons8-closed-eye-50.png");
             }
         }
+        /// Created by Nguyễn Minh Hiền – 05/04/2024: Làm mới các trường nhập 
         void Refresh()
         {
             txtTenDN.Clear();
@@ -55,6 +57,7 @@ namespace GUI
             txtMatKhau2.Clear();
             txtMaNV.Clear();
         }
+        /// Created by Nguyễn Minh Hiền – 05/04/2024: Kiểm tra nhân viên đã có tài khoản hay chưa
         bool KiemTraTaiKhoan()
         {
             if (nv.KiemTraNVDaCoTaiKhoan(txtMaNV.Text).Rows[0][0].ToString() == "")
@@ -67,6 +70,7 @@ namespace GUI
                 return false;
             }
         }
+        /// Created by Nguyễn Minh Hiền – 05/04/2024: Kiểm tra rỗng cho các trường dữ liệu nhập
         bool CheckNull()
         {
             bool ck = true;
@@ -80,6 +84,7 @@ namespace GUI
             }
             return ck;
         }
+        /// Created by Nguyễn Minh Hiền – 05/04/2024: Thực hiện đăng kí tài khoản cho nhân viên
         private void btnDangKy_Click(object sender, EventArgs e)
         {
             if (CheckNull() )

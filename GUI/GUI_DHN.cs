@@ -453,5 +453,15 @@ namespace GUI
             }
 
         }
+
+        private void txtSoLuong_Leave(object sender, EventArgs e)
+        {
+            CheckNumber();
+        }
+
+        private void txtGiaTien_Leave(object sender, EventArgs e)
+        {
+            CheckNumber();
+        }
     }
 }

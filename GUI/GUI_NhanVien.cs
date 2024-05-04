@@ -223,5 +223,9 @@ namespace GUI
             }
         }
 
+        private void txtLuong_Leave(object sender, EventArgs e)
+        {
+            CheckNumber();
+        }
     }
 }

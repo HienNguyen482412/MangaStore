@@ -27,7 +27,7 @@ namespace GUI
             txtMatKhau1.UseSystemPasswordChar = true;
             txtMatKhau2.UseSystemPasswordChar = true;
         }
-
+        /// Created by Nguyễn Minh Hiền – 05/04/2024: Khi chọn vào biểu tượng icon nếu ẩn mật khẩu thì thực hiện hiển thị và thay đổi icon và ngược lại
         private void txtMatKhau1_IconRightClick(object sender, EventArgs e)
         {
             if (txtMatKhau1.UseSystemPasswordChar)
@@ -42,7 +42,7 @@ namespace GUI
                 txtMatKhau1.IconRight = Image.FromFile(@"E:\Data_CHMH\Icon\icons8-closed-eye-50.png");
             }
         }
-
+        /// Created by Nguyễn Minh Hiền – 05/04/2024: Khi chọn vào biểu tượng icon nếu ẩn mật khẩu thì thực hiện hiển thị và thay đổi icon và ngược lại
         private void txtMatKhau2_IconRightClick(object sender, EventArgs e)
         {
             if (txtMatKhau2.UseSystemPasswordChar)
@@ -57,6 +57,7 @@ namespace GUI
                 txtMatKhau2.IconRight = Image.FromFile(@"E:\Data_CHMH\Icon\icons8-closed-eye-50.png");
             }
         }
+        /// Created by Nguyễn Minh Hiền – 05/04/2024: Làm mới các trường nhập
         void Refresh()
         {
             txtTenDN.Clear();
@@ -67,6 +68,7 @@ namespace GUI
         }
         string random = Membership.GeneratePassword(5, 2);
         string xt = "";
+        /// Created by Nguyễn Minh Hiền – 05/04/2024: Kiểm tra rỗng
         bool CheckNull()
         {
             bool ck = true;
@@ -81,6 +83,7 @@ namespace GUI
             }
             return ck;
         }
+        /// Created by Nguyễn Minh Hiền – 05/04/2024: Gửi mã xác nhận qua gmail
         private void btnGuiMaXN_Click(object sender, EventArgs e)
         {
             if (txtMaNV.Text != "" )
@@ -111,7 +114,7 @@ namespace GUI
                 
             }
         }
-
+        /// Created by Nguyễn Minh Hiền – 05/04/2024: Thực hiện đăng kí lại tài khoản
         private void btnTao_Click(object sender, EventArgs e)
         {
             if (CheckNull())
@@ -147,12 +150,12 @@ namespace GUI
 
             }
         }
-
+        /// Created by Nguyễn Minh Hiền – 05/04/2024: Làm mới
         private void btnLamMoi_Click(object sender, EventArgs e)
         {
             Refresh();
         }
-
+        /// Created by Nguyễn Minh Hiền – 05/04/2024: Thoát khỏi form
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Close();

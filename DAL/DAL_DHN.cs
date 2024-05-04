@@ -11,18 +11,41 @@ namespace DAL
     public class DALDHN
     {
         ExcuteQuerry ex = new ExcuteQuerry();
+        /// <summary>
+        /// Phương thức lấy danh sách các hóa đơn nhập
+        /// </summary>
+        /// <returns>Danh sách các thông tin của hóa đơn nhập</returns>
+        /// Created by Nguyễn Minh Hiền – 05/04/2024
         public DataTable LayDHN()
         {
             return ex.ReturnTable($"select MaHDN as [Mã đơn hàng nhập], MaNV as [Mã nhân viên], MaNXB as [Mã nhà xuất bản], ngaynhap as [Ngày nhập] from HDN");
         }
+        /// <summary>
+        /// Phương thức sửa một hóa đơn nhập
+        /// </summary>
+        /// <param name="dhn">Thông tin của một hóa đơn nhập</param>
+        /// <returns>Trả về true nếu thêm thành công, ngược lại trả về false</returns>
+        /// Created by Nguyễn Minh Hiền – 05/04/2024
         public bool ThemDHN(DTODHN dhn)
         {
             return ex.ReturnBool($"insert into HDN values ('{dhn.MaDHN1}','{dhn.MaNV1}','{dhn.MaNXB1}','{dhn.NgayNhap1}')");
         }
+        /// <summary>
+        /// Phương thức sửa một hóa đơn nhập
+        /// </summary>
+        /// <param name="dhn">Thông tin của một hóa đơn nhập</param>
+        /// <returns>Trả về true nếu sửa thành công, ngược lại trả về false</returns>
+        /// Created by Nguyễn Minh Hiền – 05/04/2024
         public bool SuaDHN(DTODHN dhn)
         {
             return ex.ReturnBool($"update HDN set MaNV = '{dhn.MaNV1}', MaNXB = '{dhn.MaNXB1}', NgayNhap = '{dhn.NgayNhap1}' where mahdn = '{dhn.MaDHN1}'");
         }
+        /// <summary>
+        /// Phương thức xóa một hóa đơn nhập
+        /// </summary>
+        /// <param name="ma">Mã hóa đơn nhập cần xóa</param>
+        /// <returns>Trả về true nếu xóa thành công, ngược lại trả về false</returns>
+        /// Created by Nguyễn Minh Hiền – 05/04/2024
         public bool XoaDHN(string ma)
         {
             return ex.ReturnBool($"delete from HDN where MaHDN = '{ma}'");
@@ -58,6 +81,11 @@ namespace DAL
 
             }
         }
+        /// <summary>
+        /// Phương thức tự động tạo mã cho đơn hàng nhập
+        /// </summary>
+        /// <returns>Mã đơn hàng nhập mới cho lần nhập tiếp theo</returns>
+        /// Created by Nguyễn Minh Hiền – 05/04/2024
         public DataTable TaoMa()
         {
             return ex.AutoCreateID("MaHDN", "HDN", 4, "HDN0");

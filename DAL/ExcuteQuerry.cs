@@ -11,6 +11,7 @@ namespace DAL
         /// </summary>
         /// <param name="querry">câu truy vấn sql</param>
         /// <returns>datatable</returns>
+        /// Created by Nguyễn Minh Hiền – 05/04/2024
         public DataTable ReturnTable(string querry)
         {
             SqlDataAdapter da = new SqlDataAdapter(querry, _conn);
@@ -24,6 +25,7 @@ namespace DAL
         /// </summary>
         /// <param name="querry">câu truy vấn sql</param>
         /// <returns>bool</returns>
+        /// Created by Nguyễn Minh Hiền – 05/04/2024
         public bool ReturnBool(string querry)
         {
             try
@@ -51,6 +53,7 @@ namespace DAL
         /// </summary>
         /// <param name="querry">câu truy vấn sql</param>
         /// <returns>string</returns>
+        /// Created by Nguyễn Minh Hiền – 05/04/2024
         public string ReturnValue(string querry)
         {
             try
@@ -68,6 +71,14 @@ namespace DAL
                 _conn.Close();
             }
         }
+        /// <summary>
+        /// Phương thức tự động tạo mã
+        /// </summary>
+        /// <param name="tencot">Tên cột</param>
+        /// <param name="tenbang">Tên bảng</param>
+        /// <param name="sokitu">Số kí tựparam>
+        /// <param name="kitu">Kí tự</param>
+        /// <returns>Mã mới</returns>
         public DataTable AutoCreateID(string tencot, string tenbang, int sokitu, string kitu)
         {
             SqlDataAdapter da = new SqlDataAdapter($"TaoMa", _conn);

@@ -15,6 +15,7 @@ namespace GUI
         public static bool quyenQL = false;
         public static string tenNV = "";
         public static string maNV = "";
+        /// Created by Nguyễn Minh Hiền – 05/04/2024: Khi chọn vào biểu tượng icon nếu ẩn mật khẩu thì thực hiện hiển thị và thay đổi icon và ngược lại
         private void txtMatKhau_IconRightClick(object sender, EventArgs e)
         {
             if (txtMatKhau.UseSystemPasswordChar)
@@ -34,6 +35,7 @@ namespace GUI
         {
             txtMatKhau.UseSystemPasswordChar = true;
         }
+        /// Created by Nguyễn Minh Hiền – 05/04/2024: Mở form đăng kí
 
         private void btnDangKy_Click(object sender, EventArgs e)
         {
@@ -44,7 +46,7 @@ namespace GUI
                 this.Show();
             }
         }
-
+        /// Created by Nguyễn Minh Hiền – 05/04/2024: Mở form quên mật khẩu
         private void llbQuenMK_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             frmQuenMK qmk = new frmQuenMK();
@@ -54,6 +56,7 @@ namespace GUI
                 this.Show();
             }
         }
+        /// Created by Nguyễn Minh Hiền – 05/04/2024: Kiểm tra trường nhập rỗng
         bool CheckNull()
         {
             bool ck = true;
@@ -74,6 +77,8 @@ namespace GUI
             }
             return ck;
         }
+        /// Created by Nguyễn Minh Hiền – 05/04/2024: Thực hiện đăng nhập
+
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
             string messageContent;
@@ -130,11 +135,12 @@ namespace GUI
             }
 
         }
-
+        /// Created by Nguyễn Minh Hiền – 05/04/2024: Thoát
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+        /// Created by Nguyễn Minh Hiền – 05/04/2024: Làm mới các trường nhập
         void Refresh()
         {
             errorProvider1.Clear();
@@ -143,6 +149,7 @@ namespace GUI
             rdoNhanVien.Checked = false;
             rdoQuanLy.Checked = false;
         }
+        /// Created by Nguyễn Minh Hiền – 05/04/2024: Làm mới các trường nhập
         private void btnLamMoi_Click(object sender, EventArgs e)
         {
             Refresh();
@@ -155,7 +162,7 @@ namespace GUI
 
         private void frmDangNhap_VisibleChanged(object sender, EventArgs e)
         {
-            Refresh();
+            
         }
 
         private void rdoQuanLy_CheckedChanged(object sender, EventArgs e)

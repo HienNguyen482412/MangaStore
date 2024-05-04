@@ -471,5 +471,10 @@ namespace GUI
                 MessageBox.Show(Properties.Resources.InvalidInfoMessage, Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             }
         }
+
+        private void txtSoLuong_Leave(object sender, EventArgs e)
+        {
+            CheckNumber();
+        }
     }
 }
