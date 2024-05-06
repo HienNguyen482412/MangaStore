@@ -26,6 +26,17 @@ namespace GUI
             matg = txtMaTG.Text;
             tentg = txtTenTG.Text;
         }
+        /// Created by Nguyễn Minh Hiền – 05/04/2024: Kiểm tra giá trị các textbox
+        bool CheckValue()
+        {
+            if (txtTenTG.Text.Length < 2 || txtTenTG.Text.Length >100)
+            {
+                errorProvider1.SetError(txtTenTG, "Tên tác giả có độ dài từ 2 đến 100 kí tự");
+                return false;
+            }
+            return true;
+        }
+
         /// Created by Nguyễn Minh Hiền – 05/04/2024: Làm mới các điều khiển
         void RefreshControl()
         {
@@ -83,7 +94,7 @@ namespace GUI
         {
             if (CheckNull())
             {
-                if (MessageBox.Show(string.Format(Properties.Resources.AddMessage, "tác giả"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (CheckValue() && MessageBox.Show(string.Format(Properties.Resources.AddMessage, "tác giả"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
                     DTOTacGia tg = new DTOTacGia(txtMaTG.Text, txtTenTG.Text);
                     if (busTacGia.ThemTacGia(tg))
@@ -107,7 +118,7 @@ namespace GUI
         {
             if (CheckNull())
             {
-                if (MessageBox.Show(string.Format(Properties.Resources.EditMessage, "bộ truyện"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (CheckValue() && MessageBox.Show(string.Format(Properties.Resources.EditMessage, "bộ truyện"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
                     DTOTacGia tg = new DTOTacGia(txtMaTG.Text, txtTenTG.Text);
                     if (busTacGia.SuaTacGia(tg))

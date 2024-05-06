@@ -38,6 +38,8 @@
             this.btnBill = new Guna.UI2.WinForms.Guna2Button();
             this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.pnlBarContainer = new System.Windows.Forms.Panel();
+            this.btnTat_QL = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.btnDangXuat_QL = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.btnAuthor = new Guna.UI2.WinForms.Guna2Button();
             this.btnManga = new Guna.UI2.WinForms.Guna2Button();
@@ -58,8 +60,6 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnBoTruyen = new Guna.UI2.WinForms.Guna2Button();
             this.pnlFormContainer = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnDangXuat_QL = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.btnTat_QL = new Guna.UI2.WinForms.Guna2ImageButton();
             this.pnlBillContainer.SuspendLayout();
             this.pnlBarContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picStoreName)).BeginInit();
@@ -214,6 +214,42 @@
             this.pnlBarContainer.Name = "pnlBarContainer";
             this.pnlBarContainer.Size = new System.Drawing.Size(856, 45);
             this.pnlBarContainer.TabIndex = 14;
+            // 
+            // btnTat_QL
+            // 
+            this.btnTat_QL.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnTat_QL.BackColor = System.Drawing.Color.Transparent;
+            this.btnTat_QL.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnTat_QL.HoverState.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnTat_QL.Image = ((System.Drawing.Image)(resources.GetObject("btnTat_QL.Image")));
+            this.btnTat_QL.ImageOffset = new System.Drawing.Point(0, 0);
+            this.btnTat_QL.ImageRotate = 0F;
+            this.btnTat_QL.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnTat_QL.Location = new System.Drawing.Point(666, 4);
+            this.btnTat_QL.Name = "btnTat_QL";
+            this.btnTat_QL.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnTat_QL.Size = new System.Drawing.Size(34, 38);
+            this.btnTat_QL.TabIndex = 7;
+            this.btnTat_QL.Visible = false;
+            this.btnTat_QL.Click += new System.EventHandler(this.btnTat_QL_Click);
+            // 
+            // btnDangXuat_QL
+            // 
+            this.btnDangXuat_QL.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnDangXuat_QL.BackColor = System.Drawing.Color.Transparent;
+            this.btnDangXuat_QL.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnDangXuat_QL.HoverState.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnDangXuat_QL.Image = ((System.Drawing.Image)(resources.GetObject("btnDangXuat_QL.Image")));
+            this.btnDangXuat_QL.ImageOffset = new System.Drawing.Point(0, 0);
+            this.btnDangXuat_QL.ImageRotate = 0F;
+            this.btnDangXuat_QL.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnDangXuat_QL.Location = new System.Drawing.Point(626, 4);
+            this.btnDangXuat_QL.Name = "btnDangXuat_QL";
+            this.btnDangXuat_QL.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnDangXuat_QL.Size = new System.Drawing.Size(34, 38);
+            this.btnDangXuat_QL.TabIndex = 7;
+            this.btnDangXuat_QL.Visible = false;
+            this.btnDangXuat_QL.Click += new System.EventHandler(this.btnDangXuat_QL_Click);
             // 
             // guna2ControlBox3
             // 
@@ -507,40 +543,6 @@
             this.pnlFormContainer.Name = "pnlFormContainer";
             this.pnlFormContainer.Size = new System.Drawing.Size(856, 639);
             this.pnlFormContainer.TabIndex = 15;
-            // 
-            // btnDangXuat_QL
-            // 
-            this.btnDangXuat_QL.BackColor = System.Drawing.Color.Transparent;
-            this.btnDangXuat_QL.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.btnDangXuat_QL.HoverState.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnDangXuat_QL.Image = ((System.Drawing.Image)(resources.GetObject("btnDangXuat_QL.Image")));
-            this.btnDangXuat_QL.ImageOffset = new System.Drawing.Point(0, 0);
-            this.btnDangXuat_QL.ImageRotate = 0F;
-            this.btnDangXuat_QL.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnDangXuat_QL.Location = new System.Drawing.Point(626, 4);
-            this.btnDangXuat_QL.Name = "btnDangXuat_QL";
-            this.btnDangXuat_QL.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.btnDangXuat_QL.Size = new System.Drawing.Size(34, 38);
-            this.btnDangXuat_QL.TabIndex = 7;
-            this.btnDangXuat_QL.Visible = false;
-            this.btnDangXuat_QL.Click += new System.EventHandler(this.btnDangXuat_QL_Click);
-            // 
-            // btnTat_QL
-            // 
-            this.btnTat_QL.BackColor = System.Drawing.Color.Transparent;
-            this.btnTat_QL.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.btnTat_QL.HoverState.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnTat_QL.Image = ((System.Drawing.Image)(resources.GetObject("btnTat_QL.Image")));
-            this.btnTat_QL.ImageOffset = new System.Drawing.Point(0, 0);
-            this.btnTat_QL.ImageRotate = 0F;
-            this.btnTat_QL.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnTat_QL.Location = new System.Drawing.Point(666, 4);
-            this.btnTat_QL.Name = "btnTat_QL";
-            this.btnTat_QL.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.btnTat_QL.Size = new System.Drawing.Size(34, 38);
-            this.btnTat_QL.TabIndex = 7;
-            this.btnTat_QL.Visible = false;
-            this.btnTat_QL.Click += new System.EventHandler(this.btnTat_QL_Click);
             // 
             // frmTrangChu
             // 

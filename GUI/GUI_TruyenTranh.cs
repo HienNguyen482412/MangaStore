@@ -4,6 +4,7 @@ using Guna.UI2.WinForms;
 using System;
 using System.Drawing;
 using System.IO;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace GUI
@@ -26,6 +27,17 @@ namespace GUI
             ma = txtMaTT.Text;
             ten = txtTenTT.Text;
         }
+        bool CheckValue()
+        {
+            errorProvider1.Clear();
+            if (txtTenTT.Text.Length < 2 || txtTenTT.Text.Length > 100)
+            {
+                errorProvider1.SetError(txtTenTT, "Tên truyện tranh từ 2 đến 200 kí tự");
+                return false;
+            }
+            return true;
+        }
+
         void RefreshControl()
         {
             txtTenTT.Focus();
@@ -89,7 +101,7 @@ namespace GUI
         {
             if (CheckNull())
             {
-                if (MessageBox.Show(string.Format(Properties.Resources.AddMessage, "bộ truyện"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes && CheckNumber())
+                if (CheckValue() && MessageBox.Show(string.Format(Properties.Resources.AddMessage, "bộ truyện"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes && CheckNumber())
                 {
                     DTOTruyenTranh tt = new DTOTruyenTranh(txtMaTT.Text, txtLink.Text, txtTenTT.Text, txtMaBT.Text, cboDinhDang.Text, Convert.ToInt16(txtSoLuong.Text), Convert.ToInt32(txtGiaTien.Text));
                     if (busTT.ThemTruyenTranh(tt))
@@ -183,7 +195,7 @@ namespace GUI
         {
             if (CheckNull())
             {
-                if (MessageBox.Show(string.Format(Properties.Resources.EditMessage, "bộ truyện"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes && CheckNumber())
+                if ( CheckValue() && MessageBox.Show(string.Format(Properties.Resources.EditMessage, "bộ truyện"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes && CheckNumber())
                 {
                     DTOTruyenTranh tt = new DTOTruyenTranh(txtMaTT.Text, txtLink.Text, txtTenTT.Text, txtMaBT.Text, cboDinhDang.Text, Convert.ToInt16(txtSoLuong.Text), Convert.ToInt32(txtGiaTien.Text));
                     if (busTT.SuaTruyenTranh(tt))

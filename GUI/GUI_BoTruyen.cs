@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -31,6 +32,18 @@ namespace GUI
             ma = txtMaBT.Text;
             ten = txtTenBT.Text;
         }
+        /// Created by Nguyễn Minh Hiền – 05/05/2024: Kiểm tra giá trị trong textbox
+        bool CheckValue()
+        {
+            errorProvider1.Clear();
+            if (txtTenBT.Text.Length < 2 || txtTenBT.Text.Length > 50)
+            {
+                errorProvider1.SetError(txtTenBT, "Tên bộ truyện từ 2 đến 50 kí tự");
+                return false;
+            }
+            return true;
+        }
+
         /// Created by Nguyễn Minh Hiền – 05/04/2024: Làm mới các trường nhập và cập nhật datagirview
         void RefreshControl()
         {
@@ -119,7 +132,7 @@ namespace GUI
         {
             if (CheckNull())
             {
-                if (MessageBox.Show(string.Format(Properties.Resources.AddMessage, "bộ truyện"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (CheckValue() && MessageBox.Show(string.Format(Properties.Resources.AddMessage, "bộ truyện"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
                     DTOBoTruyen bt = new DTOBoTruyen(txtMaBT.Text,txtTenBT.Text, txtMaTg.Text, txtMaNXB.Text, Convert.ToInt16(cboDoTuoi.Text.Trim()));
                     if (busBoTruyen.ThemBoTruyen(bt))
@@ -148,7 +161,7 @@ namespace GUI
         {
             if (CheckNull())
             {
-                if (MessageBox.Show(string.Format(Properties.Resources.EditMessage, "bộ truyện"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (CheckValue() && MessageBox.Show(string.Format(Properties.Resources.EditMessage, "bộ truyện"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
                     DTOBoTruyen bt = new DTOBoTruyen(txtMaBT.Text, txtTenBT.Text, txtMaTg.Text, txtMaNXB.Text, Convert.ToInt16(cboDoTuoi.Text.Trim()));
                     if (busBoTruyen.SuaBoTruyen(bt))

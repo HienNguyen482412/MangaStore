@@ -99,6 +99,7 @@ namespace GUI
                         if (tc.ShowDialog() == DialogResult.Cancel)
                         {
                             this.Show();
+                            btnLamMoi.PerformClick();
                         }
                     }
                     else
@@ -119,6 +120,7 @@ namespace GUI
                         if (tc.ShowDialog() == DialogResult.Cancel)
                         {
                             this.Show();
+                            btnLamMoi.PerformClick();
                         }
                     }
                     else
@@ -154,7 +156,7 @@ namespace GUI
         {
             Refresh();
         }
-
+    
         private void frmDangNhap_Shown(object sender, EventArgs e)
         {
 

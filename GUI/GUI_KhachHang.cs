@@ -2,6 +2,7 @@
 using DTO;
 using Guna.UI2.WinForms;
 using System;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace GUI
@@ -37,6 +38,32 @@ namespace GUI
                 return false;
             }
         }
+        bool CheckValue()
+        {
+            errorProvider1.Clear();
+            bool ck = true;
+            if (txtTenKH.Text.Length < 2 || txtTenKH.Text.Length > 100)
+            {
+                errorProvider1.SetError(txtTenKH, "Tên khách hàng từ 2 đến 100 kí tự");
+                ck = false;
+            }
+            if (txtDiaChi.Text.Length < 2 || txtDiaChi.Text.Length > 50)
+            {
+                errorProvider1.SetError(txtDiaChi, "Địa chỉ từ 2 đến 50 kí tự");
+                ck = false;
+            }
+            if (Regex.IsMatch(txtSDT.Text.Trim(), "[0-9]{10}") == false)
+            {
+                errorProvider1.SetError(txtSDT, "Số điện thoại không hợp lệ");
+                ck = false;
+            }
+            if (!ck)
+            {
+                return false;
+            }
+            return true;
+        }
+
         bool CheckNull()
         {
             bool ck = true;
@@ -107,7 +134,7 @@ namespace GUI
         {
             if (CheckNull())
             {
-                if (MessageBox.Show(string.Format(Properties.Resources.AddMessage, "khách hàng"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes && CheckNgaySinh())
+                if (CheckValue() && MessageBox.Show(string.Format(Properties.Resources.AddMessage, "khách hàng"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes && CheckNgaySinh())
                 {
                     DTOKhachHang kh = new DTOKhachHang(txtMaKH.Text, txtTenKH.Text, cboGioiTinh.Text, dtpNgaySinh.Value.ToString("yyyy/MM/dd"), txtDiaChi.Text, txtSDT.Text);
                     if (busKH.ThemKhachHang(kh))
@@ -131,7 +158,7 @@ namespace GUI
         {
             if (CheckNull() && CheckNgaySinh())
             {
-                if (MessageBox.Show(string.Format(Properties.Resources.EditMessage, "khách hàng"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes && CheckNgaySinh())
+                if ( CheckValue() && MessageBox.Show(string.Format(Properties.Resources.EditMessage, "khách hàng"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes && CheckNgaySinh())
                 {
                     DTOKhachHang kh = new DTOKhachHang(txtMaKH.Text, txtTenKH.Text, cboGioiTinh.Text, dtpNgaySinh.Value.ToString("yyyy/MM/dd"), txtDiaChi.Text, txtSDT.Text);
                     if (busKH.SuaKhachHang(kh))

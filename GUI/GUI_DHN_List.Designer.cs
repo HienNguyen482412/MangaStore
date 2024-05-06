@@ -67,6 +67,7 @@
             // 
             // btnTimKiem
             // 
+            this.btnTimKiem.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnTimKiem.AutoRoundedCorners = true;
             this.btnTimKiem.BorderRadius = 18;
             this.btnTimKiem.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -86,6 +87,7 @@
             // 
             // rdoTheoNam
             // 
+            this.rdoTheoNam.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rdoTheoNam.AutoSize = true;
             this.rdoTheoNam.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.rdoTheoNam.CheckedState.BorderThickness = 0;
@@ -105,6 +107,7 @@
             // 
             // rdoTheoThang
             // 
+            this.rdoTheoThang.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rdoTheoThang.AutoSize = true;
             this.rdoTheoThang.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.rdoTheoThang.CheckedState.BorderThickness = 0;
@@ -124,6 +127,7 @@
             // 
             // rdoTheoNgay
             // 
+            this.rdoTheoNgay.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rdoTheoNgay.AutoSize = true;
             this.rdoTheoNgay.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.rdoTheoNgay.CheckedState.BorderThickness = 0;
@@ -143,6 +147,7 @@
             // 
             // dtpNgayBan
             // 
+            this.dtpNgayBan.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dtpNgayBan.AutoRoundedCorners = true;
             this.dtpNgayBan.BorderRadius = 18;
             this.dtpNgayBan.Checked = true;

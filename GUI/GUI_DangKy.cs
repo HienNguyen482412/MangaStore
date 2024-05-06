@@ -19,6 +19,22 @@ namespace GUI
             txtMatKhau1.UseSystemPasswordChar = true;
             txtMatKhau2.UseSystemPasswordChar = true;
         }
+        /// Created by Nguyễn Minh Hiền – 05/04/2024: Kiểm tra giá trị 
+        bool CheckValue()
+        {
+            if (txtTenDN.Text.Length < 2 || txtTenDN.Text.Length > 20)
+            {
+                errorProvider1.SetError(txtMatKhau1, "Tên đăng nhập chỉ gồm từ 2 - 20 kí tự");
+                return false;
+            }
+            if (txtMatKhau1.Text.Length < 2 || txtMatKhau1.Text.Length > 20)
+            {
+                errorProvider1.SetError(txtMatKhau1, "Mật khẩu chỉ gồm từ 2 - 20 kí tự");
+                return false;
+            }
+            return true;
+        }
+
         /// Created by Nguyễn Minh Hiền – 05/04/2024: Khi chọn vào biểu tượng icon nếu ẩn mật khẩu thì thực hiện hiển thị và thay đổi icon và ngược lại
         private void txtMatKhau1_IconRightClick(object sender, EventArgs e)
         {
@@ -91,7 +107,7 @@ namespace GUI
             {
                 if (txtMatKhau1.Text.Trim() == txtMatKhau2.Text.Trim())
                 {
-                    if (KiemTraTaiKhoan() && nv.DangKy(txtTenDN.Text.Trim(), txtMatKhau1.Text.Trim(), txtMaNV.Text.Trim()) )
+                    if (KiemTraTaiKhoan() && CheckValue() && nv.DangKy(txtTenDN.Text.Trim(), txtMatKhau1.Text.Trim(), txtMaNV.Text.Trim()) )
                     {
                         MessageBox.Show(string.Format(Properties.Resources.SuccessfullActionMessage,"Đăng kí"), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Refresh();

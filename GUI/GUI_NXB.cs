@@ -9,6 +9,7 @@ using System.Drawing;
 using System.Linq;
 using System.Net.Mail;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -28,6 +29,38 @@ namespace GUI
             tennxb = txtTenNXB.Text;
 
         }
+        /// Created by Nguyễn Minh Hiền – 05/05/2024: Kiểm tra giá trị
+        bool CheckValue()
+        {
+            errorProvider1.Clear();
+            bool ck = true;
+            if (txtTenNXB.Text.Length < 2 || txtTenNXB.Text.Length > 100)
+            {
+                errorProvider1.SetError(txtTenNXB, "Tên nhà xuất bản từ 2 đến 100 kí tự");
+                ck = false;
+            }
+            if (txtDiaChi.Text.Length < 2 || txtDiaChi.Text.Length > 50)
+            {
+                errorProvider1.SetError(txtDiaChi, "Địa chỉ từ 2 đến 50 kí tự");
+                ck = false;
+            }
+            if (Regex.IsMatch(txtSDT.Text.Trim(), "[0-9]{10}") == false)
+            {
+                errorProvider1.SetError(txtSDT, "Số điện thoại không hợp lệ");
+                ck = false;
+            }
+            if (!Regex.IsMatch(txtEmail.Text.Trim(), @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"))
+            {
+                errorProvider1.SetError(txtEmail, "Email không hợp lệ");
+                ck = false;
+            }
+            if (!ck)
+            {
+                return false;
+            }
+            return true;
+        }
+        
         /// Created by Nguyễn Minh Hiền – 05/04/2024: Lấy thông tin nhà xuất bản tại các trường nhập tương ứng
         public void LayThongTinNXB(out string ma, out string ten, out string sdt, out string email, out string diachi)
         {
@@ -81,7 +114,7 @@ namespace GUI
         {
             if (CheckNull())
             {
-                if (MessageBox.Show(string.Format(Properties.Resources.AddMessage, "nhà xuất bản"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (CheckValue() && MessageBox.Show(string.Format(Properties.Resources.AddMessage, "nhà xuất bản"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
                     DTONXB nxb = new DTONXB(txtMaNXB.Text, txtTenNXB.Text, txtDiaChi.Text, txtSDT.Text, txtEmail.Text);
                     if (busNXB.ThemNXB(nxb))
@@ -134,7 +167,7 @@ namespace GUI
         {
             if (CheckNull())
             {
-                if (MessageBox.Show(string.Format(Properties.Resources.EditMessage, "nhà xuất bản"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (CheckValue() && MessageBox.Show(string.Format(Properties.Resources.EditMessage, "nhà xuất bản"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
                     DTONXB nxb = new DTONXB(txtMaNXB.Text, txtTenNXB.Text, txtDiaChi.Text, txtSDT.Text, txtEmail.Text);
                     if (busNXB.SuaNXB(nxb))
@@ -180,26 +213,6 @@ namespace GUI
         private void txtTimKiem_IconRightClick(object sender, EventArgs e)
         {
             dgvNXB.DataSource = busNXB.TimKiemNXB(txtTenNXB.Text.Trim());
-        }
-        /// Created by Nguyễn Minh Hiền – 05/04/2024: Kiểm tra địa chỉ email
-        private void txtDiaChi_Leave(object sender, EventArgs e)
-        {
-            if (txtEmail.Text.Trim().EndsWith("."))
-            {
-                errorProvider1.SetError(txtEmail, "Email không hợp lệ");
-                txtEmail.Clear();
-            }
-            try
-            {
-                var addr = new MailAddress(txtEmail.Text.Trim());
-
-            }
-            catch
-            {
-                errorProvider1.SetError(txtEmail, "Email không hợp lệ");
-                txtEmail.Clear();
-
-            }
         }
     }
 }

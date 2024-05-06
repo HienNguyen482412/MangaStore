@@ -3,6 +3,7 @@ using DTO;
 using Guna.UI2.WinForms;
 using System;
 using System.Net.Mail;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 namespace GUI
 {
@@ -126,12 +127,43 @@ namespace GUI
         {
 
         }
+        bool CheckValue()
+        {
+            errorProvider1.Clear();
+            bool ck = true;
+            if (txtTenNV.Text.Length < 2 || txtTenNV.Text.Length > 50)
+            {
+                errorProvider1.SetError(txtTenNV, "Tên nhân viên từ 2 đến 50 kí tự");
+                ck = false;
+            }
+            if (txtDiaChi.Text.Length < 2 || txtDiaChi.Text.Length > 50)
+            {
+                errorProvider1.SetError(txtDiaChi, "Địa chỉ từ 2 đến 50 kí tự");
+                ck = false;
+            }
+            if (Regex.IsMatch(txtSDT.Text.Trim(), "[0-9]{10}") == false)
+            {
+                errorProvider1.SetError(txtSDT, "Số điện thoại không hợp lệ");
+                ck = false;
+            }
+            if (!Regex.IsMatch(txtEmail.Text.Trim(), @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"))
+            {
+                errorProvider1.SetError(txtEmail, "Email không hợp lệ");
+                ck = false;
+            }
+            if (!ck)
+            {
+                return false;
+            }
+            return true;
+        }
+
 
         private void btnThem_Click(object sender, EventArgs e)
         {
             if (CheckNull())
             {
-                if (MessageBox.Show(string.Format(Properties.Resources.AddMessage, "nhân viên"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes && CheckNgaySinh() && CheckNumber())
+                if (CheckValue() && MessageBox.Show(string.Format(Properties.Resources.AddMessage, "nhân viên"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes && CheckNgaySinh() && CheckNumber())
                 {
                     DTONhanVien nv = new DTONhanVien(txtMaNV.Text, txtTenNV.Text, cboGioiTinh.Text, dtpNgaySinh.Value.ToString("yyyy/MM/dd"), txtDiaChi.Text, txtSDT.Text, txtEmail.Text, dtpNgayBD.Value.ToString("yyyy/MM/dd"), Convert.ToInt32(txtLuong.Text));
                     if (busNV.ThemNhanVien(nv) )
@@ -155,7 +187,7 @@ namespace GUI
         {
             if (CheckNull() )
             {
-                if (MessageBox.Show(string.Format(Properties.Resources.EditMessage, "nhân viên"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes && CheckNgaySinh() && CheckNumber())
+                if (CheckValue() && MessageBox.Show(string.Format(Properties.Resources.EditMessage, "nhân viên"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes && CheckNgaySinh() && CheckNumber())
                 {
                     DTONhanVien nv = new DTONhanVien(txtMaNV.Text, txtTenNV.Text, cboGioiTinh.Text, dtpNgaySinh.Value.ToString("yyyy/MM/dd"), txtDiaChi.Text, txtSDT.Text, txtEmail.Text, dtpNgayBD.Value.ToString("yyyy/MM/dd"), Convert.ToInt32(txtLuong.Text));
                     if (busNV.SuaNhanVien(nv) )
@@ -207,18 +239,19 @@ namespace GUI
         {
             if (txtEmail.Text.Trim().EndsWith("."))
             {
-                MessageBox.Show("Email không hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtEmail.Clear();
+                errorProvider1.SetError(txtEmail, "Email không hợp lệ");
+
             }
             try
             {
                 var addr = new MailAddress(txtEmail.Text.Trim());
+                errorProvider1.Clear();
 
             }
             catch
             {
-                MessageBox.Show("Email không hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtEmail.Clear();
+                errorProvider1.SetError(txtEmail, "Email không hợp lệ");
+
 
             }
         }
