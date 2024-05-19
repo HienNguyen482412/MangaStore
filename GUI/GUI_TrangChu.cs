@@ -33,8 +33,8 @@ namespace GUI
             {
                 pnlMenuContainer.Width = 68;
                 this.Width = 950; pnlBillContainer.Height = 60;
-                btnStatistic.Enabled = true;
-                btnStatistic.Visible = true;
+                btnThongKe.Enabled = true;
+                btnThongKe.Visible = true;
                 picStoreName.Visible = false;
                 if (frmDangNhap.quyenQL == false)
                 {
@@ -62,14 +62,14 @@ namespace GUI
                 if (pnlBillContainer.Height == 187)
                 {
                     pnlBillContainer.Height = 60;
-                    btnStatistic.Enabled = true;
-                    btnStatistic.Visible = true;
+                    btnThongKe.Enabled = true;
+                    btnThongKe.Visible = true;
                 }
                 else
                 {
                     pnlBillContainer.Height = 187;
-                    btnStatistic.Enabled = false;
-                    btnStatistic.Visible = false;
+                    btnThongKe.Enabled = false;
+                    btnThongKe.Visible = false;
                 }
             }
 
@@ -128,7 +128,7 @@ namespace GUI
         {
             if (frmDangNhap.quyenQL == false)
             {
-                btnStaff.Visible = false;
+                btnNhanVien.Visible = false;
                 lbMaNV.Text = frmDangNhap.maNV;
                 lbTenNV.Text = frmDangNhap.tenNV;
                     
@@ -153,7 +153,7 @@ namespace GUI
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Xác nhận đăng xuất ?", "Thông báo", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show(Properties.Resources.LogOutMessage, Application.ProductName, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 this.Close();
             }
@@ -162,7 +162,7 @@ namespace GUI
 
         private void btnTat_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Xác nhận thoát ?", "Thông báo", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show(Properties.Resources.ExitMessage, Application.ProductName, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 Environment.Exit(0);
             }
@@ -176,6 +176,15 @@ namespace GUI
         private void btnTat_QL_Click(object sender, EventArgs e)
         {
             btnTat.PerformClick();
+        }
+
+        private void guna2ControlBox1_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show(Properties.Resources.LogOutMessage, Application.ProductName, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                this.Close();
+            }
+
         }
     }
 }

@@ -236,7 +236,7 @@ namespace GUI
                 }
                 else
                 {
-                    busCTDHB.XoaCTDHB(txtMaDHB.Text.Trim(), txtMaTT.Text.Trim());
+                    //busCTDHB.XoaCTDHB(txtMaDHB.Text.Trim(), txtMaTT.Text.Trim());
                     for (int i = 0; i < dgvTruyenTranh.RowCount; i++)
                     {
                         if (dgvTruyenTranh.Rows[i].Cells[0].Value.ToString().Trim() == txtMaTT.Text.Trim())
@@ -333,10 +333,18 @@ namespace GUI
                 txtGiaTien.Text = dgvTruyenTranh.Rows[0].Cells[3].Value.ToString().Trim();
             }
         }
-
+        bool CheckItemsInCart()
+        {
+            if (dgvTruyenTranh.Rows.Count == 0)
+            {
+                errorProvider1.SetError(dgvTruyenTranh, Properties.Resources.NoneItemInCart);
+                return false;
+            }
+            return true;
+        }
         private void btnThemHD_Click(object sender, EventArgs e)
         {
-            if (CheckNull(grbNhanVien) && CheckNull(grbKH) && dgvTruyenTranh.Rows.Count > 0 && MessageBox.Show(string.Format(Properties.Resources.AddMessage,"đơn hàng"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (CheckNull(grbNhanVien) && CheckNull(grbKH) && CheckItemsInCart() && MessageBox.Show(string.Format(Properties.Resources.AddMessage,"đơn hàng"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 DTODHB dhb = new DTODHB(txtMaDHB.Text.Trim(), txtMaNV.Text.Trim(), txtMaKH.Text.Trim(), dtpNgayBan.Value.ToString("yyyy-MM-dd"));
 
@@ -356,11 +364,12 @@ namespace GUI
                     MessageBox.Show(string.Format(Properties.Resources.UnsuccessfulActionMessage, "Thêm"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 }
             }
+
         }
 
         private void btnSuaHD_Click(object sender, EventArgs e)
         {
-            if (CheckNull(grbNhanVien) && CheckNull(grbKH) && MessageBox.Show(string.Format(Properties.Resources.EditMessage, "đơn hàng"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (CheckNull(grbNhanVien) && CheckNull(grbKH) && CheckItemsInCart() && MessageBox.Show(string.Format(Properties.Resources.EditMessage, "đơn hàng"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 DTODHB dhb = new DTODHB(txtMaDHB.Text.Trim(), txtMaNV.Text.Trim(), txtMaKH.Text.Trim(), dtpNgayBan.Value.ToString("yyyy-MM-dd"));
 

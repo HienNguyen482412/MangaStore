@@ -20,7 +20,16 @@ namespace GUI
         BUSDHN busDHN = new BUSDHN();
         private void frmDHN_List_Load(object sender, EventArgs e)
         {
-            dgvDHN.DataSource = busDHN.LayDHN();
+            dgvDHN.DataSource = busDHN.TimKiemDHN(0,DateTime.Now.Day,DateTime.Now.Month, DateTime.Now.Year);
+            if (dgvDHN.Rows.Count == 0)
+            {
+                pictureBox1.BringToFront() ;
+            }
+            else
+            {
+                pictureBox1.SendToBack() ;
+            }
+          
         }
 
         private void btnThemHD_Click(object sender, EventArgs e)
@@ -35,6 +44,7 @@ namespace GUI
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
+            pictureBox1.SendToBack();
             int day = Convert.ToInt16(dtpNgayBan.Value.ToString("dd"));
             int month = Convert.ToInt16(dtpNgayBan.Value.ToString("MM"));
             int year= Convert.ToInt32(dtpNgayBan.Value.ToString("yyyy"));
@@ -110,6 +120,7 @@ namespace GUI
         private void btnLamMoiHD_Click(object sender, EventArgs e)
         {
             dgvDHN.DataSource = busDHN.LayDHN();
+            pictureBox1.SendToBack();
         }
     }
 }

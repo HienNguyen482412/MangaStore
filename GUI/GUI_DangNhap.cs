@@ -82,6 +82,7 @@ namespace GUI
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
             string messageContent;
+            errorProvider1.Clear();
             if (CheckNull())
             {
                 if (rdoNhanVien.Checked == true)
@@ -171,6 +172,5 @@ namespace GUI
         {
 
         }
-       
     }
 }

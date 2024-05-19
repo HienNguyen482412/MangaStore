@@ -97,6 +97,15 @@ namespace GUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Xác nhận thoát ?.
+        /// </summary>
+        internal static string ExitMessage {
+            get {
+                return ResourceManager.GetString("ExitMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Vui lòng nhập đầy đủ thông tin.
         /// </summary>
         internal static string IncompleteInformationMessage {
@@ -111,6 +120,24 @@ namespace GUI.Properties {
         internal static string InvalidInfoMessage {
             get {
                 return ResourceManager.GetString("InvalidInfoMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Xác nhận đăng xuất ?.
+        /// </summary>
+        internal static string LogOutMessage {
+            get {
+                return ResourceManager.GetString("LogOutMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Không thể nhập hóa đơn không có cuốn truyện nào..
+        /// </summary>
+        internal static string NoneItemInCart {
+            get {
+                return ResourceManager.GetString("NoneItemInCart", resourceCulture);
             }
         }
         

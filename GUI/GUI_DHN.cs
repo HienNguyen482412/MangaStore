@@ -263,7 +263,7 @@ namespace GUI
                 }
                 else
                 {
-                    busCTDHN.XoaCTDHN(txtMaDHN.Text.Trim(), txtMaTT.Text.Trim());
+                    //busCTDHN.XoaCTDHN(txtMaDHN.Text.Trim(), txtMaTT.Text.Trim());
                     for (int i = 0; i < dgvTruyenTranh.RowCount; i++)
                     {
                         if (dgvTruyenTranh.Rows[i].Cells[0].Value.ToString().Trim() == txtMaTT.Text.Trim())
@@ -311,6 +311,15 @@ namespace GUI
                 }
             }
         }
+        bool CheckItemsInCart()
+        {
+            if (dgvTruyenTranh.Rows.Count == 0)
+            {
+                errorProvider1.SetError(dgvTruyenTranh, Properties.Resources.NoneItemInCart);
+                return false;
+            }
+            return true;
+        }
         public void GetInfo(string mahd, string manv, string manxb, string ngaynhap)
         {
             txtMaDHN.Text = mahd;
@@ -320,7 +329,7 @@ namespace GUI
         }
         private void btnThemHD_Click(object sender, EventArgs e)
         {
-            if (CheckNull(grbNhanVien) && CheckNull(grbNXB) && dgvTruyenTranh.Rows.Count > 0 && MessageBox.Show(string.Format(Properties.Resources.AddMessage, "đơn hàng"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (CheckNull(grbNhanVien) && CheckNull(grbNXB) && CheckItemsInCart() && MessageBox.Show(string.Format(Properties.Resources.AddMessage, "đơn hàng"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 DTODHN dhn = new DTODHN(txtMaDHN.Text.Trim(), txtMaNV.Text.Trim(), txtMaNXB.Text.Trim(), dtpNgayNhap.Value.ToString("yyyy-MM-dd"));
 
@@ -332,7 +341,7 @@ namespace GUI
                         busCTDHN.ThemCTDHN(ct);
                     }
                     MessageBox.Show(string.Format(Properties.Resources.SuccessfullActionMessage, "Thêm"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information); btnIn.PerformClick();
-                    Refresh();
+                    this.Close();
                 }
                 else
                 {
@@ -343,7 +352,7 @@ namespace GUI
 
         private void btnSuaHD_Click(object sender, EventArgs e)
         {
-            if (CheckNull(grbNhanVien) && CheckNull(grbNXB) && MessageBox.Show(string.Format(Properties.Resources.EditMessage, "đơn hàng"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (CheckNull(grbNhanVien) && CheckNull(grbNXB) && CheckItemsInCart() && MessageBox.Show(string.Format(Properties.Resources.EditMessage, "đơn hàng"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 DTODHN dhn = new DTODHN(txtMaDHN.Text.Trim(), txtMaNV.Text.Trim(), txtMaNXB.Text.Trim(), dtpNgayNhap.Value.ToString("yyyy-MM-dd"));
 
@@ -357,17 +366,17 @@ namespace GUI
                         busCTDHN.ThemCTDHN(ct);
                     }
                     MessageBox.Show(string.Format(Properties.Resources.SuccessfullActionMessage, "Sửa"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                    Refresh();
+                    this.Close();
                 }
                 else
                 {
                     MessageBox.Show(string.Format(Properties.Resources.UnsuccessfulActionMessage, "Sửa"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 }
             }
-            else
-            {
-                MessageBox.Show(Properties.Resources.InvalidInfoMessage, Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
-            }
+            //else
+            //{
+            //    MessageBox.Show(Properties.Resources.InvalidInfoMessage, Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+            //}
         }
 
         private void btnXoaHD_Click(object sender, EventArgs e)
@@ -377,7 +386,7 @@ namespace GUI
 
                 if (busDHN.XoaDHN(txtMaDHN.Text))
                 {
-                    MessageBox.Show(string.Format(Properties.Resources.SuccessfullActionMessage, "Xóa"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information); Refresh();
+                    MessageBox.Show(string.Format(Properties.Resources.SuccessfullActionMessage, "Xóa"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information); this.Close();
 
                 }
                 else

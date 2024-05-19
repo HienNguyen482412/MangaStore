@@ -76,15 +76,25 @@ namespace GUI
         /// Created by Nguyễn Minh Hiền – 05/04/2024: Kiểm tra nhân viên đã có tài khoản hay chưa
         bool KiemTraTaiKhoan()
         {
-            if (nv.KiemTraNVDaCoTaiKhoan(txtMaNV.Text).Rows[0][0].ToString() == "")
+            try
             {
-                return true;
+                if (nv.KiemTraNVDaCoTaiKhoan(txtMaNV.Text).Rows[0][0].ToString() == "")
+                {
+                    return true;
+                }
+                else
+                {
+                    errorProvider1.SetError(txtMaNV, "Mỗi một nhân viên chỉ có một tài khoản");
+                    return false;
+                }
+
             }
-            else
+            catch
             {
-                errorProvider1.SetError(txtMaNV, "Mỗi một nhân viên chỉ có một tài khoản");
+                errorProvider1.SetError(txtMaNV, "Mã nhân viên không tồn tại");
                 return false;
             }
+            
         }
         /// Created by Nguyễn Minh Hiền – 05/04/2024: Kiểm tra rỗng cho các trường dữ liệu nhập
         bool CheckNull()

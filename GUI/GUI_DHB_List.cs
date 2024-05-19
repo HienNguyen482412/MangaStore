@@ -22,7 +22,7 @@ namespace GUI
         {
             frmDHB dhb = new frmDHB();
             this.Hide();
-            if (dhb.ShowDialog()== DialogResult.Cancel)
+            if (dhb.ShowDialog() == DialogResult.Cancel)
             {
                 this.Show();
             }
@@ -31,39 +31,23 @@ namespace GUI
 
         private void frmDHB_List_Load(object sender, EventArgs e)
         {
-            dgvDHB.DataSource = busDHB.LayDHB();
-        }
-
-        private void dgvDHB_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            frmDHB dhb = new frmDHB();
-            dhb.KTHD = false;
-            if (frmDangNhap.quyenQL == true)
+            dgvDHB.DataSource = busDHB.TimKiemDHB(0, DateTime.Now.Day, DateTime.Now.Month, DateTime.Now.Year);
+            if (dgvDHB.Rows.Count == 0)
             {
-                try
-                {
-                    dhb.GetInfo(dgvDHB.Rows[e.RowIndex].Cells[0].Value.ToString(), dgvDHB.Rows[e.RowIndex].Cells[1].Value.ToString(), dgvDHB.Rows[e.RowIndex].Cells[2].Value.ToString(), dgvDHB.Rows[e.RowIndex].Cells[3].Value.ToString());
+                pictureBox1.BringToFront();
 
-                }
-                catch
-                {
-                    dhb.GetInfo(dgvDHB.Rows[0].Cells[0].Value.ToString(), dgvDHB.Rows[0].Cells[1].Value.ToString(), dgvDHB.Rows[0].Cells[2].Value.ToString(), dgvDHB.Rows[0].Cells[3].Value.ToString());
-
-                }
-                if (dhb.ShowDialog() == DialogResult.Cancel)
-                {
-                    dgvDHB.DataSource = busDHB.LayDHB();
-
-                }
             }
             else
             {
-                if (dgvDHB.Rows[e.RowIndex].Cells[1].Value.ToString() != frmDangNhap.maNV)
-                {
-                    MessageBox.Show(Properties.Resources.NotPermittedMessage, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                pictureBox1.SendToBack();
+            }
+        }
 
-                }
-                else
+            private void dgvDHB_CellClick(object sender, DataGridViewCellEventArgs e)
+            {
+                frmDHB dhb = new frmDHB();
+                dhb.KTHD = false;
+                if (frmDangNhap.quyenQL == true)
                 {
                     try
                     {
@@ -81,35 +65,63 @@ namespace GUI
 
                     }
                 }
-            }
-        }
+                else
+                {
+                    if (dgvDHB.Rows[e.RowIndex].Cells[1].Value.ToString() != frmDangNhap.maNV)
+                    {
+                        MessageBox.Show(Properties.Resources.NotPermittedMessage, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-        private void btnTimKiem_Click(object sender, EventArgs e)
-        {
-            int day = Convert.ToInt16(dtpNgayBan.Value.ToString("dd"));
-            int month = Convert.ToInt16(dtpNgayBan.Value.ToString("MM"));
-            int year = Convert.ToInt32(dtpNgayBan.Value.ToString("yyyy"));
-            if (rdoTheoNgay.Checked)
-            {
-                dgvDHB.DataSource = busDHB.TimKiemDHB(0, day, month, year);
-            }
-            else if (rdoTheoThang.Checked)
-            {
-                dgvDHB.DataSource = busDHB.TimKiemDHB(1, day, month, year);
-            }
-            else if (rdoTheoNam.Checked)
-            {
-                dgvDHB.DataSource = busDHB.TimKiemDHB(2, day, month, year);
-            }
-            else
-            {
-                dgvDHB.DataSource = busDHB.TimKiemDHB(3, day, month, year);
-            }
-        }
+                    }
+                    else
+                    {
+                        try
+                        {
+                            dhb.GetInfo(dgvDHB.Rows[e.RowIndex].Cells[0].Value.ToString(), dgvDHB.Rows[e.RowIndex].Cells[1].Value.ToString(), dgvDHB.Rows[e.RowIndex].Cells[2].Value.ToString(), dgvDHB.Rows[e.RowIndex].Cells[3].Value.ToString());
 
-        private void btnLamMoiHD_Click(object sender, EventArgs e)
-        {
-            dgvDHB.DataSource = busDHB.LayDHB();
+                        }
+                        catch
+                        {
+                            dhb.GetInfo(dgvDHB.Rows[0].Cells[0].Value.ToString(), dgvDHB.Rows[0].Cells[1].Value.ToString(), dgvDHB.Rows[0].Cells[2].Value.ToString(), dgvDHB.Rows[0].Cells[3].Value.ToString());
+
+                        }
+                        if (dhb.ShowDialog() == DialogResult.Cancel)
+                        {
+                            dgvDHB.DataSource = busDHB.LayDHB();
+
+                        }
+                    }
+                }
+            }
+
+            private void btnTimKiem_Click(object sender, EventArgs e)
+            {
+                pictureBox1.SendToBack();
+                int day = Convert.ToInt16(dtpNgayBan.Value.ToString("dd"));
+                int month = Convert.ToInt16(dtpNgayBan.Value.ToString("MM"));
+                int year = Convert.ToInt32(dtpNgayBan.Value.ToString("yyyy"));
+                if (rdoTheoNgay.Checked)
+                {
+                    dgvDHB.DataSource = busDHB.TimKiemDHB(0, day, month, year);
+                }
+                else if (rdoTheoThang.Checked)
+                {
+                    dgvDHB.DataSource = busDHB.TimKiemDHB(1, day, month, year);
+                }
+                else if (rdoTheoNam.Checked)
+                {
+                    dgvDHB.DataSource = busDHB.TimKiemDHB(2, day, month, year);
+                }
+                else
+                {
+                    dgvDHB.DataSource = busDHB.TimKiemDHB(3, day, month, year);
+                }
+            }
+
+            private void btnLamMoiHD_Click(object sender, EventArgs e)
+            {
+                dgvDHB.DataSource = busDHB.LayDHB();
+                pictureBox1.SendToBack();
+            }
         }
     }
-}
+

@@ -129,11 +129,20 @@
   <data name="ExistedItemMessage" xml:space="preserve">
     <value>Truyện tranh đã tồn tại trong hóa đơn</value>
   </data>
+  <data name="ExitMessage" xml:space="preserve">
+    <value>Xác nhận thoát ?</value>
+  </data>
   <data name="IncompleteInformationMessage" xml:space="preserve">
     <value>Vui lòng nhập đầy đủ thông tin</value>
   </data>
   <data name="InvalidInfoMessage" xml:space="preserve">
     <value>Thông tin không hợp lệ</value>
+  </data>
+  <data name="LogOutMessage" xml:space="preserve">
+    <value>Xác nhận đăng xuất ?</value>
+  </data>
+  <data name="NoneItemInCart" xml:space="preserve">
+    <value>Không thể nhập hóa đơn không có cuốn truyện nào.</value>
   </data>
   <data name="NotEnoughQuantity" xml:space="preserve">
     <value>Số lượng truyện không đủ</value>
