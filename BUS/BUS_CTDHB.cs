@@ -41,5 +41,9 @@ namespace BUS
         {
             return dalCTDHB.TimKiemCTDHB(ma, ten);
         }
+        public bool XoaTatCaCTDHB(string madhb)
+        {
+            return dalCTDHB.XoaTatCaCT(madhb);
+        }
     }
 }

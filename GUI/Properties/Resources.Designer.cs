@@ -169,6 +169,15 @@ namespace GUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hãy lưu thông tin đơn hàng để tiến hành in hóa đơn.
+        /// </summary>
+        internal static string SaveInfoMessage {
+            get {
+                return ResourceManager.GetString("SaveInfoMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} thành công.
         /// </summary>
         internal static string SuccessfullActionMessage {
@@ -183,6 +192,15 @@ namespace GUI.Properties {
         internal static string UnsuccessfulActionMessage {
             get {
                 return ResourceManager.GetString("UnsuccessfulActionMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Xác nhận lưu thông tin ?.
+        /// </summary>
+        internal static string UpdateInfoMessage {
+            get {
+                return ResourceManager.GetString("UpdateInfoMessage", resourceCulture);
             }
         }
     }

@@ -108,10 +108,7 @@ namespace GUI
                     }
                 }
             }
-            else
-            {
-                MessageBox.Show(Properties.Resources.InvalidInfoMessage, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
+        
         }
         /// Created by Nguyễn Minh Hiền – 05/04/2024: Sửa thông tin tác giả
         private void btnSua_Click(object sender, EventArgs e)
@@ -132,10 +129,7 @@ namespace GUI
                     }
                 }
             }
-            else
-            {
-                MessageBox.Show(Properties.Resources.InvalidInfoMessage, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
+     
         }
         /// Created by Nguyễn Minh Hiền – 05/04/2024: Xóa thông tin tác giả
         private void btnXoa_Click(object sender, EventArgs e)
@@ -155,10 +149,7 @@ namespace GUI
                     }
                 }
             }
-            else
-            {
-                MessageBox.Show(Properties.Resources.InvalidInfoMessage, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
+           
         }
         /// Created by Nguyễn Minh Hiền – 05/04/2024: Làm mới các điều khiển
         private void btnLamMoi_Click(object sender, EventArgs e)

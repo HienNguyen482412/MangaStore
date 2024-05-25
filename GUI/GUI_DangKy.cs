@@ -66,13 +66,7 @@ namespace GUI
             }
         }
         /// Created by Nguyễn Minh Hiền – 05/04/2024: Làm mới các trường nhập 
-        void Refresh()
-        {
-            txtTenDN.Clear();
-            txtMatKhau1.Clear();
-            txtMatKhau2.Clear();
-            txtMaNV.Clear();
-        }
+      
         /// Created by Nguyễn Minh Hiền – 05/04/2024: Kiểm tra nhân viên đã có tài khoản hay chưa
         bool KiemTraTaiKhoan()
         {
@@ -137,6 +131,15 @@ namespace GUI
             {
                 MessageBox.Show(Properties.Resources.IncompleteInformationMessage, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+        }
+
+        private void btnLamMoi_Click(object sender, EventArgs e)
+        {
+            txtTenDN.Clear();
+            txtMatKhau1.Clear();
+            txtMatKhau2.Clear();
+            txtMaNV.Clear();
+            errorProvider1.Clear();
         }
     }
 }

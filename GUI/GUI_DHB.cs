@@ -17,6 +17,7 @@ namespace GUI
         BUSCTDHB busCTDHB = new BUSCTDHB();
         BUSTruyenTranh busTruyenTranh = new BUSTruyenTranh();
         public bool KTHD = true;
+        bool state = true;
         public void TaoCot()
         {
             dgvTruyenTranh.Columns.Add("clMa", "Mã truyện");
@@ -31,6 +32,11 @@ namespace GUI
             if (!int.TryParse(txtSoLuong.Text, out int c))
             {
                 errorProvider1.SetError(txtSoLuong, "Dữ liệu không đúng định dạng");
+                ck = false;
+            }
+            else if (c <= 0)
+            {
+                errorProvider1.SetError(txtSoLuong, "Số lượng không thể là số âm");
                 ck = false;
             }
             else
@@ -75,6 +81,7 @@ namespace GUI
             }
             return tong;
         }
+        //Kiểm tra truyện tranh đã có trong giỏ hàng
         bool CheckCart(string ma)
         {
             bool ck = true;
@@ -89,16 +96,7 @@ namespace GUI
             }
             return ck;
         }
-        void Refresh()
-        {
-            ClearGroupBox(grbNhanVien);
-            ClearGroupBox(grbKH);
-            ClearGroupBox(grbTruyenTranh);
-            dgvTruyenTranh.DataSource = null;
-            txtTongTienHD.Text = "";
-            txtMaDHB.Text = busDHB.TaoMa().Rows[0][0].ToString(); dtpNgayBan.Value = DateTime.Now;
 
-        }
         private void btnThemNXB_Click(object sender, EventArgs e)
         {
             frmKhachHang kh = new frmKhachHang();
@@ -112,7 +110,10 @@ namespace GUI
                 txtDiaChi.Text = diachi;
                 dtpNgaySinh.Value = ngaysinh;
                 txtSDT.Text = sdt;
-
+                if (!KTHD)
+                {
+                    state = false;
+                }
             }
         }
 
@@ -125,6 +126,10 @@ namespace GUI
                 nv.LayThongTinNV(out string ma, out string ten);
                 txtMaNV.Text = ma;
                 txtTenNV.Text = ten;
+                if (!KTHD)
+                {
+                    state = false;
+                }
             }
         }
 
@@ -189,10 +194,14 @@ namespace GUI
                     }
                     ClearGroupBox(grbTruyenTranh);
                     txtTongTienHD.Text = TongTien().ToString();
+                    if (!KTHD)
+                    {
+                        state = false;
+                    }
                 }
                 else
                 {
-                    MessageBox.Show(Properties.Resources.NotEnoughQuantity, Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    MessageBox.Show(Properties.Resources.NotEnoughQuantity, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                 }
 
@@ -211,7 +220,10 @@ namespace GUI
                         dgvTruyenTranh.Rows[i].Cells[2].Value = txtSoLuong.Text;
                         dgvTruyenTranh.Rows[i].Cells[3].Value = txtGiaTien.Text;
                         ClearGroupBox(grbTruyenTranh); txtTongTienHD.Text = TongTien().ToString();
-
+                        if (!KTHD)
+                        {
+                            state = false;
+                        }
                         break;
                     }
                 }
@@ -222,31 +234,19 @@ namespace GUI
         {
             if (CheckNull(grbTruyenTranh))
             {
-                if (KTHD)
+                for (int i = 0; i < dgvTruyenTranh.RowCount; i++)
                 {
-                    for (int i = 0; i < dgvTruyenTranh.RowCount; i++)
+                    if (dgvTruyenTranh.Rows[i].Cells[0].Value.ToString().Trim() == txtMaTT.Text.Trim())
                     {
-                        if (dgvTruyenTranh.Rows[i].Cells[0].Value.ToString().Trim() == txtMaTT.Text.Trim())
-                        {
-                            dgvTruyenTranh.Rows.RemoveAt(i); ClearGroupBox(grbTruyenTranh); txtTongTienHD.Text = TongTien().ToString();
-
-                            break;
-                        }
+                        dgvTruyenTranh.Rows.RemoveAt(i); ClearGroupBox(grbTruyenTranh); txtTongTienHD.Text = TongTien().ToString();
+                        break;
                     }
                 }
-                else
+                if (!KTHD)
                 {
-                    //busCTDHB.XoaCTDHB(txtMaDHB.Text.Trim(), txtMaTT.Text.Trim());
-                    for (int i = 0; i < dgvTruyenTranh.RowCount; i++)
-                    {
-                        if (dgvTruyenTranh.Rows[i].Cells[0].Value.ToString().Trim() == txtMaTT.Text.Trim())
-                        {
-                            dgvTruyenTranh.Rows.RemoveAt(i); ClearGroupBox(grbTruyenTranh); txtTongTienHD.Text = TongTien().ToString();
-
-                            break;
-                        }
-                    }
+                    state = false;
                 }
+
             }
         }
         public void GetInfo(string mahd, string manv, string manxb, string ngaynhap)
@@ -261,7 +261,7 @@ namespace GUI
             ClearGroupBox(grbTruyenTranh);
             if (KTHD)
             {
-                dgvTruyenTranh = dgvTmp; MessageBox.Show(dgvTmp.Rows.Count.ToString());
+                dgvTruyenTranh = dgvTmp;
 
                 dgvTmp = null;
 
@@ -284,6 +284,7 @@ namespace GUI
                     txtTenNV.Text = frmDangNhap.tenNV;
                     txtMaNV.Text = frmDangNhap.maNV;
                 }
+                dtpNgayBan.Value = DateTime.Now;
             }
             else
             {
@@ -312,8 +313,9 @@ namespace GUI
                     txtTongTien.Text = 0.ToString();
                 }
 
+
             }
-         
+
         }
 
         private void dgvTruyenTranh_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -333,6 +335,7 @@ namespace GUI
                 txtGiaTien.Text = dgvTruyenTranh.Rows[0].Cells[3].Value.ToString().Trim();
             }
         }
+        //Kiểm tra giỏ hàng phải có ít nhất 1 truyện tranh
         bool CheckItemsInCart()
         {
             if (dgvTruyenTranh.Rows.Count == 0)
@@ -344,7 +347,7 @@ namespace GUI
         }
         private void btnThemHD_Click(object sender, EventArgs e)
         {
-            if (CheckNull(grbNhanVien) && CheckNull(grbKH) && CheckItemsInCart() && MessageBox.Show(string.Format(Properties.Resources.AddMessage,"đơn hàng"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (CheckNull(grbNhanVien) && CheckNull(grbKH) && CheckItemsInCart() && MessageBox.Show(string.Format(Properties.Resources.AddMessage, "đơn hàng"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 DTODHB dhb = new DTODHB(txtMaDHB.Text.Trim(), txtMaNV.Text.Trim(), txtMaKH.Text.Trim(), dtpNgayBan.Value.ToString("yyyy-MM-dd"));
 
@@ -355,13 +358,14 @@ namespace GUI
                         DTOCTDHB ct = new DTOCTDHB(txtMaDHB.Text.Trim(), dgvTruyenTranh.Rows[i].Cells[0].Value.ToString().Trim(), Convert.ToInt32(dgvTruyenTranh.Rows[i].Cells[2].Value.ToString()), Convert.ToInt32(dgvTruyenTranh.Rows[i].Cells[3].Value.ToString()));
                         busCTDHB.ThemCTDHB(ct);
                     }
-                    MessageBox.Show(string.Format(Properties.Resources.SuccessfullActionMessage, "Thêm"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    MessageBox.Show(string.Format(Properties.Resources.SuccessfullActionMessage, "Thêm"), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    state = true;
                     btnIn.PerformClick();
                     this.Close();
                 }
                 else
                 {
-                    MessageBox.Show(string.Format(Properties.Resources.UnsuccessfulActionMessage, "Thêm"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    MessageBox.Show(string.Format(Properties.Resources.UnsuccessfulActionMessage, "Thêm"), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
 
@@ -372,28 +376,25 @@ namespace GUI
             if (CheckNull(grbNhanVien) && CheckNull(grbKH) && CheckItemsInCart() && MessageBox.Show(string.Format(Properties.Resources.EditMessage, "đơn hàng"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 DTODHB dhb = new DTODHB(txtMaDHB.Text.Trim(), txtMaNV.Text.Trim(), txtMaKH.Text.Trim(), dtpNgayBan.Value.ToString("yyyy-MM-dd"));
-
                 if (busDHB.SuaDHB(dhb))
                 {
 
-                    for (int i = 0; i < dgvTruyenTranh.RowCount; i++)
+                    busCTDHB.XoaTatCaCTDHB(txtMaDHB.Text.Trim());
+                    for (int i = 0; i < dgvTruyenTranh.Rows.Count; i++)
                     {
                         DTOCTDHB ct = new DTOCTDHB(txtMaDHB.Text.Trim(), dgvTruyenTranh.Rows[i].Cells[0].Value.ToString().Trim(), Convert.ToInt32(dgvTruyenTranh.Rows[i].Cells[2].Value.ToString()), Convert.ToInt32(dgvTruyenTranh.Rows[i].Cells[3].Value.ToString()));
-                        busCTDHB.XoaCTDHB(txtMaDHB.Text.Trim(), dgvTruyenTranh.Rows[i].Cells[0].Value.ToString().Trim());
                         busCTDHB.ThemCTDHB(ct);
+
                     }
-                    MessageBox.Show(string.Format(Properties.Resources.SuccessfullActionMessage, "Sửa"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                    this.Close();
+                    MessageBox.Show(string.Format(Properties.Resources.SuccessfullActionMessage, "Sửa"), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    state = true;
                 }
                 else
                 {
-                    MessageBox.Show(string.Format(Properties.Resources.UnsuccessfulActionMessage, "Sửa"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    MessageBox.Show(string.Format(Properties.Resources.UnsuccessfulActionMessage, "Sửa"), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            else
-            {
-                MessageBox.Show(Properties.Resources.InvalidInfoMessage, Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
-            }
+
         }
 
         private void btnXoaHD_Click(object sender, EventArgs e)
@@ -403,26 +404,35 @@ namespace GUI
 
                 if (busDHB.XoaDHB(txtMaDHB.Text))
                 {
-                    MessageBox.Show(string.Format(Properties.Resources.SuccessfullActionMessage, "Xóa"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    MessageBox.Show(string.Format(Properties.Resources.SuccessfullActionMessage, "Xóa"), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
 
                 }
                 else
                 {
-                    MessageBox.Show(string.Format(Properties.Resources.UnsuccessfulActionMessage, "Xóa"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    MessageBox.Show(string.Format(Properties.Resources.UnsuccessfulActionMessage, "Xóa"), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 }
 
             }
             else
             {
-                MessageBox.Show(Properties.Resources.IncompleteInformationMessage, Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                MessageBox.Show(Properties.Resources.IncompleteInformationMessage, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
         private void btnLamMoiHD_Click(object sender, EventArgs e)
         {
-            Refresh();
+            if (frmDangNhap.quyenQL == true)
+            {
+                ClearGroupBox(grbNhanVien);
+            }
+
+            ClearGroupBox(grbKH);
+            ClearGroupBox(grbTruyenTranh);
+            dgvTruyenTranh.DataSource = null;
+            txtTongTienHD.Text = "";
+            txtMaDHB.Text = busDHB.TaoMa().Rows[0][0].ToString(); dtpNgayBan.Value = DateTime.Now;
         }
         DataGridView dgvTmp;
 
@@ -458,32 +468,46 @@ namespace GUI
 
         private void btnIn_Click(object sender, EventArgs e)
         {
-            
-            if (CheckNull(grbNhanVien) && CheckNull(grbKH) && dgvTruyenTranh.RowCount > 0)
+            if (state == true)
             {
-                int sl = 0;
-                for (int i = 0; i < dgvTruyenTranh.RowCount; i++)
+                if (CheckNull(grbNhanVien) && CheckNull(grbKH) && dgvTruyenTranh.RowCount > 0)
                 {
-                    sl += Convert.ToInt32(dgvTruyenTranh.Rows[i].Cells[2].Value.ToString().Trim());
+                    int sl = 0;
+                    for (int i = 0; i < dgvTruyenTranh.RowCount; i++)
+                    {
+                        sl += Convert.ToInt32(dgvTruyenTranh.Rows[i].Cells[2].Value.ToString().Trim());
 
+                    }
+                    frmDonHangBan hoadon = new frmDonHangBan();
+                    hoadon.GetInfo(dtpNgayBan
+                        .Value.ToString("d"), txtMaDHB.Text, txtMaKH.Text, txtTenKH.Text, txtMaNV.Text, txtTenNV.Text, txtTongTienHD.Text, sl.ToString(), busCTDHB.LayCTDHB(txtMaDHB.Text));
+                    if (hoadon.ShowDialog() == DialogResult.Cancel)
+                    {
+                        this.Show();
+                    }
                 }
-                frmDonHangBan hoadon = new frmDonHangBan();
-                hoadon.GetInfo(dtpNgayBan
-                    .Value.ToString("d"), txtMaDHB.Text, txtMaKH.Text, txtTenKH.Text, txtMaNV.Text, txtTenNV.Text, txtTongTienHD.Text, sl.ToString(), busCTDHB.LayCTDHB(txtMaDHB.Text));
-                if (hoadon.ShowDialog() == DialogResult.Cancel)
+                else
                 {
-                    this.Show();
+                    MessageBox.Show(Properties.Resources.InvalidInfoMessage, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             else
             {
-                MessageBox.Show(Properties.Resources.InvalidInfoMessage, Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                MessageBox.Show(Properties.Resources.SaveInfoMessage, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         private void txtSoLuong_Leave(object sender, EventArgs e)
         {
             CheckNumber();
+        }
+
+        private void dtpNgayBan_ValueChanged(object sender, EventArgs e)
+        {
+            if (!KTHD)
+            {
+                state = false;
+            }
         }
     }
 }

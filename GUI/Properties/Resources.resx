@@ -153,10 +153,16 @@
   <data name="NotPermittedMessage" xml:space="preserve">
     <value>Bạn không có quyền xem đơn hàng này</value>
   </data>
+  <data name="SaveInfoMessage" xml:space="preserve">
+    <value>Hãy lưu thông tin đơn hàng để tiến hành in hóa đơn</value>
+  </data>
   <data name="SuccessfullActionMessage" xml:space="preserve">
     <value>{0} thành công</value>
   </data>
   <data name="UnsuccessfulActionMessage" xml:space="preserve">
     <value>{0} không thành công</value>
+  </data>
+  <data name="UpdateInfoMessage" xml:space="preserve">
+    <value>Xác nhận lưu thông tin ?</value>
   </data>
 </root>

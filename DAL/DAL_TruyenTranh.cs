@@ -48,7 +48,7 @@ namespace DAL
                 cmd.Parameters.Add(imgdata);
                 if (cmd.ExecuteNonQuery() > 0) { return true; }
             }
-            catch (SqlException sql)
+            catch (PathTooLongException )
             {
                 return false;
             }

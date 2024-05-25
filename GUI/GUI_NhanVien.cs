@@ -177,10 +177,7 @@ namespace GUI
                     }
                 }
             }
-            else
-            {
-                MessageBox.Show(Properties.Resources.InvalidInfoMessage, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
+
         }
 
         private void btnSua_Click(object sender, EventArgs e)
@@ -201,10 +198,7 @@ namespace GUI
                     }
                 }
             }
-            else
-            {
-                MessageBox.Show(Properties.Resources.InvalidInfoMessage, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
+ 
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -224,10 +218,7 @@ namespace GUI
                     }
                 }
             }
-            else
-            {
-                MessageBox.Show(Properties.Resources.InvalidInfoMessage, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
+
         }
 
         private void txtTimKiem_IconRightClick(object sender, EventArgs e)

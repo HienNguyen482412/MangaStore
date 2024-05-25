@@ -68,5 +68,9 @@ namespace DAL
             return ex.ReturnTable($"select ct.Matt as [Mã truyện], TenTruyen as [Tên truyện], ct.SoLuong as [Số lượng], ct.giatien as [Giá tiền] from cthdb ct inner join TruyenTranh tt on ct.MaTT = tt.MaTT where mahdb = '{madhb}' and tentruyen like N'%{ten}%'");
 
         }
+        public bool XoaTatCaCT(string madhb)
+        {
+            return ex.ReturnBool($"delete from CTHDB where MaHDB = '{madhb}'");
+        }
     }
 }

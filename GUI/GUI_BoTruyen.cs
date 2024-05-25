@@ -130,9 +130,8 @@ namespace GUI
         /// Created by Nguyễn Minh Hiền – 05/04/2024: Thêm thông tin bộ truyện
         private void btnThem_Click(object sender, EventArgs e)
         {
-            if (CheckNull())
-            {
-                if (CheckValue() && MessageBox.Show(string.Format(Properties.Resources.AddMessage, "bộ truyện"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+
+                if (CheckNull()&& CheckValue() && MessageBox.Show(string.Format(Properties.Resources.AddMessage, "bộ truyện"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
                     DTOBoTruyen bt = new DTOBoTruyen(txtMaBT.Text,txtTenBT.Text, txtMaTg.Text, txtMaNXB.Text, Convert.ToInt16(cboDoTuoi.Text.Trim()));
                     if (busBoTruyen.ThemBoTruyen(bt))
@@ -145,11 +144,7 @@ namespace GUI
                         MessageBox.Show(string.Format(Properties.Resources.UnsuccessfulActionMessage, "Thêm"), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
-            }
-            else
-            {
-                MessageBox.Show(Properties.Resources.InvalidInfoMessage, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
+           
         }
         /// Created by Nguyễn Minh Hiền – 05/04/2024: Load form đồng thời làm mới các trường nhập và cập nhật dgv
         private void frmBoTruyen_Load(object sender, EventArgs e)
@@ -159,9 +154,8 @@ namespace GUI
         /// Created by Nguyễn Minh Hiền – 05/04/2024: Sửa thông tin truyện tranh
         private void btnSua_Click(object sender, EventArgs e)
         {
-            if (CheckNull())
-            {
-                if (CheckValue() && MessageBox.Show(string.Format(Properties.Resources.EditMessage, "bộ truyện"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+
+                if ( CheckNull()&& CheckValue() && MessageBox.Show(string.Format(Properties.Resources.EditMessage, "bộ truyện"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
                     DTOBoTruyen bt = new DTOBoTruyen(txtMaBT.Text, txtTenBT.Text, txtMaTg.Text, txtMaNXB.Text, Convert.ToInt16(cboDoTuoi.Text.Trim()));
                     if (busBoTruyen.SuaBoTruyen(bt))
@@ -174,18 +168,14 @@ namespace GUI
                         MessageBox.Show(string.Format(Properties.Resources.UnsuccessfulActionMessage, "Sửa"), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
-            }
-            else
-            {
-                MessageBox.Show(Properties.Resources.InvalidInfoMessage, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
+            
+
         }
         /// Created by Nguyễn Minh Hiền – 05/04/2024: Xóa thông tin bộ truyện
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if (CheckNull())
-            {
-                if (MessageBox.Show(string.Format(Properties.Resources.DeleteMessage, "bộ truyện"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+
+                if (CheckNull()& MessageBox.Show(string.Format(Properties.Resources.DeleteMessage, "bộ truyện"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
                     if (busBoTruyen.XoaBoTruyen(txtMaBT.Text))
                     {
@@ -197,11 +187,8 @@ namespace GUI
                         MessageBox.Show(string.Format(Properties.Resources.UnsuccessfulActionMessage, "Xóa"), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
-            }
-            else
-            {
-                MessageBox.Show(Properties.Resources.InvalidInfoMessage, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
+            
+
         }
         /// Created by Nguyễn Minh Hiền – 05/04/2024: Làm mới các trường dữ liệu nhập và cập nhật dgv
         private void btnLamMoi_Click(object sender, EventArgs e)

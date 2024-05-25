@@ -121,7 +121,7 @@
             this.cboGioiTinh.Location = new System.Drawing.Point(646, 84);
             this.cboGioiTinh.Name = "cboGioiTinh";
             this.cboGioiTinh.Size = new System.Drawing.Size(182, 36);
-            this.cboGioiTinh.TabIndex = 67;
+            this.cboGioiTinh.TabIndex = 2;
             // 
             // label7
             // 
@@ -145,6 +145,7 @@
             this.btnLamMoi.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnLamMoi.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnLamMoi.FillColor = System.Drawing.Color.White;
+            this.btnLamMoi.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.btnLamMoi.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnLamMoi.ForeColor = System.Drawing.Color.Black;
             this.btnLamMoi.Image = ((System.Drawing.Image)(resources.GetObject("btnLamMoi.Image")));
@@ -152,7 +153,7 @@
             this.btnLamMoi.Location = new System.Drawing.Point(703, 225);
             this.btnLamMoi.Name = "btnLamMoi";
             this.btnLamMoi.Size = new System.Drawing.Size(125, 41);
-            this.btnLamMoi.TabIndex = 56;
+            this.btnLamMoi.TabIndex = 9;
             this.btnLamMoi.Text = "Làm mới";
             this.btnLamMoi.Click += new System.EventHandler(this.btnLamMoi_Click);
             // 
@@ -168,6 +169,7 @@
             this.btnXoa.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnXoa.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnXoa.FillColor = System.Drawing.Color.White;
+            this.btnXoa.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.btnXoa.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnXoa.ForeColor = System.Drawing.Color.Black;
             this.btnXoa.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.Image")));
@@ -175,7 +177,7 @@
             this.btnXoa.Location = new System.Drawing.Point(471, 225);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(125, 41);
-            this.btnXoa.TabIndex = 55;
+            this.btnXoa.TabIndex = 8;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
@@ -191,6 +193,7 @@
             this.btnSua.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnSua.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnSua.FillColor = System.Drawing.Color.White;
+            this.btnSua.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.btnSua.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnSua.ForeColor = System.Drawing.Color.Black;
             this.btnSua.Image = ((System.Drawing.Image)(resources.GetObject("btnSua.Image")));
@@ -198,7 +201,7 @@
             this.btnSua.Location = new System.Drawing.Point(244, 225);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(125, 41);
-            this.btnSua.TabIndex = 54;
+            this.btnSua.TabIndex = 7;
             this.btnSua.Text = "Sửa";
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
@@ -214,6 +217,7 @@
             this.btnThem.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnThem.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnThem.FillColor = System.Drawing.Color.White;
+            this.btnThem.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.btnThem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnThem.ForeColor = System.Drawing.Color.Black;
             this.btnThem.Image = ((System.Drawing.Image)(resources.GetObject("btnThem.Image")));
@@ -221,7 +225,7 @@
             this.btnThem.Location = new System.Drawing.Point(40, 225);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(125, 41);
-            this.btnThem.TabIndex = 53;
+            this.btnThem.TabIndex = 6;
             this.btnThem.Text = "Thêm";
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
@@ -241,7 +245,7 @@
             this.dtpNgaySinh.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtpNgaySinh.Name = "dtpNgaySinh";
             this.dtpNgaySinh.Size = new System.Drawing.Size(210, 32);
-            this.dtpNgaySinh.TabIndex = 47;
+            this.dtpNgaySinh.TabIndex = 4;
             this.dtpNgaySinh.Value = new System.DateTime(2024, 2, 13, 0, 0, 0, 0);
             // 
             // txtSDT
@@ -267,7 +271,7 @@
             this.txtSDT.PlaceholderText = "";
             this.txtSDT.SelectedText = "";
             this.txtSDT.Size = new System.Drawing.Size(229, 31);
-            this.txtSDT.TabIndex = 44;
+            this.txtSDT.TabIndex = 5;
             // 
             // label11
             // 
@@ -302,7 +306,7 @@
             this.txtDiaChi.PlaceholderText = "";
             this.txtDiaChi.SelectedText = "";
             this.txtDiaChi.Size = new System.Drawing.Size(313, 31);
-            this.txtDiaChi.TabIndex = 40;
+            this.txtDiaChi.TabIndex = 3;
             // 
             // label13
             // 
@@ -347,7 +351,7 @@
             this.txtTenKH.PlaceholderText = "";
             this.txtTenKH.SelectedText = "";
             this.txtTenKH.Size = new System.Drawing.Size(395, 31);
-            this.txtTenKH.TabIndex = 36;
+            this.txtTenKH.TabIndex = 1;
             // 
             // label3
             // 
@@ -383,7 +387,7 @@
             this.txtMaKH.ReadOnly = true;
             this.txtMaKH.SelectedText = "";
             this.txtMaKH.Size = new System.Drawing.Size(162, 31);
-            this.txtMaKH.TabIndex = 34;
+            this.txtMaKH.TabIndex = 0;
             // 
             // label2
             // 
@@ -445,6 +449,7 @@
             this.dgvKhachHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dgvKhachHang.Size = new System.Drawing.Size(856, 289);
             this.dgvKhachHang.TabIndex = 5;
+            this.dgvKhachHang.TabStop = false;
             this.dgvKhachHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKhachHang_CellClick);
             // 
             // txtTimKiem
@@ -472,7 +477,7 @@
             this.txtTimKiem.PlaceholderText = "Nhập tên khách hàng";
             this.txtTimKiem.SelectedText = "";
             this.txtTimKiem.Size = new System.Drawing.Size(430, 40);
-            this.txtTimKiem.TabIndex = 1;
+            this.txtTimKiem.TabIndex = 0;
             this.txtTimKiem.IconRightClick += new System.EventHandler(this.txtTimKiem_IconRightClick);
             // 
             // panel1

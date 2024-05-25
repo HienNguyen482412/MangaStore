@@ -1,12 +1,5 @@
 ﻿using BUS;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GUI
@@ -18,18 +11,22 @@ namespace GUI
             InitializeComponent();
         }
         BUSDHN busDHN = new BUSDHN();
-        private void frmDHN_List_Load(object sender, EventArgs e)
+        void ShowDGV()
         {
-            dgvDHN.DataSource = busDHN.TimKiemDHN(0,DateTime.Now.Day,DateTime.Now.Month, DateTime.Now.Year);
+            dgvDHN.DataSource = busDHN.TimKiemDHN(0, DateTime.Now.Day, DateTime.Now.Month, DateTime.Now.Year);
             if (dgvDHN.Rows.Count == 0)
             {
-                pictureBox1.BringToFront() ;
+                pictureBox1.BringToFront();
             }
             else
             {
-                pictureBox1.SendToBack() ;
+                pictureBox1.SendToBack();
             }
-          
+        }
+        private void frmDHN_List_Load(object sender, EventArgs e)
+        {
+            ShowDGV();
+
         }
 
         private void btnThemHD_Click(object sender, EventArgs e)
@@ -38,7 +35,7 @@ namespace GUI
             dhn.KTHD = true;
             if (dhn.ShowDialog() == DialogResult.Cancel)
             {
-                dgvDHN.DataSource = busDHN.LayDHN();
+                ShowDGV();
             }
         }
 
@@ -47,7 +44,7 @@ namespace GUI
             pictureBox1.SendToBack();
             int day = Convert.ToInt16(dtpNgayBan.Value.ToString("dd"));
             int month = Convert.ToInt16(dtpNgayBan.Value.ToString("MM"));
-            int year= Convert.ToInt32(dtpNgayBan.Value.ToString("yyyy"));
+            int year = Convert.ToInt32(dtpNgayBan.Value.ToString("yyyy"));
             if (rdoTheoNgay.Checked)
             {
                 dgvDHN.DataSource = busDHN.TimKiemDHN(0, day, month, year);
@@ -65,7 +62,7 @@ namespace GUI
                 dgvDHN.DataSource = busDHN.TimKiemDHN(3, day, month, year);
             }
         }
-       
+
         private void dgvDHN_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             frmDHN dhn = new frmDHN();

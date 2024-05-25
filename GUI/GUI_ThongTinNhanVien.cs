@@ -1,8 +1,10 @@
 ﻿using BUS;
 using DTO;
+using Guna.UI2.WinForms;
 using System;
 using System.Data;
 using System.Drawing;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace GUI
@@ -59,11 +61,54 @@ namespace GUI
                 txtMatKhau.IconRight = Image.FromFile(@"E:\Data_CHMH\Icon\icons8-closed-eye-50.png");
             }
         }
-
+        bool CheckValue()
+        {
+           
+            bool ck = true;
+            if (txtTenNV.Text.Length < 2 || txtTenNV.Text.Length > 50)
+            {
+                errorProvider1.SetError(txtTenNV, "Tên nhân viên từ 2 đến 50 kí tự");
+                ck = false;
+            }
+            if (txtDiaChi.Text.Length < 2 || txtDiaChi.Text.Length > 50)
+            {
+                errorProvider1.SetError(txtDiaChi, "Địa chỉ từ 2 đến 50 kí tự");
+                ck = false;
+            }
+            if (Regex.IsMatch(txtSDT.Text.Trim(), "[0-9]{10}") == false)
+            {
+                errorProvider1.SetError(txtSDT, "Số điện thoại không hợp lệ");
+                ck = false;
+            }
+            if (!Regex.IsMatch(txtEmail.Text.Trim(), @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"))
+            {
+                errorProvider1.SetError(txtEmail, "Email không hợp lệ");
+                ck = false;
+            }
+            if (!ck)
+            {
+                return false;
+            }
+            return true;
+        }
+        bool CheckNull()
+        {
+            bool kt = true;
+            foreach (Control c in this.Controls)
+            {
+                if (c is Guna2TextBox && c.Text == "")
+                {
+                    kt = false;
+                    errorProvider1.SetError(c, "Không được để trống thông tin");
+                }
+            }
+            return kt;
+        }
         private void btnSua_Click(object sender, EventArgs e)
         {
             DTONhanVien nv = new DTONhanVien(txtMaNV.Text, txtTenNV.Text, cboGioiTinh.Text, dtpNgaySinh.Value.ToString("yyyy/MM/dd"), txtDiaChi.Text, txtSDT.Text, txtEmail.Text, dtpNgayBD.Value.ToString("yyyy/MM/dd"), Convert.ToInt32(txtLuong.Text),txtTenDN.Text, txtMatKhau.Text);
-            if (MessageBox.Show(string.Format(Properties.Resources.EditMessage, "nhân viên"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            errorProvider1.Clear();
+            if (CheckNull() && CheckValue() && MessageBox.Show(Properties.Resources.UpdateInfoMessage, Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 if (busNV.SuaThongTinNhanVien(nv))
                 {

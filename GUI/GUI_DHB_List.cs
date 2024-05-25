@@ -18,18 +18,7 @@ namespace GUI
             InitializeComponent();
         }
         BUS_DHB busDHB = new BUS_DHB();
-        private void btnThemHD_Click(object sender, EventArgs e)
-        {
-            frmDHB dhb = new frmDHB();
-            this.Hide();
-            if (dhb.ShowDialog() == DialogResult.Cancel)
-            {
-                this.Show();
-            }
-            dgvDHB.DataSource = busDHB.LayDHB();
-        }
-
-        private void frmDHB_List_Load(object sender, EventArgs e)
+        void ShowDGV()
         {
             dgvDHB.DataSource = busDHB.TimKiemDHB(0, DateTime.Now.Day, DateTime.Now.Month, DateTime.Now.Year);
             if (dgvDHB.Rows.Count == 0)
@@ -41,6 +30,20 @@ namespace GUI
             {
                 pictureBox1.SendToBack();
             }
+        }
+        private void btnThemHD_Click(object sender, EventArgs e)
+        {
+            frmDHB dhb = new frmDHB();
+            if (dhb.ShowDialog() == DialogResult.Cancel)
+            {
+                ShowDGV();
+            }
+            
+        }
+
+        private void frmDHB_List_Load(object sender, EventArgs e)
+        {
+            ShowDGV();
         }
 
             private void dgvDHB_CellClick(object sender, DataGridViewCellEventArgs e)

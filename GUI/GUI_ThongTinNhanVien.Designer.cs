@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmThongTinNhanVien));
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnThoat = new Guna.UI2.WinForms.Guna2Button();
@@ -56,7 +57,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtMatKhau = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnTroVe = new Guna.UI2.WinForms.Guna2Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -508,6 +511,10 @@
             this.btnTroVe.Text = "Thoát";
             this.btnTroVe.Click += new System.EventHandler(this.btnTroVe_Click);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // frmThongTinNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -548,6 +555,7 @@
             this.Text = "GUI_ThongTinNhanVien";
             this.Load += new System.EventHandler(this.frmThongTinNhanVien_Load);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -582,5 +590,6 @@
         private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2TextBox txtMatKhau;
         private Guna.UI2.WinForms.Guna2Button btnTroVe;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

@@ -15,6 +15,7 @@ namespace GUI
         }
         BUSDHN busDHN = new BUSDHN();
         BUSCTDHN busCTDHN = new BUSCTDHN();
+        bool state = true;
         private void btnThemNXB_Click(object sender, EventArgs e)
         {
             frmNXB nxb = new frmNXB();
@@ -27,36 +28,51 @@ namespace GUI
                 txtSDT.Text = sdt;
                 txtEmail.Text = email;
                 txtDiaChi.Text = diachi;
+                if (!KTHD)
+                {
+                    state = false;
+                }
             }
         }
         bool CheckNumber()
         {
             bool ck = true;
-
+            //Số lượng
             if (!int.TryParse(txtSoLuong.Text, out int c))
             {
                 errorProvider1.SetError(txtSoLuong, "Dữ liệu không đúng định dạng");
+                ck = false;
+            }
+            else if (c <= 0)
+            {
+                errorProvider1.SetError(txtSoLuong, "Số lượng không thể nhỏ hơn 0 hoặc bằng 0");
                 ck = false;
             }
             else
             {
                 errorProvider1.SetError(txtSoLuong, "");
             }
+            //Giá tiền
+            if (!int.TryParse(txtGiaTien.Text, out int d))
+            {
+                errorProvider1.SetError(txtGiaTien, "Dữ liệu không đúng định dạng");
+                ck = false;
+            }
+            else if (d <= 0)
+            {
+                errorProvider1.SetError(txtGiaTien, "Giá tiền không thể nhỏ hơn 0 hoặc bằng 0");
+                ck = false;
+            }
+            else
+            {
+                errorProvider1.SetError(txtGiaTien, "");
+            }
             return ck;
 
 
         }
 
-        void Refresh()
-        {
-            ClearGroupBox(grbNhanVien);
-            ClearGroupBox(grbNXB);
-            ClearGroupBox(grbTruyenTranh);
-            dgvTruyenTranh.DataSource = null;
-            txtTongTienHD.Text = "";
-            txtMaDHN.Text = busDHN.TaoMa().Rows[0][0].ToString(); dtpNgayNhap.Value = DateTime.Now;
 
-        }
         private void btnThemNhanVien_Click(object sender, EventArgs e)
         {
             frmNhanVien nv = new frmNhanVien();
@@ -66,7 +82,12 @@ namespace GUI
                 nv.LayThongTinNV(out string ma, out string ten);
                 txtMaNV.Text = ma;
                 txtTenNV.Text = ten;
+                if (!KTHD)
+                {
+                    state = false;
+                }
             }
+
         }
 
         private void txtGiaTien_TextChanged(object sender, EventArgs e)
@@ -91,6 +112,7 @@ namespace GUI
             {
                 txtTongTien.Text = 0.ToString();
             }
+
         }
 
         private void btnThemTT_Click(object sender, EventArgs e)
@@ -102,6 +124,7 @@ namespace GUI
                 tt.LayThongTinTruyenTranh(out string ma, out string ten);
                 txtMaTT.Text = ma;
                 txtTenTT.Text = ten;
+
             }
         }
         public void TaoCot()
@@ -113,6 +136,7 @@ namespace GUI
         }
         private void frmDHN_Load(object sender, EventArgs e)
         {
+            state = true;
             if (KTHD)
             {
                 TaoCot();
@@ -123,9 +147,12 @@ namespace GUI
                     txtTenNV.Text = frmDangNhap.tenNV;
                     txtMaNV.Text = frmDangNhap.maNV;
                 }
+                btnIn.Enabled = false;
+                dtpNgayNhap.Value = DateTime.Now;
             }
             else
             {
+
                 if (frmDangNhap.quyenQL == false)
                 {
                     btnThemNhanVien.Visible = false;
@@ -194,7 +221,7 @@ namespace GUI
                 if (dgvTruyenTranh.Rows[i].Cells[0].Value.ToString().Trim() == ma.Trim())
                 {
                     ck = false;
-                    MessageBox.Show(Properties.Resources.ExistedItemMessage, Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                    MessageBox.Show(Properties.Resources.ExistedItemMessage, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     break;
                 }
             }
@@ -223,7 +250,10 @@ namespace GUI
                 }
                 ClearGroupBox(grbTruyenTranh);
                 txtTongTienHD.Text = TongTien().ToString();
-
+                if (!KTHD)
+                {
+                    state = false;
+                }
             }
         }
 
@@ -249,30 +279,20 @@ namespace GUI
         {
             if (CheckNull(grbTruyenTranh))
             {
-                if (KTHD)
-                {
-                    for (int i = 0; i < dgvTruyenTranh.RowCount; i++)
-                    {
-                        if (dgvTruyenTranh.Rows[i].Cells[0].Value.ToString().Trim() == txtMaTT.Text.Trim())
-                        {
-                            dgvTruyenTranh.Rows.RemoveAt(i); ClearGroupBox(grbTruyenTranh); txtTongTienHD.Text = TongTien().ToString();
 
-                            break;
-                        }
+                for (int i = 0; i < dgvTruyenTranh.RowCount; i++)
+                {
+                    if (dgvTruyenTranh.Rows[i].Cells[0].Value.ToString().Trim() == txtMaTT.Text.Trim())
+                    {
+                        dgvTruyenTranh.Rows.RemoveAt(i); ClearGroupBox(grbTruyenTranh); txtTongTienHD.Text = TongTien().ToString();
+
+                        break;
                     }
                 }
-                else
-                {
-                    //busCTDHN.XoaCTDHN(txtMaDHN.Text.Trim(), txtMaTT.Text.Trim());
-                    for (int i = 0; i < dgvTruyenTranh.RowCount; i++)
-                    {
-                        if (dgvTruyenTranh.Rows[i].Cells[0].Value.ToString().Trim() == txtMaTT.Text.Trim())
-                        {
-                            dgvTruyenTranh.Rows.RemoveAt(i); ClearGroupBox(grbTruyenTranh); txtTongTienHD.Text = TongTien().ToString();
 
-                            break;
-                        }
-                    }
+                if (!KTHD)
+                {
+                    state = false;
                 }
             }
         }
@@ -305,7 +325,10 @@ namespace GUI
                         dgvTruyenTranh.Rows[i].Cells[2].Value = txtSoLuong.Text;
                         dgvTruyenTranh.Rows[i].Cells[3].Value = txtGiaTien.Text;
                         ClearGroupBox(grbTruyenTranh); txtTongTienHD.Text = TongTien().ToString();
-
+                        if (!KTHD)
+                        {
+                            state = false;
+                        }
                         break;
                     }
                 }
@@ -340,12 +363,14 @@ namespace GUI
                         DTOCTDHN ct = new DTOCTDHN(txtMaDHN.Text.Trim(), dgvTruyenTranh.Rows[i].Cells[0].Value.ToString().Trim(), Convert.ToInt32(dgvTruyenTranh.Rows[i].Cells[2].Value.ToString()), Convert.ToInt32(dgvTruyenTranh.Rows[i].Cells[3].Value.ToString()));
                         busCTDHN.ThemCTDHN(ct);
                     }
-                    MessageBox.Show(string.Format(Properties.Resources.SuccessfullActionMessage, "Thêm"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information); btnIn.PerformClick();
+                    MessageBox.Show(string.Format(Properties.Resources.SuccessfullActionMessage, "Thêm"), Application.ProductName, MessageBoxButtons.OK,
+                        MessageBoxIcon.Information); btnIn.PerformClick();
+                    state = true;
                     this.Close();
                 }
                 else
                 {
-                    MessageBox.Show(string.Format(Properties.Resources.UnsuccessfulActionMessage, "Thêm"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    MessageBox.Show(string.Format(Properties.Resources.UnsuccessfulActionMessage, "Thêm"), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
@@ -358,19 +383,19 @@ namespace GUI
 
                 if (busDHN.SuaDHN(dhn))
                 {
-
+                    busCTDHN.XoaTatCaCTDHN(txtMaDHN.Text.Trim());
                     for (int i = 0; i < dgvTruyenTranh.RowCount; i++)
                     {
                         DTOCTDHN ct = new DTOCTDHN(txtMaDHN.Text.Trim(), dgvTruyenTranh.Rows[i].Cells[0].Value.ToString().Trim(), Convert.ToInt32(dgvTruyenTranh.Rows[i].Cells[2].Value.ToString()), Convert.ToInt32(dgvTruyenTranh.Rows[i].Cells[3].Value.ToString()));
-                        busCTDHN.XoaCTDHN(txtMaDHN.Text.Trim(), dgvTruyenTranh.Rows[i].Cells[0].Value.ToString().Trim());
                         busCTDHN.ThemCTDHN(ct);
                     }
-                    MessageBox.Show(string.Format(Properties.Resources.SuccessfullActionMessage, "Sửa"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                    this.Close();
+                    MessageBox.Show(string.Format(Properties.Resources.SuccessfullActionMessage, "Sửa"), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //this.Close();
+                    state = true;
                 }
                 else
                 {
-                    MessageBox.Show(string.Format(Properties.Resources.UnsuccessfulActionMessage, "Sửa"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    MessageBox.Show(string.Format(Properties.Resources.UnsuccessfulActionMessage, "Sửa"), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             //else
@@ -386,12 +411,12 @@ namespace GUI
 
                 if (busDHN.XoaDHN(txtMaDHN.Text))
                 {
-                    MessageBox.Show(string.Format(Properties.Resources.SuccessfullActionMessage, "Xóa"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information); this.Close();
+                    MessageBox.Show(string.Format(Properties.Resources.SuccessfullActionMessage, "Xóa"), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information); this.Close();
 
                 }
                 else
                 {
-                    MessageBox.Show(string.Format(Properties.Resources.UnsuccessfulActionMessage, "Xóa"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    MessageBox.Show(string.Format(Properties.Resources.UnsuccessfulActionMessage, "Xóa"), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
                 }
@@ -399,14 +424,22 @@ namespace GUI
             }
             else
             {
-                MessageBox.Show(Properties.Resources.InvalidInfoMessage, Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                MessageBox.Show(Properties.Resources.InvalidInfoMessage, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 
         }
 
         private void btnLamMoiHD_Click(object sender, EventArgs e)
         {
-            Refresh();
+            if (frmDangNhap.quyenQL == true)
+            {
+                ClearGroupBox(grbNhanVien);
+            }
+            ClearGroupBox(grbNXB);
+            ClearGroupBox(grbTruyenTranh);
+            dgvTruyenTranh.DataSource = null;
+            txtTongTienHD.Text = "";
+            txtMaDHN.Text = busDHN.TaoMa().Rows[0][0].ToString(); dtpNgayNhap.Value = DateTime.Now;
         }
         DataGridView dgvTmp;
         private void txtTimKiem_IconRightClick(object sender, EventArgs e)
@@ -441,24 +474,32 @@ namespace GUI
 
         private void btnIn_Click(object sender, EventArgs e)
         {
-            if (CheckNull(grbNhanVien) && CheckNull(grbNXB) && dgvTruyenTranh.RowCount > 0)
+            if (state == true)
             {
-                int sl = 0;
-                for (int i = 0; i < dgvTruyenTranh.RowCount; i++)
+                if (CheckNull(grbNhanVien) && CheckNull(grbNXB) && dgvTruyenTranh.RowCount > 0)
                 {
-                    sl += Convert.ToInt32(dgvTruyenTranh.Rows[i].Cells[2].Value.ToString().Trim());
+                    int sl = 0;
+                    for (int i = 0; i < dgvTruyenTranh.RowCount; i++)
+                    {
+                        sl += Convert.ToInt32(dgvTruyenTranh.Rows[i].Cells[2].Value.ToString().Trim());
 
+                    }
+                    frmDonHangNhap hoadon = new frmDonHangNhap();
+
+                    hoadon.GetInfo(dtpNgayNhap.Value.ToString("d"), txtMaDHN.Text, txtMaNXB.Text, txtTenNXB.Text, txtMaNV.Text, txtTenNV.Text, txtTongTienHD.Text, sl.ToString(), busCTDHN.LayCTDHN(txtMaDHN.Text));
+                    if (hoadon.ShowDialog() == DialogResult.Cancel)
+                    {
+                        this.Show();
+                    }
                 }
-                frmDonHangNhap hoadon = new frmDonHangNhap();
-                hoadon.GetInfo(dtpNgayNhap.Value.ToString("d"), txtMaDHN.Text, txtMaNXB.Text, txtTenNXB.Text, txtMaNV.Text, txtTenNV.Text, txtTongTienHD.Text, sl.ToString(), busCTDHN.LayCTDHN(txtMaDHN.Text));
-                if (hoadon.ShowDialog() == DialogResult.Cancel)
+                else
                 {
-                    this.Show();
+                    MessageBox.Show(Properties.Resources.InvalidInfoMessage, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
             else
             {
-                MessageBox.Show(Properties.Resources.InvalidInfoMessage, Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                MessageBox.Show(Properties.Resources.SaveInfoMessage, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
         }
@@ -471,6 +512,14 @@ namespace GUI
         private void txtGiaTien_Leave(object sender, EventArgs e)
         {
             CheckNumber();
+        }
+
+        private void dtpNgayNhap_ValueChanged(object sender, EventArgs e)
+        {
+            if (!KTHD)
+            {
+                state = false;
+            }
         }
     }
 }

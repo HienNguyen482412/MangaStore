@@ -30,17 +30,18 @@ namespace GUI
         /// Created by Nguyễn Minh Hiền – 05/04/2024: Kiểm tra giá trị 
         bool CheckValue()
         {
+            bool kt = true;
             if (txtTenDN.Text.Length < 2 || txtTenDN.Text.Length > 20)
             {
                 errorProvider1.SetError(txtMatKhau1, "Tên đăng nhập chỉ gồm từ 2 - 20 kí tự");
-                return false;
+                kt = false;
             }
             if (txtMatKhau1.Text.Length < 2 || txtMatKhau1.Text.Length > 20)
             {
                 errorProvider1.SetError(txtMatKhau1, "Mật khẩu chỉ gồm từ 2 - 20 kí tự");
-                return false;
+                kt =  false;
             }
-            return true;
+            return kt;
         }
 
         /// Created by Nguyễn Minh Hiền – 05/04/2024: Khi chọn vào biểu tượng icon nếu ẩn mật khẩu thì thực hiện hiển thị và thay đổi icon và ngược lại
@@ -74,14 +75,7 @@ namespace GUI
             }
         }
         /// Created by Nguyễn Minh Hiền – 05/04/2024: Làm mới các trường nhập
-        void Refresh()
-        {
-            txtTenDN.Clear();
-            txtMatKhau1.Clear();
-            txtMatKhau2.Clear();
-            txtMaNV.Clear();
-            txtMaXN.Clear();
-        }
+
         string random = Membership.GeneratePassword(5, 2);
         string xt = "";
         /// Created by Nguyễn Minh Hiền – 05/04/2024: Kiểm tra rỗng
@@ -142,7 +136,7 @@ namespace GUI
                         if (nv.DangKy(txtTenDN.Text, txtMatKhau1.Text, txtMaNV.Text.Trim()))
                         {
                             MessageBox.Show(string.Format(Properties.Resources.SuccessfullActionMessage,"Khôi phục tài khoản"), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                            Refresh();
+                            btnLamMoi.PerformClick();
                         }
                         else
                         {
@@ -169,7 +163,12 @@ namespace GUI
         /// Created by Nguyễn Minh Hiền – 05/04/2024: Làm mới
         private void btnLamMoi_Click(object sender, EventArgs e)
         {
-            Refresh();
+            txtTenDN.Clear();
+            txtMatKhau1.Clear();
+            txtMatKhau2.Clear();
+            txtMaNV.Clear();
+            txtMaXN.Clear();
+            txtTenDN.Focus();
         }
         /// Created by Nguyễn Minh Hiền – 05/04/2024: Thoát khỏi form
         private void btnThoat_Click(object sender, EventArgs e)

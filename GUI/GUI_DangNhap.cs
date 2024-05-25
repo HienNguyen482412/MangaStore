@@ -143,19 +143,15 @@ namespace GUI
         {
             this.Close();
         }
+
         /// Created by Nguyễn Minh Hiền – 05/04/2024: Làm mới các trường nhập
-        void Refresh()
+        private void btnLamMoi_Click(object sender, EventArgs e)
         {
             errorProvider1.Clear();
             txtTenDN.Clear();
             txtMatKhau.Clear();
             rdoNhanVien.Checked = false;
             rdoQuanLy.Checked = false;
-        }
-        /// Created by Nguyễn Minh Hiền – 05/04/2024: Làm mới các trường nhập
-        private void btnLamMoi_Click(object sender, EventArgs e)
-        {
-            Refresh();
         }
     
         private void frmDangNhap_Shown(object sender, EventArgs e)
