@@ -40,10 +40,10 @@
             this.rdoTheoNgay = new Guna.UI2.WinForms.Guna2RadioButton();
             this.dtpNgayBan = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnLamMoiHD = new Guna.UI2.WinForms.Guna2Button();
             this.btnThemHD = new Guna.UI2.WinForms.Guna2Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDHB)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -85,7 +85,7 @@
             this.dgvDHB.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvDHB.RowTemplate.Height = 40;
             this.dgvDHB.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvDHB.Size = new System.Drawing.Size(856, 496);
+            this.dgvDHB.Size = new System.Drawing.Size(856, 495);
             this.dgvDHB.TabIndex = 4;
             this.dgvDHB.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDHB_CellClick);
             // 
@@ -219,8 +219,19 @@
             this.splitContainer1.Panel2.Controls.Add(this.btnLamMoiHD);
             this.splitContainer1.Panel2.Controls.Add(this.btnThemHD);
             this.splitContainer1.Size = new System.Drawing.Size(856, 575);
-            this.splitContainer1.SplitterDistance = 496;
+            this.splitContainer1.SplitterDistance = 495;
             this.splitContainer1.TabIndex = 8;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(856, 495);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
             // 
             // btnLamMoiHD
             // 
@@ -238,7 +249,7 @@
             this.btnLamMoiHD.ForeColor = System.Drawing.Color.Black;
             this.btnLamMoiHD.Image = ((System.Drawing.Image)(resources.GetObject("btnLamMoiHD.Image")));
             this.btnLamMoiHD.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnLamMoiHD.Location = new System.Drawing.Point(459, 21);
+            this.btnLamMoiHD.Location = new System.Drawing.Point(459, 20);
             this.btnLamMoiHD.Name = "btnLamMoiHD";
             this.btnLamMoiHD.Size = new System.Drawing.Size(194, 41);
             this.btnLamMoiHD.TabIndex = 90;
@@ -268,17 +279,6 @@
             this.btnThemHD.Text = "Thêm đơn hàng";
             this.btnThemHD.Click += new System.EventHandler(this.btnThemHD_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(856, 496);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
-            // 
             // frmDHB_List
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -288,7 +288,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmDHB_List";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GUI_DHB_List";

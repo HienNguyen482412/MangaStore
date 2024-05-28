@@ -10,7 +10,7 @@ using System.Net.Mail;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web.Security;
+using System.Web.Security;//GeneratePassword
 using System.Windows.Forms;
 
 namespace GUI
@@ -93,10 +93,34 @@ namespace GUI
             }
             return ck;
         }
+        bool KiemTraTaiKhoan()
+        {
+            errorProvider1.Clear();
+            try
+            {
+                if (nv.KiemTraNVDaCoTaiKhoan(txtMaNV.Text).Rows[0][0].ToString() != "")
+                {
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show(Properties.Resources.AccountExist, ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return false;
+                }
+
+            }
+            catch
+            {
+                errorProvider1.SetError(txtMaNV, "Mã nhân viên không tồn tại");
+                return false;
+            }
+
+        }
+
         /// Created by Nguyễn Minh Hiền – 05/04/2024: Gửi mã xác nhận qua gmail
         private void btnGuiMaXN_Click(object sender, EventArgs e)
         {
-            if (txtMaNV.Text != "" )
+            if (txtMaNV.Text != ""  && KiemTraTaiKhoan())
             {
                 try
                 {
@@ -108,11 +132,11 @@ namespace GUI
                     xt = random;
                     ms.Body = $"<h1>Đây là mã của bạn: {xt}</h1>";
                     ms.IsBodyHtml = true;
-                    var sptmClient = new SmtpClient("smtp.gmail.com")
+                    var sptmClient = new SmtpClient("smtp.gmail.com")//Gửi email qua SMTP (Simple Mail Transfer Protocol)
                     {
-                        Port = 587,
-                        Credentials = new NetworkCredential("hibarikyoya2k4@gmail.com", "kcuc mdep xotz riqe"),
-                        EnableSsl = true,
+                        Port = 587,//Cổng 587 - (thường) chỉ định cho việc gửi email qua giao thức SMTP
+                        Credentials = new NetworkCredential("hibarikyoya2k4@gmail.com", "kcuc mdep xotz riqe"),//thiết lập thông tin đăng nhập vào tài khoản Gmail của người gửi. Lấy mã bằng cách kích hoạt bảo vệ 3 lớp trên gmail
+                        EnableSsl = true, // Sử dụng SSL/TLS để mã hóa
                     };
                     sptmClient.Send(ms);
                     errorProvider2.SetError(btnGuiMaXN,"Mã sẽ được gửi đến bạn! Vui lòng kiểm tra email");
@@ -124,23 +148,34 @@ namespace GUI
                 
             }
         }
+        bool CheckAccountName()
+        {
+            errorProvider1.Clear();
+            if (nv.KiemTraTenDN(txtTenDN.Text.Trim()) != "0")
+            {
+                errorProvider1.SetError(txtTenDN, "Tên đăng nhập đã tồn tại");
+                return false;
+            }
+            return true;
+        }
+
         /// Created by Nguyễn Minh Hiền – 05/04/2024: Thực hiện đăng kí lại tài khoản
         private void btnTao_Click(object sender, EventArgs e)
         {
-            if (CheckNull())
+            if (CheckNull() && CheckValue() && CheckAccountName())
             {
                 if (txtMaXN.Text.Trim() == xt)
                 {
-                   if (CheckValue() && txtMatKhau1.Text.Trim() == txtMatKhau2.Text.Trim())
+                   if (txtMatKhau1.Text.Trim() == txtMatKhau2.Text.Trim())
                     {
                         if (nv.DangKy(txtTenDN.Text, txtMatKhau1.Text, txtMaNV.Text.Trim()))
                         {
-                            MessageBox.Show(string.Format(Properties.Resources.SuccessfullActionMessage,"Khôi phục tài khoản"), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                            btnLamMoi.PerformClick();
+                            MessageBox.Show(string.Format(Properties.Resources.SuccessfullActionMessage,"Khôi phục tài khoản"), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.Close();
                         }
                         else
                         {
-                            MessageBox.Show(string.Format(Properties.Resources.UnsuccessfulActionMessage, "Khôi phục tài khoản"), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            MessageBox.Show(string.Format(Properties.Resources.UnsuccessfulActionMessage, "Khôi phục tài khoản"), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
                     else
@@ -154,11 +189,7 @@ namespace GUI
                     errorProvider1.SetError(txtMaXN, "Mã xác nhận không chính xác");
                 }
             }
-            else
-            {
-                MessageBox.Show(Properties.Resources.IncompleteInformationMessage, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-            }
+       
         }
         /// Created by Nguyễn Minh Hiền – 05/04/2024: Làm mới
         private void btnLamMoi_Click(object sender, EventArgs e)
@@ -169,6 +200,8 @@ namespace GUI
             txtMaNV.Clear();
             txtMaXN.Clear();
             txtTenDN.Focus();
+            errorProvider1.Clear();
+            errorProvider2.Clear();
         }
         /// Created by Nguyễn Minh Hiền – 05/04/2024: Thoát khỏi form
         private void btnThoat_Click(object sender, EventArgs e)

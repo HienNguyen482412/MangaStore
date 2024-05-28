@@ -57,18 +57,7 @@ namespace DAL
         {
             return ex.ReturnTable($"select isnull(sum(giatien*soluong),0) from cthdb inner join hdb on cthdb.mahdb = hdb.mahdb where day(ngayban)={ngay} and month(ngayban) = {thang} and year(NgayBan) = {nam}");
         }
-        /// <summary>
-        /// Phương thức lấy danh sách truyện bán chạy theo ngày
-        /// </summary>
-        /// <param name="ngay">Ngày</param>
-        /// <param name="thang">Tháng</param>
-        /// <param name="nam">Năm</param>
-        /// <returns>Danh sách truyện bán chạy theo ngày</returns>
-        /// Created by Nguyễn Minh Hiền – 05/04/2024
-        public DataTable TruyenBanChayTheoNgay(string ngay, string thang, string nam)
-        {
-            return ex.ReturnTable($"select top 1 with ties ct.Matt as [Mã truyện tranh] , TenTruyen as [Tên truyện] , sum(ct.SoLuong) as [Số lượng đã bán] from cthdb ct inner join TruyenTranh tt on ct.MaTT = tt.MaTT inner join HDB hdb on ct.MaHDB = hdb.MaHDB where day(ngayban)={ngay} and month(ngayban) = {thang} and year(ngayban) = {nam} group by ct.MaTT, TenTruyen order by [Số lượng đã bán] desc");
-        }
+
 
 
 
@@ -115,17 +104,7 @@ namespace DAL
         {
             return ex.ReturnTable($"select isnull(sum(giatien*soluong),0) from cthdb inner join hdb on cthdb.mahdb = hdb.mahdb where month(ngayban) = {thang} and year(NgayBan) = {nam}");
         }
-        /// <summary>
-        /// Phương thức lấy danh sách truyện bán chạy theo tháng
-        /// </summary>
-        /// <param name="thang">Tháng</param>
-        /// <param name="nam">Năm</param>
-        /// <returns>Danh sách truyện bán chạy theo tháng</returns>
-        /// Created by Nguyễn Minh Hiền – 05/04/2024
-        public DataTable TruyenBanChayTheoThang(string thang, string nam)
-        {
-            return ex.ReturnTable($"select top 1 with ties ct.Matt as [Mã truyện tranh] , TenTruyen as [Tên truyện] , sum(ct.SoLuong) as [Số lượng đã bán] from cthdb ct inner join TruyenTranh tt on ct.MaTT = tt.MaTT inner join HDB hdb on ct.MaHDB = hdb.MaHDB where month(ngayban) = {thang} and year(ngayban) = {nam} group by ct.MaTT, TenTruyen order by [Số lượng đã bán] desc");
-        }
+
 
         //Theo năm
         /// <summary>
@@ -165,16 +144,6 @@ namespace DAL
         public DataTable TongTienBanTheoNam(string nam)
         {
             return ex.ReturnTable($"select isnull(sum(giatien*soluong),0) from cthdb inner join hdb on cthdb.mahdb = hdb.mahdb where year(NgayBan) = {nam}");
-        }
-        /// <summary>
-        /// Phương thức lấy danh sách truyện bán chạy theo năm
-        /// </summary>
-        /// <param name="nam">Năm</param>
-        /// <returns>Danh sách truyện bán chạy theo năm</returns>
-        /// Created by Nguyễn Minh Hiền – 05/04/2024
-        public DataTable TruyenBanChayTheoNam(string nam)
-        {
-            return ex.ReturnTable($"select top 1 with ties ct.Matt as [Mã truyện tranh] , TenTruyen as [Tên truyện] , sum(ct.SoLuong) as [Số lượng đã bán] from cthdb ct inner join TruyenTranh tt on ct.MaTT = tt.MaTT inner join HDB hdb on ct.MaHDB = hdb.MaHDB where  year(ngayban) = {nam} group by ct.MaTT, TenTruyen order by [Số lượng đã bán] desc");
         }
 
 
@@ -330,6 +299,37 @@ namespace DAL
                 return ex.ReturnTable($"select isnull(sum(giatien*soluong),0) from cthdn inner join hdn on cthdn.mahdn = hdn.mahdn where year(NgayNhap)={nam}");
             }
         }
-
+        //Thống kê bán chạy, bán ế
+        public DataTable ThongKeBanChay(int option, int ngay, int thang, int nam)
+        {
+            switch (option)
+            {
+                case 0: return ex.ReturnTable($"select tt.MaTT as [Mã truyện tranh], TenTruyen as [Tên truyện], isnull(sum(ct.soluong),0) as [Số lượng đã bán]  from TruyenTranh tt left join cthdb ct on tt.matt = ct.matt left join hdb hd on hd.MaHDB = ct.MaHDB where NgayBan = '{nam}-{thang}-{ngay}' group by tt.matt, tentruyen order by isnull(sum(ct.soluong),0) desc");
+                case 1: return ex.ReturnTable($"select tt.MaTT as [Mã truyện tranh], TenTruyen as [Tên truyện], isnull(sum(ct.soluong),0) as [Số lượng đã bán]  from TruyenTranh tt left join cthdb ct on tt.matt = ct.matt left join hdb hd on hd.MaHDB = ct.MaHDB where month(NgayBan) = month('{nam}-{thang}-{ngay}') and year(NgayBan) = year('{nam}-{thang}-{ngay}') group by tt.matt, tentruyen order by isnull(sum(ct.soluong),0) desc");
+                case 2: return ex.ReturnTable($"select tt.MaTT as [Mã truyện tranh], TenTruyen as [Tên truyện], isnull(sum(ct.soluong),0) as [Số lượng đã bán]  from TruyenTranh tt left join cthdb ct on tt.matt = ct.matt left join hdb hd on hd.MaHDB = ct.MaHDB where year( NgayBan) = year('{nam}-{thang}-{ngay}') group by tt.matt, tentruyen order by isnull(sum(ct.soluong),0) desc");
+                default: return new DataTable();
+            }
+        }
+        public DataTable ThongKeBanE(int option, int ngay, int thang, int nam)
+        {
+            switch (option)
+            {
+                case 0: return ex.ReturnTable($"with cte_banchay as( select tt.MaTT as [Mã truyện tranh], TenTruyen as [Tên truyện], isnull(sum(ct.soluong),0) as [Số lượng đã bán]  from TruyenTranh tt left join cthdb ct on tt.matt = ct.matt left join hdb hd on hd.MaHDB = ct.MaHDB where NgayBan = '{nam}-{thang}-{ngay}' group by tt.matt, tentruyen) select MaTT as [Mã truyện tranh], TenTruyen as [Tên truyện], isnull(0,0) as [Số lượng đã bán]  from TruyenTranh where matt not in (select [Mã truyện tranh] from cte_banchay)");
+                case 1: return ex.ReturnTable($"with cte_banchay as( select tt.MaTT as [Mã truyện tranh], TenTruyen as [Tên truyện], isnull(sum(ct.soluong),0) as [Số lượng đã bán]  from TruyenTranh tt left join cthdb ct on tt.matt = ct.matt left join hdb hd on hd.MaHDB = ct.MaHDB where month(NgayBan) = month('{nam}-{thang}-{ngay}') and year(NgayBan) = year('{nam}-{thang}-{ngay}') group by tt.matt, tentruyen) select MaTT as [Mã truyện tranh], TenTruyen as [Tên truyện], isnull(0,0) as [Số lượng đã bán]  from TruyenTranh where matt not in (select [Mã truyện tranh] from cte_banchay)");
+                case 2: return ex.ReturnTable($"with cte_banchay as( select tt.MaTT as [Mã truyện tranh], TenTruyen as [Tên truyện], isnull(sum(ct.soluong),0) as [Số lượng đã bán]  from TruyenTranh tt left join cthdb ct on tt.matt = ct.matt left join hdb hd on hd.MaHDB = ct.MaHDB where  year(NgayBan) = year('{nam}-{thang}-{ngay}') group by tt.matt, tentruyen) select MaTT as [Mã truyện tranh], TenTruyen as [Tên truyện], isnull(0,0) as [Số lượng đã bán]  from TruyenTranh where matt not in (select [Mã truyện tranh] from cte_banchay)");
+                default: return new DataTable();
+            }
+        }
+        //Thống kê danh sách truyện nhập theo ngày, tháng, năm
+        public DataTable ThongKeTruyenNhap(int option, int ngay, int thang, int nam)
+        {
+            switch (option)
+            {
+                case 0: return ex.ReturnTable($"select tt.MaTT as [Mã truyện tranh], TenTruyen as [Tên truyện], isnull(sum(ct.soluong),0) as [Số lượng đã nhập]  from TruyenTranh tt left join cthdn ct on tt.matt = ct.matt left join hdn hd on hd.MaHDn = ct.MaHDn where NgayNhap = '{nam}-{thang}-{ngay}' group by tt.matt, tentruyen order by isnull(sum(ct.soluong),0) desc");
+                case 1: return ex.ReturnTable($"select tt.MaTT as [Mã truyện tranh], TenTruyen as [Tên truyện], isnull(sum(ct.soluong),0) as [Số lượng đã nhập]  from TruyenTranh tt left join cthdn ct on tt.matt = ct.matt left join hdn hd on hd.MaHDn = ct.MaHDn where month(NgayNhap) = month('{nam}-{thang}-{ngay}') and year(NgayNhap) = year('{nam}-{thang}-{ngay}') group by tt.matt, tentruyen order by isnull(sum(ct.soluong),0) desc");
+                case 2: return ex.ReturnTable($"select tt.MaTT as [Mã truyện tranh], TenTruyen as [Tên truyện], isnull(sum(ct.soluong),0) as [Số lượng đã nhập]  from TruyenTranh tt left join cthdn ct on tt.matt = ct.matt left join hdn hd on hd.MaHDn = ct.MaHDn where year(NgayNhap) = year('{nam}-{thang}-{ngay}') group by tt.matt, tentruyen order by isnull(sum(ct.soluong),0) desc");
+                default: return new DataTable();
+            }
+        }
     }
 }

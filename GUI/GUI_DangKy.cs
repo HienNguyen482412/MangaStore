@@ -66,7 +66,7 @@ namespace GUI
             }
         }
         /// Created by Nguyễn Minh Hiền – 05/04/2024: Làm mới các trường nhập 
-      
+
         /// Created by Nguyễn Minh Hiền – 05/04/2024: Kiểm tra nhân viên đã có tài khoản hay chưa
         bool KiemTraTaiKhoan()
         {
@@ -88,7 +88,17 @@ namespace GUI
                 errorProvider1.SetError(txtMaNV, "Mã nhân viên không tồn tại");
                 return false;
             }
-            
+
+        }
+        /// Created By Nguyễn Minh Hiền 25/05/2024: Kiểm tra tên đăng nhập
+        bool CheckAccountName()
+        {
+            if (nv.KiemTraTenDN(txtTenDN.Text.Trim()) != "0")
+            {
+                errorProvider1.SetError(txtTenDN, "Tên đăng nhập đã tồn tại");
+                return false;
+            }
+            return true;
         }
         /// Created by Nguyễn Minh Hiền – 05/04/2024: Kiểm tra rỗng cho các trường dữ liệu nhập
         bool CheckNull()
@@ -107,14 +117,14 @@ namespace GUI
         /// Created by Nguyễn Minh Hiền – 05/04/2024: Thực hiện đăng kí tài khoản cho nhân viên
         private void btnDangKy_Click(object sender, EventArgs e)
         {
-            if (CheckNull() )
+            if (CheckNull() && CheckAccountName())
             {
                 if (txtMatKhau1.Text.Trim() == txtMatKhau2.Text.Trim())
                 {
-                    if (KiemTraTaiKhoan() && CheckValue() && nv.DangKy(txtTenDN.Text.Trim(), txtMatKhau1.Text.Trim(), txtMaNV.Text.Trim()) )
+                    if (KiemTraTaiKhoan() && CheckValue() && nv.DangKy(txtTenDN.Text.Trim(), txtMatKhau1.Text.Trim(), txtMaNV.Text.Trim()))
                     {
-                        MessageBox.Show(string.Format(Properties.Resources.SuccessfullActionMessage,"Đăng kí"), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        Refresh();
+                        MessageBox.Show(string.Format(Properties.Resources.SuccessfullActionMessage, "Đăng kí"), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
                     }
                     else
                     {
@@ -124,13 +134,10 @@ namespace GUI
                 }
                 else
                 {
-                     MessageBox.Show(Properties.Resources.NotMatchPassword, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show(Properties.Resources.NotMatchPassword, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
-            else
-            {
-                MessageBox.Show(Properties.Resources.IncompleteInformationMessage, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
+
         }
 
         private void btnLamMoi_Click(object sender, EventArgs e)

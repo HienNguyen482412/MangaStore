@@ -2,6 +2,7 @@
 using DTO;
 using Guna.UI2.WinForms;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 
@@ -313,6 +314,7 @@ namespace GUI
             }
         }
         public bool KTHD = true;
+
         private void btnSua_Click(object sender, EventArgs e)
         {
             if (CheckNull(grbTruyenTranh) && CheckNumber())
@@ -408,7 +410,7 @@ namespace GUI
         {
             if (CheckNull(grbNhanVien) && CheckNull(grbNXB) && dgvTruyenTranh.Rows.Count > 0 && MessageBox.Show(string.Format(Properties.Resources.DeleteMessage, "đơn hàng"), Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
-
+               
                 if (busDHN.XoaDHN(txtMaDHN.Text))
                 {
                     MessageBox.Show(string.Format(Properties.Resources.SuccessfullActionMessage, "Xóa"), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information); this.Close();

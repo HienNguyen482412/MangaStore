@@ -62,24 +62,20 @@ namespace DAL
         {
             if (s == 0)
             {
-                return ex.ReturnTable($"select MaHDN as [Mã đơn hàng nhập], MaNV as [Mã nhân viên], MaNXB as [Mã nhà xuất bản], ngaynhap as [Ngày nhập] from HDN where day(ngaynhap) = {day}");
+                return ex.ReturnTable($"select MaHDN as [Mã đơn hàng nhập], MaNV as [Mã nhân viên], MaNXB as [Mã nhà xuất bản], ngaynhap as [Ngày nhập] from HDN where day(ngaynhap) = {day} and Month(ngaynhap) = {month} and year(ngaynhap) = {year} ");
 
             }
             else if (s == 1)
             {
-                return ex.ReturnTable($"select MaHDN as [Mã đơn hàng nhập], MaNV as [Mã nhân viên], MaNXB as [Mã nhà xuất bản], ngaynhap as [Ngày nhập] from HDN where Month(ngaynhap) = {month}");
-
-            }
-            else if (s == 2)
-            {
-                return ex.ReturnTable($"select MaHDN as [Mã đơn hàng nhập], MaNV as [Mã nhân viên], MaNXB as [Mã nhà xuất bản], ngaynhap as [Ngày nhập] from HDN where year(ngaynhap) = {year}");
+                return ex.ReturnTable($"select MaHDN as [Mã đơn hàng nhập], MaNV as [Mã nhân viên], MaNXB as [Mã nhà xuất bản], ngaynhap as [Ngày nhập] from HDN where Month(ngaynhap) = {month} and  year(ngaynhap) = {year}");
 
             }
             else
             {
-                return ex.ReturnTable($"select MaHDN as [Mã đơn hàng nhập], MaNV as [Mã nhân viên], MaNXB as [Mã nhà xuất bản], ngaynhap as [Ngày nhập] from HDN where day(ngaynhap) = {day} and Month(ngaynhap) = {month} and year(ngaynhap) = {year} ");
+                return ex.ReturnTable($"select MaHDN as [Mã đơn hàng nhập], MaNV as [Mã nhân viên], MaNXB as [Mã nhà xuất bản], ngaynhap as [Ngày nhập] from HDN where year(ngaynhap) = {year}");
 
             }
+      
         }
         /// <summary>
         /// Phương thức tự động tạo mã cho đơn hàng nhập

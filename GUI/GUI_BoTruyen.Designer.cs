@@ -196,6 +196,7 @@
             "12",
             "14",
             "16",
+            "17",
             "18"});
             this.cboDoTuoi.Location = new System.Drawing.Point(704, 159);
             this.cboDoTuoi.Name = "cboDoTuoi";

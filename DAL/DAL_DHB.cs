@@ -57,24 +57,20 @@ namespace DAL
         {
             if (s == 0)
             {
-                return ex.ReturnTable($"select MaHDB as [Mã đơn hàng bán], MaNV as [Mã nhân viên], MaKH as [Mã khách hàng], ngayban as [Ngày bán] from HDB where day(ngayban) = {day}");
+                return ex.ReturnTable($"select MaHDB as [Mã đơn hàng bán], MaNV as [Mã nhân viên], MaKH as [Mã khách hàng], ngayban as [Ngày bán] from HDB where day(ngayban) = {day} and Month(ngayban) = {month} and year(ngayban) = {year} ");
 
             }
             else if (s == 1)
             {
-                return ex.ReturnTable($"select MaHDB as [Mã đơn hàng bán], MaNV as [Mã nhân viên], MaKH as [Mã khách hàng], ngayban as [Ngày bán] from HDB where Month(ngayban) = {month}");
+                return ex.ReturnTable($"select MaHDB as [Mã đơn hàng bán], MaNV as [Mã nhân viên], MaKH as [Mã khách hàng], ngayban as [Ngày bán] from HDB where Month(ngayban) = {month} and year(ngayban) = {year}");
 
             }
-            else if (s == 2)
+            else 
             {
                 return ex.ReturnTable($"select MaHDB as [Mã đơn hàng bán], MaNV as [Mã nhân viên], MaKH as [Mã khách hàng], ngayban as [Ngày bán] from HDB where year(ngayban) = {year}");
 
             }
-            else
-            {
-                return ex.ReturnTable($"select MaHDB as [Mã đơn hàng bán], MaNV as [Mã nhân viên], MaKH as [Mã khách hàng], ngayban as [Ngày bán] from HDB where day(ngayban) = {day} and Month(ngayban) = {month} and year(ngayban) = {year} ");
 
-            }
         }
         /// <summary>
         /// Phương thức tự động tạo mã cho đơn hàng bán

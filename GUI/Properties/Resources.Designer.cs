@@ -61,6 +61,15 @@ namespace GUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bạn chưa đăng ký tài khoản!.
+        /// </summary>
+        internal static string AccountExist {
+            get {
+                return ResourceManager.GetString("AccountExist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bạn có muốn thêm {0} này không ?.
         /// </summary>
         internal static string AddMessage {

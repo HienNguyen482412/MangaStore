@@ -1,4 +1,5 @@
 ﻿using BUS;
+using MiniExcelLibs;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -137,8 +138,9 @@ namespace GUI
             lbTienLai.Text = "TIỀN LÃI:  " + (Convert.ToInt64(tk.TongTienBanTheoNgay(ngay, thang, nam).Rows[0][0].ToString()) - Convert.ToInt64(tk.TongTienNhapTheoNgay(ngay, thang, nam).Rows[0][0].ToString())).ToString();
             chartThongKeDoanhThu.Datasets.Add(datasedgt);
             chartThongKeDoanhThu.Update();
-            dgvTruyenBanChay.DataSource = tk.TruyenBanChayTheoNgay(ngay, thang, nam);
-            dgvTruyenBanE.DataSource = tk.TruyenBanE();
+            dgvTruyenBanChay.DataSource = tk.ThongKeBanChay(0, Convert.ToInt16(ngay), Convert.ToInt16(thang), Convert.ToInt16(nam));
+            dgvTruyenBanE.DataSource = tk.ThongKeBanE(0, Convert.ToInt16(ngay), Convert.ToInt16(thang), Convert.ToInt16(nam));
+            dgvTruyenNhap.DataSource = tk.ThongKeTruyenNhap(0, Convert.ToInt16(ngay), Convert.ToInt16(thang), Convert.ToInt16(nam));
             DataTable dtnhap = tk.TongSoDonHangVaSLNhap(0, Convert.ToInt16(ngay), Convert.ToInt16(thang), Convert.ToInt16(nam));
             lbSoLuongDHNhap.Text = dtnhap.Rows[0][0].ToString();
             lbSoLuongTN.Text = dtnhap.Rows[0][1].ToString();
@@ -153,6 +155,7 @@ namespace GUI
             chartThongKeDoanhThu.Reset();
             string thang = dtpNgayTK.Value.ToString("MM");
             string nam = dtpNgayTK.Value.ToString("yyyy");
+            string ngay = dtpNgayTK.Value.ToString("dd");
             chartThongKeSoTruyen.YAxes.GridLines.Display = false;
             var dataset = new Guna.Charts.WinForms.GunaBarDataset();
             dataset.Label = "Số truyện bán";
@@ -217,8 +220,9 @@ namespace GUI
             lbTienLai.Text = "TIỀN LÃI: " + (Convert.ToInt64(tk.TongTienBanTheoThang(thang, nam).Rows[0][0].ToString()) - Convert.ToInt64(tk.TongTienNhapTheoThang(thang, nam).Rows[0][0].ToString())).ToString();
             chartThongKeDoanhThu.Datasets.Add(datasedgt);
             chartThongKeDoanhThu.Update();
-            dgvTruyenBanChay.DataSource = tk.TruyenBanChayTheoThang(thang, nam);
-            dgvTruyenBanE.DataSource = tk.TruyenBanE();
+            dgvTruyenBanChay.DataSource = tk.ThongKeBanChay(1, Convert.ToInt16(ngay), Convert.ToInt16(thang), Convert.ToInt16(nam));
+            dgvTruyenBanE.DataSource = tk.ThongKeBanE(1, Convert.ToInt16(ngay), Convert.ToInt16(thang), Convert.ToInt16(nam));
+            dgvTruyenNhap.DataSource = tk.ThongKeTruyenNhap(1, Convert.ToInt16(ngay), Convert.ToInt16(thang), Convert.ToInt16(nam));
             DataTable dtnhap = tk.TongSoDonHangVaSLNhap(1, Convert.ToInt16(thang), Convert.ToInt16(thang), Convert.ToInt16(nam));
             lbSoLuongDHNhap.Text = dtnhap.Rows[0][0].ToString();
             lbSoLuongTN.Text = dtnhap.Rows[0][1].ToString();
@@ -299,8 +303,9 @@ namespace GUI
             lbTienLai.Text = "TIỀN LÃI:  " + (Convert.ToInt64(tk.TongTienBanTheoNam(nam).Rows[0][0].ToString()) - Convert.ToInt64(tk.TongTienNhapTheoNam(nam).Rows[0][0].ToString())).ToString();
             chartThongKeDoanhThu.Datasets.Add(datasedgt);
             chartThongKeDoanhThu.Update();
-            dgvTruyenBanChay.DataSource = tk.TruyenBanChayTheoNam(nam);
-            dgvTruyenBanE.DataSource = tk.TruyenBanE();
+            dgvTruyenBanChay.DataSource = tk.ThongKeBanChay(2, Convert.ToInt16(ngay), Convert.ToInt16(thang), Convert.ToInt16(nam));
+            dgvTruyenBanE.DataSource = tk.ThongKeBanE(2, Convert.ToInt16(ngay), Convert.ToInt16(thang), Convert.ToInt16(nam));
+            dgvTruyenNhap.DataSource = tk.ThongKeTruyenNhap(2, Convert.ToInt16(ngay), Convert.ToInt16(thang), Convert.ToInt16(nam));
             DataTable dtnhap = tk.TongSoDonHangVaSLNhap(3, Convert.ToInt16(ngay), Convert.ToInt16(thang), Convert.ToInt16(nam));
             lbSoLuongDHNhap.Text = dtnhap.Rows[0][0].ToString();
             lbSoLuongTN.Text = dtnhap.Rows[0][1].ToString();
@@ -348,5 +353,30 @@ namespace GUI
             frmThongKe_Ex tkex = new frmThongKe_Ex();
             tkex.Show();
         }
+
+        private void grbNhapTruyen_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rdoDSNhap_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoDSNhap.Checked == true)
+            {
+                grbTruyenBanChay.Visible = false;
+                grbTruyenBanE.Visible = false;
+            }
+        }
+
+        private void rdoDSBan_CheckedChanged(object sender, EventArgs e)
+        {
+            if(rdoDSNhap.Checked == false)
+            {
+                grbTruyenBanChay.Visible = true;
+                grbTruyenBanE.Visible = true;
+            }
+        }
+
+
     }
 }

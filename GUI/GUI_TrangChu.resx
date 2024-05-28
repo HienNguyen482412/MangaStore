@@ -126,6 +126,9 @@
         SUVORK5CYII=
 </value>
   </data>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <data name="btnThongKe.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
@@ -212,7 +215,7 @@
   <data name="btnTat_QL.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DgAACw4BQL7hQQAAK1ZJREFUeF7t3QeUNFWdsPEhg+QcBBQRkQ9ZsgQJooAIAgJiXAyIqOiCokhY3XXN
+        DQAACw0B7QfALAAAK1ZJREFUeF7t3QeUNFWdsPEhg+QcBBQRkQ9ZsgQJooAIAgJiXAyIqOiCokhY3XXN
         3xIEJIhIMK0IogKySDRhVhARXEFyEpAML5nve/4O+O4w/3mne6aqu6ru8zvnOcdjnqrq27e7q+4dkSRJ
         kiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJ
         kiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJ
@@ -2411,7 +2414,7 @@
   <data name="btnTat.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DwAACw8BkvkDpQAAK1ZJREFUeF7t3QeUNFWdsPEhg+QcBBQRkQ9ZsgQJooAIAgJiXAyIqOiCokhY3XXN
+        DgAACw4BQL7hQQAAK1ZJREFUeF7t3QeUNFWdsPEhg+QcBBQRkQ9ZsgQJooAIAgJiXAyIqOiCokhY3XXN
         3xIEJIhIMK0IogKySDRhVhARXEFyEpAML5nve/4O+O4w/3mne6aqu6ru8zvnOcdjnqrq27e7q+4dkSRJ
         kiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJ
         kiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJ
@@ -3137,6 +3140,9 @@
         8WkT7bHH/wVxn/GXeQCrNgAAAABJRU5ErkJggg==
 </value>
   </data>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAYAAAAAAAEAIAC8xgAAZgAAAICAAAABACAAKAgBACLHAABAQAAAAQAgAChCAABKzwEAMDAAAAEA

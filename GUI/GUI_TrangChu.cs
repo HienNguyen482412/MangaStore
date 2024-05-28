@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace GUI
@@ -15,7 +14,7 @@ namespace GUI
         /// </summary>
         /// <param name="form">Tên form</param>
         private void AddFormInPanel(object form)
-        {  
+        {
             if (this.pnlFormContainer.Controls.Count > 0)
             {
                 this.pnlFormContainer.Controls.RemoveAt(0);
@@ -40,7 +39,7 @@ namespace GUI
                 {
                     pnlThongTinNV.Visible = false;
                 }
-
+                toolTip1.Active = true;
             }
             else
             {
@@ -51,6 +50,7 @@ namespace GUI
                 {
                     pnlThongTinNV.Visible = true;
                 }
+                toolTip1.Active = false;
             }
 
         }
@@ -131,7 +131,7 @@ namespace GUI
                 btnNhanVien.Visible = false;
                 lbMaNV.Text = frmDangNhap.maNV;
                 lbTenNV.Text = frmDangNhap.tenNV;
-                    
+
             }
             else
             {

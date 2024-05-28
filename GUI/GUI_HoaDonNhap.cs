@@ -41,7 +41,7 @@ namespace GUI
             dgvTruyenTranh.AutoSize = true;
             CaptureScreen();
             printDocument1.Print();
-            printDocument1.PrintPage += new PrintPageEventHandler(printDocument1_PrintPage);
+            //printDocument1.PrintPage += new PrintPageEventHandler(printDocument1_PrintPage);
           
         }
 

@@ -174,5 +174,14 @@ namespace DAL
         {
            return ex.AutoCreateID(tenCot, tenBang,soKiTu, kiTu);
         }
+        /// <summary>
+        /// Kiểm tra tên đăng nhập của nhân viên có trùng không
+        /// </summary>
+        /// <param name="tendn">Tên đăng nhập</param>
+        /// <returns>Trả về 0 nếu ko có nhân viên nào</returns>
+        public string KiemTraTenDN(string tendn)
+        {
+            return ex.ReturnValue($"select count(*) from nhanvien where taikhoan = '{tendn}'");
+        }
     }
 }

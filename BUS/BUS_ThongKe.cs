@@ -17,9 +17,9 @@ namespace BUS
         DALThongKe dalTK = new DALThongKe();
         //Theo ngày
         /// Created by Nguyễn Minh Hiền – 05/04/2024: Thống kê số truyện bán theo ngày
-        public DataTable ThongKeTheoNgayBan(string thang,string nam)
+        public DataTable ThongKeTheoNgayBan(string thang, string nam)
         {
-            return dalTK.ThongKeTheoNgayBan(thang,nam);
+            return dalTK.ThongKeTheoNgayBan(thang, nam);
         }
         /// Created by Nguyễn Minh Hiền – 05/04/2024: Thống kê số truyện nhập theo ngày
         public DataTable ThongKeTheoNgayNhap(string thang, string nam)
@@ -36,11 +36,7 @@ namespace BUS
         {
             return dalTK.TongTienBanTheoNgay(ngay, thang, nam);
         }
-        /// Created by Nguyễn Minh Hiền – 05/04/2024: Thống kê số truyện bán chạy theo ngày
-        public DataTable TruyenBanChayTheoNgay(string ngay, string thang, string nam)
-        {
-            return dalTK.TruyenBanChayTheoNgay(ngay , thang, nam);
-        }
+
 
         //Theo tháng
         /// Created by Nguyễn Minh Hiền – 05/04/2024: Thống kê số truyện bán theo tháng
@@ -54,20 +50,16 @@ namespace BUS
             return dalTK.ThongKeTheoThangNhap(nam);
         }
         /// Created by Nguyễn Minh Hiền – 05/04/2024: Thống kê tổng số tiền nhập theo tháng
-        public DataTable TongTienNhapTheoThang(string thang,string nam)
+        public DataTable TongTienNhapTheoThang(string thang, string nam)
         {
-            return dalTK.TongTienNhapTheoThang(thang,nam);
+            return dalTK.TongTienNhapTheoThang(thang, nam);
         }
         /// Created by Nguyễn Minh Hiền – 05/04/2024: Thống kê tổng số tiền bán theo tháng
-        public DataTable TongTienBanTheoThang(string thang,string nam)
+        public DataTable TongTienBanTheoThang(string thang, string nam)
         {
             return dalTK.TongTienBanTheoThang(thang, nam);
         }
-        /// Created by Nguyễn Minh Hiền – 05/04/2024: Thống kê truyện tranh bán chạy theo tháng
-        public DataTable TruyenBanChayTheoThang(string thang, string nam)
-        {
-            return dalTK.TruyenBanChayTheoThang(thang, nam);
-        }
+
 
 
         //Năm
@@ -91,17 +83,7 @@ namespace BUS
         {
             return dalTK.TongTienBanTheoNam(nam);
         }
-        /// Created by Nguyễn Minh Hiền – 05/04/2024: Thống kê truyện bán chạy theo năm
-        public DataTable TruyenBanChayTheoNam(string nam)
-        {
-            return dalTK.TruyenBanChayTheoNam(nam);
-        }
-        //Chung 
-        /// Created by Nguyễn Minh Hiền – 05/04/2024: Thống kê truyện bán ế
-        public DataTable TruyenBanE()
-        {
-            return dalTK.TruyenBanE();
-        }
+
         /// Created by Nguyễn Minh Hiền – 05/04/2024: Thống kê tổng số đơn hàng nhập và số lượng nhập
         public DataTable TongSoDonHangVaSLNhap(int option, int ngay, int thang, int nam)
         {
@@ -126,12 +108,28 @@ namespace BUS
         /// Created by Nguyễn Minh Hiền – 05/04/2024: Lấy tổng tiền bán
         public DataTable TongTienBan(int option, string thang = "1", string nam = "2024")
         {
-            return dalTK.TongTienBan(option , thang, nam);
+            return dalTK.TongTienBan(option, thang, nam);
         }
         /// Created by Nguyễn Minh Hiền – 05/04/2024: Lấy tổng tiền nhập
         public DataTable TongTienNhap(int option, string thang = "1", string nam = "2024")
         {
-            return dalTK.TongTienNhap(option , thang, nam);
+            return dalTK.TongTienNhap(option, thang, nam);
+        }
+
+        //Thống kê bán chạy, bán ê
+        public DataTable ThongKeBanChay(int option, int ngay, int thang, int nam)
+        {
+            return dalTK.ThongKeBanChay(option, ngay, thang, nam);  
+        }
+        public DataTable ThongKeBanE(int option, int ngay, int thang, int nam)
+        {
+            return dalTK.ThongKeBanE(option, ngay, thang, nam);
+        }
+
+        //Thống kê truyện nhập
+        public DataTable ThongKeTruyenNhap(int option, int ngay, int thang, int nam)
+        {
+            return dalTK.ThongKeTruyenNhap(option, ngay, thang, nam);
         }
     }
 }

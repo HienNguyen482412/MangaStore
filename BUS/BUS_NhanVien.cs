@@ -92,5 +92,10 @@ namespace BUS
         {
             return dalNhanVien.KiemTraNVDaCoTK(ma);
         }
+        /// Created by Nguyễn Minh Hiền: Kiểm tra tên đăng nhập của nhân viên
+        public string KiemTraTenDN(string tendn)
+        {
+            return dalNhanVien.KiemTraTenDN(tendn);
+        }
     }
 }

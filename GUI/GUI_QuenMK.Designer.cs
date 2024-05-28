@@ -56,9 +56,8 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(544, 55);
+            this.label1.Size = new System.Drawing.Size(408, 45);
             this.label1.TabIndex = 2;
             this.label1.Text = "QUÊN MẬT KHẨU";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -67,7 +66,7 @@
             // 
             this.txtMatKhau2.AutoRoundedCorners = true;
             this.txtMatKhau2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.txtMatKhau2.BorderRadius = 29;
+            this.txtMatKhau2.BorderRadius = 23;
             this.txtMatKhau2.BorderThickness = 2;
             this.txtMatKhau2.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtMatKhau2.DefaultText = "";
@@ -82,13 +81,13 @@
             this.txtMatKhau2.IconLeftSize = new System.Drawing.Size(30, 30);
             this.txtMatKhau2.IconRight = ((System.Drawing.Image)(resources.GetObject("txtMatKhau2.IconRight")));
             this.txtMatKhau2.IconRightSize = new System.Drawing.Size(30, 30);
-            this.txtMatKhau2.Location = new System.Drawing.Point(35, 489);
-            this.txtMatKhau2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtMatKhau2.Location = new System.Drawing.Point(26, 397);
+            this.txtMatKhau2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtMatKhau2.Name = "txtMatKhau2";
             this.txtMatKhau2.PasswordChar = '\0';
             this.txtMatKhau2.PlaceholderText = "Xác nhận lại mật khẩu:";
             this.txtMatKhau2.SelectedText = "";
-            this.txtMatKhau2.Size = new System.Drawing.Size(457, 60);
+            this.txtMatKhau2.Size = new System.Drawing.Size(343, 49);
             this.txtMatKhau2.TabIndex = 11;
             this.txtMatKhau2.IconRightClick += new System.EventHandler(this.txtMatKhau2_IconRightClick);
             // 
@@ -96,7 +95,7 @@
             // 
             this.txtMatKhau1.AutoRoundedCorners = true;
             this.txtMatKhau1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.txtMatKhau1.BorderRadius = 29;
+            this.txtMatKhau1.BorderRadius = 23;
             this.txtMatKhau1.BorderThickness = 2;
             this.txtMatKhau1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtMatKhau1.DefaultText = "";
@@ -111,13 +110,13 @@
             this.txtMatKhau1.IconLeftSize = new System.Drawing.Size(30, 30);
             this.txtMatKhau1.IconRight = ((System.Drawing.Image)(resources.GetObject("txtMatKhau1.IconRight")));
             this.txtMatKhau1.IconRightSize = new System.Drawing.Size(30, 30);
-            this.txtMatKhau1.Location = new System.Drawing.Point(35, 399);
-            this.txtMatKhau1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtMatKhau1.Location = new System.Drawing.Point(26, 324);
+            this.txtMatKhau1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtMatKhau1.Name = "txtMatKhau1";
             this.txtMatKhau1.PasswordChar = '\0';
             this.txtMatKhau1.PlaceholderText = "Mật khẩu: (Gồm 2 đến 20 kí tự)";
             this.txtMatKhau1.SelectedText = "";
-            this.txtMatKhau1.Size = new System.Drawing.Size(457, 60);
+            this.txtMatKhau1.Size = new System.Drawing.Size(343, 49);
             this.txtMatKhau1.TabIndex = 10;
             this.txtMatKhau1.IconRightClick += new System.EventHandler(this.txtMatKhau1_IconRightClick);
             // 
@@ -125,7 +124,7 @@
             // 
             this.txtTenDN.AutoRoundedCorners = true;
             this.txtTenDN.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.txtTenDN.BorderRadius = 29;
+            this.txtTenDN.BorderRadius = 23;
             this.txtTenDN.BorderThickness = 2;
             this.txtTenDN.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtTenDN.DefaultText = "";
@@ -138,20 +137,20 @@
             this.txtTenDN.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtTenDN.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtTenDN.IconLeft")));
             this.txtTenDN.IconLeftSize = new System.Drawing.Size(30, 30);
-            this.txtTenDN.Location = new System.Drawing.Point(35, 309);
-            this.txtTenDN.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtTenDN.Location = new System.Drawing.Point(26, 251);
+            this.txtTenDN.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtTenDN.Name = "txtTenDN";
             this.txtTenDN.PasswordChar = '\0';
             this.txtTenDN.PlaceholderText = "Tên đăng nhập: (Gồm 2 đến 20 kí tự)";
             this.txtTenDN.SelectedText = "";
-            this.txtTenDN.Size = new System.Drawing.Size(457, 60);
+            this.txtTenDN.Size = new System.Drawing.Size(343, 49);
             this.txtTenDN.TabIndex = 9;
             // 
             // txtMaNV
             // 
             this.txtMaNV.AutoRoundedCorners = true;
             this.txtMaNV.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.txtMaNV.BorderRadius = 29;
+            this.txtMaNV.BorderRadius = 23;
             this.txtMaNV.BorderThickness = 2;
             this.txtMaNV.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtMaNV.DefaultText = "";
@@ -164,20 +163,20 @@
             this.txtMaNV.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtMaNV.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtMaNV.IconLeft")));
             this.txtMaNV.IconLeftSize = new System.Drawing.Size(30, 30);
-            this.txtMaNV.Location = new System.Drawing.Point(35, 222);
-            this.txtMaNV.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtMaNV.Location = new System.Drawing.Point(26, 180);
+            this.txtMaNV.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtMaNV.Name = "txtMaNV";
             this.txtMaNV.PasswordChar = '\0';
             this.txtMaNV.PlaceholderText = "Mã nhân viên:";
             this.txtMaNV.SelectedText = "";
-            this.txtMaNV.Size = new System.Drawing.Size(457, 60);
+            this.txtMaNV.Size = new System.Drawing.Size(343, 49);
             this.txtMaNV.TabIndex = 8;
             // 
             // btnGuiMaXN
             // 
             this.btnGuiMaXN.AutoRoundedCorners = true;
             this.btnGuiMaXN.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnGuiMaXN.BorderRadius = 26;
+            this.btnGuiMaXN.BorderRadius = 21;
             this.btnGuiMaXN.BorderThickness = 2;
             this.btnGuiMaXN.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnGuiMaXN.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -186,10 +185,9 @@
             this.btnGuiMaXN.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnGuiMaXN.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuiMaXN.ForeColor = System.Drawing.Color.White;
-            this.btnGuiMaXN.Location = new System.Drawing.Point(35, 577);
-            this.btnGuiMaXN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGuiMaXN.Location = new System.Drawing.Point(26, 469);
             this.btnGuiMaXN.Name = "btnGuiMaXN";
-            this.btnGuiMaXN.Size = new System.Drawing.Size(139, 55);
+            this.btnGuiMaXN.Size = new System.Drawing.Size(94, 45);
             this.btnGuiMaXN.TabIndex = 12;
             this.btnGuiMaXN.Text = "Gửi mã xác nhận";
             this.btnGuiMaXN.Click += new System.EventHandler(this.btnGuiMaXN_Click);
@@ -198,7 +196,7 @@
             // 
             this.txtMaXN.AutoRoundedCorners = true;
             this.txtMaXN.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.txtMaXN.BorderRadius = 26;
+            this.txtMaXN.BorderRadius = 21;
             this.txtMaXN.BorderThickness = 2;
             this.txtMaXN.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtMaXN.DefaultText = "";
@@ -210,20 +208,20 @@
             this.txtMaXN.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaXN.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtMaXN.IconLeftSize = new System.Drawing.Size(30, 30);
-            this.txtMaXN.Location = new System.Drawing.Point(181, 577);
-            this.txtMaXN.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtMaXN.Location = new System.Drawing.Point(146, 469);
+            this.txtMaXN.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtMaXN.Name = "txtMaXN";
             this.txtMaXN.PasswordChar = '\0';
             this.txtMaXN.PlaceholderText = "Nhập mã xác nhận:";
             this.txtMaXN.SelectedText = "";
-            this.txtMaXN.Size = new System.Drawing.Size(311, 55);
+            this.txtMaXN.Size = new System.Drawing.Size(223, 45);
             this.txtMaXN.TabIndex = 13;
             // 
             // btnThoat
             // 
             this.btnThoat.AutoRoundedCorners = true;
             this.btnThoat.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnThoat.BorderRadius = 24;
+            this.btnThoat.BorderRadius = 19;
             this.btnThoat.BorderThickness = 2;
             this.btnThoat.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnThoat.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -233,10 +231,9 @@
             this.btnThoat.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThoat.ForeColor = System.Drawing.Color.Black;
             this.btnThoat.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnThoat.Location = new System.Drawing.Point(371, 667);
-            this.btnThoat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnThoat.Location = new System.Drawing.Point(278, 542);
             this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(121, 50);
+            this.btnThoat.Size = new System.Drawing.Size(91, 41);
             this.btnThoat.TabIndex = 96;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
@@ -245,7 +242,7 @@
             // 
             this.btnLamMoi.AutoRoundedCorners = true;
             this.btnLamMoi.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnLamMoi.BorderRadius = 24;
+            this.btnLamMoi.BorderRadius = 19;
             this.btnLamMoi.BorderThickness = 2;
             this.btnLamMoi.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnLamMoi.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -255,10 +252,9 @@
             this.btnLamMoi.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLamMoi.ForeColor = System.Drawing.Color.Black;
             this.btnLamMoi.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnLamMoi.Location = new System.Drawing.Point(205, 667);
-            this.btnLamMoi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLamMoi.Location = new System.Drawing.Point(154, 542);
             this.btnLamMoi.Name = "btnLamMoi";
-            this.btnLamMoi.Size = new System.Drawing.Size(121, 50);
+            this.btnLamMoi.Size = new System.Drawing.Size(91, 41);
             this.btnLamMoi.TabIndex = 95;
             this.btnLamMoi.Text = "Làm mới";
             this.btnLamMoi.Click += new System.EventHandler(this.btnLamMoi_Click);
@@ -267,7 +263,7 @@
             // 
             this.btnTao.AutoRoundedCorners = true;
             this.btnTao.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnTao.BorderRadius = 24;
+            this.btnTao.BorderRadius = 19;
             this.btnTao.BorderThickness = 2;
             this.btnTao.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnTao.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -277,10 +273,9 @@
             this.btnTao.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTao.ForeColor = System.Drawing.Color.Black;
             this.btnTao.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnTao.Location = new System.Drawing.Point(39, 667);
-            this.btnTao.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnTao.Location = new System.Drawing.Point(29, 542);
             this.btnTao.Name = "btnTao";
-            this.btnTao.Size = new System.Drawing.Size(121, 50);
+            this.btnTao.Size = new System.Drawing.Size(91, 41);
             this.btnTao.TabIndex = 94;
             this.btnTao.Text = "Tạo";
             this.btnTao.Click += new System.EventHandler(this.btnTao_Click);
@@ -289,10 +284,9 @@
             // 
             this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
             this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(39, 73);
-            this.guna2PictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2PictureBox1.Location = new System.Drawing.Point(29, 59);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(457, 140);
+            this.guna2PictureBox1.Size = new System.Drawing.Size(343, 114);
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.guna2PictureBox1.TabIndex = 98;
             this.guna2PictureBox1.TabStop = false;
@@ -302,10 +296,9 @@
             this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox1.Location = new System.Drawing.Point(480, 0);
-            this.guna2ControlBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2ControlBox1.Location = new System.Drawing.Point(360, 0);
             this.guna2ControlBox1.Name = "guna2ControlBox1";
-            this.guna2ControlBox1.Size = new System.Drawing.Size(64, 55);
+            this.guna2ControlBox1.Size = new System.Drawing.Size(48, 45);
             this.guna2ControlBox1.TabIndex = 99;
             // 
             // errorProvider1
@@ -319,10 +312,10 @@
             // 
             // frmQuenMK
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(544, 754);
+            this.ClientSize = new System.Drawing.Size(408, 613);
             this.Controls.Add(this.guna2ControlBox1);
             this.Controls.Add(this.guna2PictureBox1);
             this.Controls.Add(this.btnThoat);
@@ -337,7 +330,6 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmQuenMK";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.frmQuenMK_Load);

@@ -141,7 +141,7 @@ namespace GUI
                 errorProvider1.SetError(txtDiaChi, "Địa chỉ từ 2 đến 50 kí tự");
                 ck = false;
             }
-            if (Regex.IsMatch(txtSDT.Text.Trim(), "[0-9]{10}") == false)
+            if (Regex.IsMatch(txtSDT.Text.Trim(), "^[0-9]{10}$") == false)
             {
                 errorProvider1.SetError(txtSDT, "Số điện thoại không hợp lệ");
                 ck = false;

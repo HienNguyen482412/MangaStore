@@ -1,12 +1,8 @@
 ﻿using DTO;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace DAL
 {
@@ -41,14 +37,14 @@ namespace DAL
                 FileStream fs = new FileStream(tt.Anh1, FileMode.Open, FileAccess.Read);
                 dla = new byte[fs.Length];
                 fs.Read(dla, 0, Convert.ToInt32(fs.Length));
-                SqlParameter imgdata = new SqlParameter("@imgdata", SqlDbType.VarBinary, -1);
+                SqlParameter imgdata = new SqlParameter("@imgdata", SqlDbType.VarBinary, -1);// -1: max
                 imgdata.Value = dla;
                 string querry = $"insert into TruyenTranh values ('{tt.MaTT1}',@imgdata, N'{tt.TenTruyen1}','{tt.MaBT1}', N'{tt.DinhDang1}',{tt.SoLuong1},{tt.GiaTien1})";
                 SqlCommand cmd = new SqlCommand(querry, _conn);
                 cmd.Parameters.Add(imgdata);
                 if (cmd.ExecuteNonQuery() > 0) { return true; }
             }
-            catch (PathTooLongException )
+            catch (PathTooLongException)
             {
                 return false;
             }
@@ -72,12 +68,17 @@ namespace DAL
                 byte[] dla;
                 try
                 {
-                    FileStream fs = new FileStream(tt.Anh1, FileMode.Open, FileAccess.Read);
-                    dla = new byte[fs.Length];
-                    fs.Read(dla, 0, Convert.ToInt32(fs.Length));
+                    //Trường hợp người dùng sửa ảnh
+                    using (FileStream fs = new FileStream(tt.Anh1, FileMode.Open, FileAccess.Read))
+                    {
+                        dla = new byte[fs.Length];
+                        fs.Read(dla, 0, Convert.ToInt32(fs.Length));
+                    }
+
                 }
                 catch
                 {
+                    //Người dùng không sửa ảnh
                     dla = Convert.FromBase64String(tt.Anh1);
                 }
 
@@ -88,7 +89,7 @@ namespace DAL
                 cmd.Parameters.Add(imgdata);
 
                 if (cmd.ExecuteNonQuery() > 0) { return true; }
-        }
+            }
             catch (SqlException sql)
             {
                 return false;

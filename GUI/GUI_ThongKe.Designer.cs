@@ -62,8 +62,13 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmThongKe));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.rdoDSBan = new Guna.UI2.WinForms.Guna2RadioButton();
+            this.rdoDSNhap = new Guna.UI2.WinForms.Guna2RadioButton();
             this.llbChiTiet = new System.Windows.Forms.LinkLabel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.lbTienLai = new System.Windows.Forms.Label();
@@ -84,23 +89,28 @@
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.chartThongKeSoTruyen = new Guna.Charts.WinForms.GunaChart();
             this.lbtTenBieuDo = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.grbNhapTruyen = new System.Windows.Forms.GroupBox();
+            this.dgvTruyenNhap = new System.Windows.Forms.DataGridView();
+            this.grbTruyenBanE = new System.Windows.Forms.GroupBox();
             this.dgvTruyenBanE = new System.Windows.Forms.DataGridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.grbTruyenBanChay = new System.Windows.Forms.GroupBox();
             this.dgvTruyenBanChay = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.grbNhapTruyen.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTruyenNhap)).BeginInit();
+            this.grbTruyenBanE.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTruyenBanE)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.grbTruyenBanChay.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTruyenBanChay)).BeginInit();
             this.SuspendLayout();
             // 
@@ -113,6 +123,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.panel1);
             this.splitContainer1.Panel1.Controls.Add(this.llbChiTiet);
             this.splitContainer1.Panel1.Controls.Add(this.groupBox4);
             this.splitContainer1.Panel1.Controls.Add(this.groupBox3);
@@ -128,6 +139,58 @@
             this.splitContainer1.SplitterDistance = 311;
             this.splitContainer1.SplitterWidth = 3;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.rdoDSBan);
+            this.panel1.Controls.Add(this.rdoDSNhap);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 603);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(311, 36);
+            this.panel1.TabIndex = 95;
+            // 
+            // rdoDSBan
+            // 
+            this.rdoDSBan.AutoSize = true;
+            this.rdoDSBan.Checked = true;
+            this.rdoDSBan.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.rdoDSBan.CheckedState.BorderThickness = 0;
+            this.rdoDSBan.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.rdoDSBan.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.rdoDSBan.CheckedState.InnerOffset = -4;
+            this.rdoDSBan.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.rdoDSBan.Location = new System.Drawing.Point(191, 7);
+            this.rdoDSBan.Name = "rdoDSBan";
+            this.rdoDSBan.Size = new System.Drawing.Size(98, 17);
+            this.rdoDSBan.TabIndex = 94;
+            this.rdoDSBan.TabStop = true;
+            this.rdoDSBan.Text = "Danh sách bán";
+            this.rdoDSBan.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.rdoDSBan.UncheckedState.BorderThickness = 2;
+            this.rdoDSBan.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.rdoDSBan.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.rdoDSBan.CheckedChanged += new System.EventHandler(this.rdoDSBan_CheckedChanged);
+            // 
+            // rdoDSNhap
+            // 
+            this.rdoDSNhap.AutoSize = true;
+            this.rdoDSNhap.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.rdoDSNhap.CheckedState.BorderThickness = 0;
+            this.rdoDSNhap.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.rdoDSNhap.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.rdoDSNhap.CheckedState.InnerOffset = -4;
+            this.rdoDSNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.rdoDSNhap.Location = new System.Drawing.Point(54, 7);
+            this.rdoDSNhap.Name = "rdoDSNhap";
+            this.rdoDSNhap.Size = new System.Drawing.Size(104, 17);
+            this.rdoDSNhap.TabIndex = 93;
+            this.rdoDSNhap.Text = "Danh sách nhập";
+            this.rdoDSNhap.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.rdoDSNhap.UncheckedState.BorderThickness = 2;
+            this.rdoDSNhap.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.rdoDSNhap.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.rdoDSNhap.CheckedChanged += new System.EventHandler(this.rdoDSNhap_CheckedChanged);
             // 
             // llbChiTiet
             // 
@@ -390,8 +453,9 @@
             // 
             // splitContainer2.Panel2
             // 
-            this.splitContainer2.Panel2.Controls.Add(this.groupBox2);
-            this.splitContainer2.Panel2.Controls.Add(this.groupBox1);
+            this.splitContainer2.Panel2.Controls.Add(this.grbNhapTruyen);
+            this.splitContainer2.Panel2.Controls.Add(this.grbTruyenBanE);
+            this.splitContainer2.Panel2.Controls.Add(this.grbTruyenBanChay);
             this.splitContainer2.Size = new System.Drawing.Size(542, 639);
             this.splitContainer2.SplitterDistance = 404;
             this.splitContainer2.SplitterWidth = 3;
@@ -446,18 +510,66 @@
             this.lbtTenBieuDo.Text = "TÊN BIỂU ĐỒ";
             this.lbtTenBieuDo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // groupBox2
+            // grbNhapTruyen
             // 
-            this.groupBox2.Controls.Add(this.dgvTruyenBanE);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox2.Location = new System.Drawing.Point(0, 6);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Size = new System.Drawing.Size(542, 114);
-            this.groupBox2.TabIndex = 10;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Truyện bán ế:";
+            this.grbNhapTruyen.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.grbNhapTruyen.Controls.Add(this.dgvTruyenNhap);
+            this.grbNhapTruyen.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grbNhapTruyen.Location = new System.Drawing.Point(0, 0);
+            this.grbNhapTruyen.Name = "grbNhapTruyen";
+            this.grbNhapTruyen.Size = new System.Drawing.Size(542, 6);
+            this.grbNhapTruyen.TabIndex = 7;
+            this.grbNhapTruyen.TabStop = false;
+            this.grbNhapTruyen.Text = "Danh  sách truyện nhập";
+            this.grbNhapTruyen.Enter += new System.EventHandler(this.grbNhapTruyen_Enter);
+            // 
+            // dgvTruyenNhap
+            // 
+            this.dgvTruyenNhap.AllowUserToAddRows = false;
+            this.dgvTruyenNhap.AllowUserToDeleteRows = false;
+            this.dgvTruyenNhap.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvTruyenNhap.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvTruyenNhap.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTruyenNhap.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvTruyenNhap.ColumnHeadersHeight = 30;
+            this.dgvTruyenNhap.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvTruyenNhap.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvTruyenNhap.EnableHeadersVisualStyles = false;
+            this.dgvTruyenNhap.Location = new System.Drawing.Point(3, 16);
+            this.dgvTruyenNhap.Name = "dgvTruyenNhap";
+            this.dgvTruyenNhap.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgvTruyenNhap.RowHeadersVisible = false;
+            this.dgvTruyenNhap.RowHeadersWidth = 50;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvTruyenNhap.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvTruyenNhap.RowTemplate.Height = 40;
+            this.dgvTruyenNhap.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dgvTruyenNhap.Size = new System.Drawing.Size(536, 0);
+            this.dgvTruyenNhap.TabIndex = 7;
+            // 
+            // grbTruyenBanE
+            // 
+            this.grbTruyenBanE.Controls.Add(this.dgvTruyenBanE);
+            this.grbTruyenBanE.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.grbTruyenBanE.Location = new System.Drawing.Point(0, 6);
+            this.grbTruyenBanE.Margin = new System.Windows.Forms.Padding(2);
+            this.grbTruyenBanE.Name = "grbTruyenBanE";
+            this.grbTruyenBanE.Padding = new System.Windows.Forms.Padding(2);
+            this.grbTruyenBanE.Size = new System.Drawing.Size(542, 114);
+            this.grbTruyenBanE.TabIndex = 10;
+            this.grbTruyenBanE.TabStop = false;
+            this.grbTruyenBanE.Text = "Truyện bán ế:";
             // 
             // dgvTruyenBanE
             // 
@@ -466,14 +578,14 @@
             this.dgvTruyenBanE.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvTruyenBanE.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvTruyenBanE.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTruyenBanE.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTruyenBanE.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvTruyenBanE.ColumnHeadersHeight = 30;
             this.dgvTruyenBanE.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvTruyenBanE.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -483,29 +595,29 @@
             this.dgvTruyenBanE.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvTruyenBanE.RowHeadersVisible = false;
             this.dgvTruyenBanE.RowHeadersWidth = 50;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvTruyenBanE.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvTruyenBanE.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvTruyenBanE.RowTemplate.Height = 40;
             this.dgvTruyenBanE.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dgvTruyenBanE.Size = new System.Drawing.Size(538, 97);
             this.dgvTruyenBanE.TabIndex = 6;
             // 
-            // groupBox1
+            // grbTruyenBanChay
             // 
-            this.groupBox1.Controls.Add(this.dgvTruyenBanChay);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox1.Location = new System.Drawing.Point(0, 120);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(542, 112);
-            this.groupBox1.TabIndex = 6;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Truyện bán chạy";
+            this.grbTruyenBanChay.Controls.Add(this.dgvTruyenBanChay);
+            this.grbTruyenBanChay.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.grbTruyenBanChay.Location = new System.Drawing.Point(0, 120);
+            this.grbTruyenBanChay.Margin = new System.Windows.Forms.Padding(2);
+            this.grbTruyenBanChay.Name = "grbTruyenBanChay";
+            this.grbTruyenBanChay.Padding = new System.Windows.Forms.Padding(2);
+            this.grbTruyenBanChay.Size = new System.Drawing.Size(542, 112);
+            this.grbTruyenBanChay.TabIndex = 6;
+            this.grbTruyenBanChay.TabStop = false;
+            this.grbTruyenBanChay.Text = "Truyện bán chạy";
             // 
             // dgvTruyenBanChay
             // 
@@ -514,14 +626,14 @@
             this.dgvTruyenBanChay.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvTruyenBanChay.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvTruyenBanChay.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTruyenBanChay.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTruyenBanChay.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvTruyenBanChay.ColumnHeadersHeight = 30;
             this.dgvTruyenBanChay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvTruyenBanChay.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -531,12 +643,12 @@
             this.dgvTruyenBanChay.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvTruyenBanChay.RowHeadersVisible = false;
             this.dgvTruyenBanChay.RowHeadersWidth = 50;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvTruyenBanChay.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvTruyenBanChay.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvTruyenBanChay.RowTemplate.Height = 40;
             this.dgvTruyenBanChay.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dgvTruyenBanChay.Size = new System.Drawing.Size(538, 95);
@@ -559,6 +671,8 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
@@ -566,9 +680,11 @@
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
+            this.grbNhapTruyen.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTruyenNhap)).EndInit();
+            this.grbTruyenBanE.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTruyenBanE)).EndInit();
-            this.groupBox1.ResumeLayout(false);
+            this.grbTruyenBanChay.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTruyenBanChay)).EndInit();
             this.ResumeLayout(false);
 
@@ -584,8 +700,8 @@
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.Label lbtTenBieuDo;
         private Guna.Charts.WinForms.GunaChart chartThongKeSoTruyen;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox grbTruyenBanE;
+        private System.Windows.Forms.GroupBox grbTruyenBanChay;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -601,5 +717,10 @@
         private System.Windows.Forms.Label lbSoLuongTN;
         private System.Windows.Forms.Label lbSoLuongDHNhap;
         private System.Windows.Forms.Label lbTienLai;
+        private System.Windows.Forms.GroupBox grbNhapTruyen;
+        private Guna.UI2.WinForms.Guna2RadioButton rdoDSBan;
+        private Guna.UI2.WinForms.Guna2RadioButton rdoDSNhap;
+        private System.Windows.Forms.DataGridView dgvTruyenNhap;
+        private System.Windows.Forms.Panel panel1;
     }
 }
