@@ -148,5 +148,10 @@ namespace GUI
             txtMaNV.Clear();
             errorProvider1.Clear();
         }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

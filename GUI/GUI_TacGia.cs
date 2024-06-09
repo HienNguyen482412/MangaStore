@@ -159,7 +159,7 @@ namespace GUI
         /// Created by Nguyễn Minh Hiền – 05/04/2024: Hiển thị tác giả có tên tương ứng với tên cần tìm
         private void txtTimKiem_IconRightClick(object sender, EventArgs e)
         {
-            dgvTG.DataSource = busTacGia.TimKiemTacGia(txtTenTG.Text);
+            dgvTG.DataSource = busTacGia.TimKiemTacGia(txtTimKiem.Text);
         }
     }
 }

@@ -197,6 +197,7 @@
             this.btnThoat.Size = new System.Drawing.Size(91, 41);
             this.btnThoat.TabIndex = 96;
             this.btnThoat.Text = "Thoát";
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // btnLamMoi
             // 

@@ -65,7 +65,7 @@ namespace DAL
             return ex.ReturnTable($"select MaTG as [Mã tác giả], TenTG as [Tên tác giả] from TacGia where tentg = N'%{ten}%'");
         }
         /// <summary>
-        /// Phương thức tự động tạo mã tác giả
+        /// Phương thức tự động tạo mã tác giả  
         /// </summary>
         /// <returns>Mã tác giả mới cho lần nhập tiếp theo</returns>
         /// Created by Nguyễn Minh Hiền – 05/04/2024

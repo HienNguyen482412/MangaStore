@@ -118,7 +118,7 @@ namespace GUI
             chartThongKeDoanhThu.Datasets.Add(datasetspl_ban);
             chartThongKeDoanhThu.Datasets.Add(datasetspl_nhap);
             chartThongKeDoanhThu.Update();
-            lbTieuDe.Text = "TỔNG DOANH THU TRONG CÁC NĂM";
+            lbTieuDe.Text = $"TỔNG DOANH THU TRONG NĂM {nam}";
             lbNhap.Text = tk.DanhSachTienNhap(3, thang, nam).Rows[0][0].ToString();
             lbXuat.Text = tk.DanhSachTienBan(3, thang, nam).Rows[0][0].ToString();
             lbLai.Text = (Convert.ToInt64(lbXuat.Text)-Convert.ToInt64(lbNhap.Text)).ToString();
@@ -183,7 +183,7 @@ namespace GUI
             chartThongKeDoanhThu.Datasets.Add(datasetspl_ban);
             chartThongKeDoanhThu.Datasets.Add(datasetspl_nhap);
             chartThongKeDoanhThu.Update();
-            lbTieuDe.Text = $"TỔNG DOANH THU TRONG NĂM {nam}";
+            lbTieuDe.Text = $"TỔNG DOANH THU TRONG THÁNG {thang}/{nam}";
             lbNhap.Text = tk.TongTienNhap(1, thang, nam).Rows[0][0].ToString();
             lbXuat.Text = tk.TongTienBan(1, thang, nam).Rows[0][0].ToString();
             lbLai.Text = (Convert.ToInt64(lbXuat.Text) - Convert.ToInt64(lbNhap.Text)).ToString();
@@ -198,6 +198,7 @@ namespace GUI
             //Nhập
             string thang = dtpNgayTK.Value.ToString("MM");
             string nam = dtpNgayTK.Value.ToString("yyyy");
+            string ngay = dtpNgayTK.Value.ToString("dd");
             var datasetspl_nhap = new Guna.Charts.WinForms.GunaSplineDataset();
             datasetspl_nhap.Label = "Tiền nhập";
             datasetspl_nhap.FillColor = Guna.Charts.WinForms.ChartUtils.RandomColor();
@@ -300,7 +301,7 @@ namespace GUI
             chartThongKeDoanhThu.Datasets.Add(datasetspl_ban);
             chartThongKeDoanhThu.Datasets.Add(datasetspl_nhap);
             chartThongKeDoanhThu.Update();
-            lbTieuDe.Text = $"TỔNG DOANH THU TRONG THÁNG {thang}/{nam}";
+            lbTieuDe.Text = $"TỔNG DOANH THU TRONG NGÀY {ngay}/{thang}/{nam}";
             lbNhap.Text = tk.TongTienNhap(0, thang, nam).Rows[0][0].ToString();
             lbXuat.Text = tk.TongTienBan(0, thang, nam).Rows[0][0].ToString();
             lbLai.Text = (Convert.ToInt64(lbXuat.Text) - Convert.ToInt64(lbNhap.Text)).ToString();

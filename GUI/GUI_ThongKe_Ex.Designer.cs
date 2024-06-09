@@ -87,7 +87,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.panel1);
             this.splitContainer1.Size = new System.Drawing.Size(1141, 786);
-            this.splitContainer1.SplitterDistance = 563;
+            this.splitContainer1.SplitterDistance = 562;
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -99,7 +99,7 @@
             this.chartThongKeDoanhThu.Location = new System.Drawing.Point(0, 43);
             this.chartThongKeDoanhThu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chartThongKeDoanhThu.Name = "chartThongKeDoanhThu";
-            this.chartThongKeDoanhThu.Size = new System.Drawing.Size(1141, 520);
+            this.chartThongKeDoanhThu.Size = new System.Drawing.Size(1141, 519);
             this.chartThongKeDoanhThu.TabIndex = 2;
             chartFont2.FontName = "Arial";
             chartFont2.Size = 12;
@@ -175,7 +175,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1141, 218);
+            this.panel1.Size = new System.Drawing.Size(1141, 219);
             this.panel1.TabIndex = 0;
             // 
             // lbLai
@@ -336,7 +336,7 @@
             this.dtpNgayTK.Name = "dtpNgayTK";
             this.dtpNgayTK.Size = new System.Drawing.Size(321, 46);
             this.dtpNgayTK.TabIndex = 0;
-            this.dtpNgayTK.Value = new System.DateTime(2024, 2, 13, 0, 0, 0, 0);
+            this.dtpNgayTK.Value = new System.DateTime(2024, 6, 4, 0, 0, 0, 0);
             this.dtpNgayTK.ValueChanged += new System.EventHandler(this.dtpNgayTK_ValueChanged);
             // 
             // splitter1
@@ -345,7 +345,7 @@
             this.splitter1.Location = new System.Drawing.Point(0, 0);
             this.splitter1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(404, 218);
+            this.splitter1.Size = new System.Drawing.Size(404, 219);
             this.splitter1.TabIndex = 93;
             this.splitter1.TabStop = false;
             // 

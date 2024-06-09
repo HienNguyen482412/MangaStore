@@ -23,7 +23,6 @@ namespace GUI
                 {
                     c.Text = "";
                 }
-
             }
             txtTenNV.Clear();
             cboGioiTinh.SelectedIndex = 0;
@@ -42,7 +41,6 @@ namespace GUI
                 {
                     errorProvider1.SetError(c, "Không được bỏ trống thông tin");
                     ck = false;
-
                 }
 
             }

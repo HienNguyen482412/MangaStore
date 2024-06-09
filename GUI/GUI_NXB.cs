@@ -206,7 +206,7 @@ namespace GUI
         /// Created by Nguyễn Minh Hiền – 05/04/2024: Tìm kiếm nhà xuất bản có tên tương ứng với tên cần tìm
         private void txtTimKiem_IconRightClick(object sender, EventArgs e)
         {
-            dgvNXB.DataSource = busNXB.TimKiemNXB(txtTenNXB.Text.Trim());
+            dgvNXB.DataSource = busNXB.TimKiemNXB(txtTimKiem.Text.Trim());
         }
     }
 }

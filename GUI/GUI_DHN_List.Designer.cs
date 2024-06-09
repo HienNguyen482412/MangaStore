@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDHN_List));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnTimKiem = new Guna.UI2.WinForms.Guna2Button();
             this.rdoTheoNam = new Guna.UI2.WinForms.Guna2RadioButton();
@@ -63,15 +63,16 @@
             this.panel1.Controls.Add(this.dtpNgayBan);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(856, 64);
+            this.panel1.Size = new System.Drawing.Size(1141, 79);
             this.panel1.TabIndex = 5;
             // 
             // btnTimKiem
             // 
             this.btnTimKiem.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnTimKiem.AutoRoundedCorners = true;
-            this.btnTimKiem.BorderRadius = 18;
+            this.btnTimKiem.BorderRadius = 23;
             this.btnTimKiem.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnTimKiem.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnTimKiem.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -80,9 +81,10 @@
             this.btnTimKiem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTimKiem.ForeColor = System.Drawing.Color.White;
             this.btnTimKiem.Image = ((System.Drawing.Image)(resources.GetObject("btnTimKiem.Image")));
-            this.btnTimKiem.Location = new System.Drawing.Point(122, 12);
+            this.btnTimKiem.Location = new System.Drawing.Point(163, 15);
+            this.btnTimKiem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.Size = new System.Drawing.Size(38, 39);
+            this.btnTimKiem.Size = new System.Drawing.Size(51, 48);
             this.btnTimKiem.TabIndex = 87;
             this.toolTip1.SetToolTip(this.btnTimKiem, "Tìm kiếm");
             this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
@@ -97,9 +99,10 @@
             this.rdoTheoNam.CheckedState.InnerColor = System.Drawing.Color.White;
             this.rdoTheoNam.CheckedState.InnerOffset = -4;
             this.rdoTheoNam.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.rdoTheoNam.Location = new System.Drawing.Point(717, 25);
+            this.rdoTheoNam.Location = new System.Drawing.Point(956, 31);
+            this.rdoTheoNam.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rdoTheoNam.Name = "rdoTheoNam";
-            this.rdoTheoNam.Size = new System.Drawing.Size(73, 17);
+            this.rdoTheoNam.Size = new System.Drawing.Size(93, 21);
             this.rdoTheoNam.TabIndex = 86;
             this.rdoTheoNam.Text = "Theo năm";
             this.rdoTheoNam.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
@@ -117,9 +120,10 @@
             this.rdoTheoThang.CheckedState.InnerColor = System.Drawing.Color.White;
             this.rdoTheoThang.CheckedState.InnerOffset = -4;
             this.rdoTheoThang.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.rdoTheoThang.Location = new System.Drawing.Point(611, 25);
+            this.rdoTheoThang.Location = new System.Drawing.Point(815, 31);
+            this.rdoTheoThang.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rdoTheoThang.Name = "rdoTheoThang";
-            this.rdoTheoThang.Size = new System.Drawing.Size(80, 17);
+            this.rdoTheoThang.Size = new System.Drawing.Size(102, 21);
             this.rdoTheoThang.TabIndex = 85;
             this.rdoTheoThang.Text = "Theo tháng";
             this.rdoTheoThang.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
@@ -137,9 +141,10 @@
             this.rdoTheoNgay.CheckedState.InnerColor = System.Drawing.Color.White;
             this.rdoTheoNgay.CheckedState.InnerOffset = -4;
             this.rdoTheoNgay.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.rdoTheoNgay.Location = new System.Drawing.Point(501, 25);
+            this.rdoTheoNgay.Location = new System.Drawing.Point(668, 31);
+            this.rdoTheoNgay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rdoTheoNgay.Name = "rdoTheoNgay";
-            this.rdoTheoNgay.Size = new System.Drawing.Size(76, 17);
+            this.rdoTheoNgay.Size = new System.Drawing.Size(97, 21);
             this.rdoTheoNgay.TabIndex = 84;
             this.rdoTheoNgay.Text = "Theo ngày";
             this.rdoTheoNgay.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
@@ -151,24 +156,26 @@
             // 
             this.dtpNgayBan.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dtpNgayBan.AutoRoundedCorners = true;
-            this.dtpNgayBan.BorderRadius = 18;
+            this.dtpNgayBan.BorderRadius = 23;
             this.dtpNgayBan.Checked = true;
             this.dtpNgayBan.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
             this.dtpNgayBan.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.dtpNgayBan.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dtpNgayBan.Location = new System.Drawing.Point(166, 12);
+            this.dtpNgayBan.Location = new System.Drawing.Point(221, 15);
+            this.dtpNgayBan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtpNgayBan.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtpNgayBan.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtpNgayBan.Name = "dtpNgayBan";
-            this.dtpNgayBan.Size = new System.Drawing.Size(309, 39);
+            this.dtpNgayBan.Size = new System.Drawing.Size(412, 48);
             this.dtpNgayBan.TabIndex = 83;
-            this.dtpNgayBan.Value = new System.DateTime(2024, 5, 18, 0, 0, 0, 0);
+            this.dtpNgayBan.Value = new System.DateTime(2024, 6, 4, 0, 0, 0, 0);
             // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.IsSplitterFixed = true;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 64);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 79);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -182,8 +189,9 @@
             this.splitContainer1.Panel2.BackColor = System.Drawing.Color.White;
             this.splitContainer1.Panel2.Controls.Add(this.btnLamMoiHD);
             this.splitContainer1.Panel2.Controls.Add(this.btnThemHD);
-            this.splitContainer1.Size = new System.Drawing.Size(856, 575);
-            this.splitContainer1.SplitterDistance = 495;
+            this.splitContainer1.Size = new System.Drawing.Size(1141, 707);
+            this.splitContainer1.SplitterDistance = 608;
+            this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 6;
             // 
             // dgvDHN
@@ -193,32 +201,33 @@
             this.dgvDHN.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDHN.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvDHN.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDHN.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDHN.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDHN.ColumnHeadersHeight = 30;
             this.dgvDHN.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvDHN.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDHN.EnableHeadersVisualStyles = false;
             this.dgvDHN.Location = new System.Drawing.Point(0, 0);
+            this.dgvDHN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvDHN.Name = "dgvDHN";
             this.dgvDHN.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvDHN.RowHeadersVisible = false;
             this.dgvDHN.RowHeadersWidth = 50;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvDHN.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvDHN.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvDHN.RowTemplate.Height = 40;
             this.dgvDHN.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvDHN.Size = new System.Drawing.Size(856, 495);
+            this.dgvDHN.Size = new System.Drawing.Size(1141, 608);
             this.dgvDHN.TabIndex = 4;
             this.dgvDHN.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDHN_CellClick);
             // 
@@ -227,8 +236,9 @@
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(856, 495);
+            this.pictureBox1.Size = new System.Drawing.Size(1141, 608);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
@@ -238,7 +248,7 @@
             this.btnLamMoiHD.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnLamMoiHD.AutoRoundedCorners = true;
             this.btnLamMoiHD.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnLamMoiHD.BorderRadius = 19;
+            this.btnLamMoiHD.BorderRadius = 24;
             this.btnLamMoiHD.BorderThickness = 2;
             this.btnLamMoiHD.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnLamMoiHD.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -249,9 +259,10 @@
             this.btnLamMoiHD.ForeColor = System.Drawing.Color.Black;
             this.btnLamMoiHD.Image = ((System.Drawing.Image)(resources.GetObject("btnLamMoiHD.Image")));
             this.btnLamMoiHD.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnLamMoiHD.Location = new System.Drawing.Point(459, 20);
+            this.btnLamMoiHD.Location = new System.Drawing.Point(612, 25);
+            this.btnLamMoiHD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnLamMoiHD.Name = "btnLamMoiHD";
-            this.btnLamMoiHD.Size = new System.Drawing.Size(194, 41);
+            this.btnLamMoiHD.Size = new System.Drawing.Size(259, 50);
             this.btnLamMoiHD.TabIndex = 90;
             this.btnLamMoiHD.Text = "Làm mới";
             this.btnLamMoiHD.Click += new System.EventHandler(this.btnLamMoiHD_Click);
@@ -261,7 +272,7 @@
             this.btnThemHD.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnThemHD.AutoRoundedCorners = true;
             this.btnThemHD.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnThemHD.BorderRadius = 19;
+            this.btnThemHD.BorderRadius = 24;
             this.btnThemHD.BorderThickness = 2;
             this.btnThemHD.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnThemHD.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -272,22 +283,24 @@
             this.btnThemHD.ForeColor = System.Drawing.Color.Black;
             this.btnThemHD.Image = ((System.Drawing.Image)(resources.GetObject("btnThemHD.Image")));
             this.btnThemHD.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnThemHD.Location = new System.Drawing.Point(245, 20);
+            this.btnThemHD.Location = new System.Drawing.Point(327, 25);
+            this.btnThemHD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnThemHD.Name = "btnThemHD";
-            this.btnThemHD.Size = new System.Drawing.Size(194, 41);
+            this.btnThemHD.Size = new System.Drawing.Size(259, 50);
             this.btnThemHD.TabIndex = 87;
             this.btnThemHD.Text = "Thêm đơn hàng";
             this.btnThemHD.Click += new System.EventHandler(this.btnThemHD_Click);
             // 
             // frmDHN_List
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(856, 639);
+            this.ClientSize = new System.Drawing.Size(1141, 786);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmDHN_List";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GUI_DHN_List";

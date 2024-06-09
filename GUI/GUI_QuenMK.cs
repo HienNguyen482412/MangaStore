@@ -132,11 +132,11 @@ namespace GUI
                     xt = random;
                     ms.Body = $"<h1>Đây là mã của bạn: {xt}</h1>";
                     ms.IsBodyHtml = true;
-                    var sptmClient = new SmtpClient("smtp.gmail.com")//Gửi email qua SMTP (Simple Mail Transfer Protocol)
+                    var sptmClient = new SmtpClient("smtp.gmail.com")//Gửi email qua SMTP (Simple Mail Transfer Protocol), là địa chỉ của máy chủ SMTP của Gmail
                     {
                         Port = 587,//Cổng 587 - (thường) chỉ định cho việc gửi email qua giao thức SMTP
                         Credentials = new NetworkCredential("hibarikyoya2k4@gmail.com", "kcuc mdep xotz riqe"),//thiết lập thông tin đăng nhập vào tài khoản Gmail của người gửi. Lấy mã bằng cách kích hoạt bảo vệ 3 lớp trên gmail
-                        EnableSsl = true, // Sử dụng SSL/TLS để mã hóa
+                        EnableSsl = true, // (Secure Sockets Layer) Sử dụng SSL/TLS để mã hóa
                     };
                     sptmClient.Send(ms);
                     errorProvider2.SetError(btnGuiMaXN,"Mã sẽ được gửi đến bạn! Vui lòng kiểm tra email");
